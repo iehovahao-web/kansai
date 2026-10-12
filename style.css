@@ -178,3 +178,11 @@ html[lang="zh-Hant"] [lang="ja"]{font-family:"Hiragino Kaku Gothic ProN","Yu Got
  :is(.hero-art,.image-button,.original-thumbs button,.album-artwork,.single-track,.video-stage,.dialog-content)::after{display:none}
  .dialog-content img{outline-color:CanvasText;box-shadow:none}
 }
+
+/* v21: clear window, with highlights confined to the narrow perimeter. */
+.single-controls{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 3px 8px #0000001f,inset 0 1px 0 #ffffff80,inset 0 -1px 0 #ffffff30}
+.single-controls::after{inset:2px;border-radius:16px;background:none;border:0;box-shadow:inset 0 1px 0 #ffffff45,inset 0 -1px 0 #dff4ff20}
+/* The existing masked ::before rim remains; neither layer fills the centre. */
+.glass-play,.glass-skip,.glass-airplay,.glass-volume svg{filter:drop-shadow(0 1px 2px #0009)}
+@media(prefers-reduced-transparency:reduce){.single-controls{background:#102a36;backdrop-filter:none;-webkit-backdrop-filter:none}.single-controls::before,.single-controls::after{display:none}}
+@media(forced-colors:active){.single-controls{background:Canvas;box-shadow:none}.glass-play,.glass-skip,.glass-airplay,.glass-volume svg{filter:none}.single-controls::before,.single-controls::after{display:none}}
