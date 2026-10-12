@@ -114,7 +114,7 @@ html[lang="zh-Hant"] [lang="ja"]{font-family:"Hiragino Kaku Gothic ProN","Yu Got
 .review-platform-links a:focus-visible{outline:2px solid #f7c86e;outline-offset:3px}
 
 /* Complete cover with floating glass controls, clear of the central title and artist. */
-.media-gallery>.single-track{position:relative;grid-column:1/-1;display:block;width:5in;max-width:100%;justify-self:center;min-width:0;padding:0;margin:0;border:0;background:#102a36}
+.media-gallery>.single-track{position:relative;grid-column:1/-1;display:block;width:310px;max-width:100%;justify-self:center;min-width:0;padding:0;margin:0;border:0;background:#102a36}
 .single-cover{display:block;width:100%;max-width:none;height:auto;aspect-ratio:1;object-fit:contain;margin:0;border:0;border-radius:0}
 .single-controls{position:absolute;left:3%;bottom:3%;width:84%;box-sizing:border-box;padding:6px 14px;color:#fff;background:#243f5066;border:1px solid #fff8dc66;border-radius:20px;box-shadow:0 3px 12px #0002,inset 0 1px 0 #ffffff55}
 @supports((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.single-controls{background:linear-gradient(135deg,#ffffff1a,#dbe9ef08 42%,#ffffff12);backdrop-filter:blur(6px) saturate(110%);-webkit-backdrop-filter:blur(6px) saturate(110%)}}
@@ -130,3 +130,51 @@ html[lang="zh-Hant"] [lang="ja"]{font-family:"Hiragino Kaku Gothic ProN","Yu Got
 @media(forced-colors:active){.single-controls{background:Canvas;color:CanvasText;border:1px solid CanvasText;backdrop-filter:none;-webkit-backdrop-filter:none}.glass-play,.glass-time,.glass-error,.glass-volume svg{color:CanvasText}.glass-player input[type="range"]{appearance:auto;-webkit-appearance:auto}}
 
 .glass-transport{display:flex;align-items:center;justify-content:center;gap:clamp(12px,5vw,38px);width:100%}.glass-skip,.glass-airplay{display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:10px;background:transparent;color:#fff;cursor:pointer}.glass-skip>span[aria-hidden]{position:relative;font-size:32px;line-height:1}.glass-skip small{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font-size:9px;font-weight:700}.glass-skip:disabled{opacity:.4;cursor:wait}.glass-skip:hover,.glass-airplay:hover{background:#ffffff1f}.glass-bottom{display:flex;align-items:center;gap:6px;width:100%;min-width:0}.glass-bottom .glass-volume{flex:1;min-width:0}.glass-bottom .glass-device-volume{flex:1}.glass-airplay{flex:0 0 30px;width:30px;height:30px}.glass-airplay svg{width:20px;height:20px}@media(max-width:760px){.glass-airplay{width:28px;height:28px;flex-basis:28px}}
+
+/* v19: match the Osaka sleeve scale; refractive edges instead of a frosted dark slab. */
+.media-gallery>.single-track{isolation:isolate}
+.single-controls{bottom:2%;padding:5px 10px;border-radius:18px;background:#263b454d;border:1px solid #ffffff66;box-shadow:0 4px 10px #00000024,inset 0 1px 0 #ffffff80,inset 0 -1px 0 #ffffff33}
+@supports((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.single-controls{background:linear-gradient(155deg,#fff1 0%,#ffffff03 42%,#d9e5ee0a 70%,#ffffff16 100%);backdrop-filter:blur(3px) saturate(115%);-webkit-backdrop-filter:blur(3px) saturate(115%)}}
+.single-controls::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(115deg,#ffffff30,transparent 18%,transparent 76%,#ffffff18);box-shadow:inset 1px 0 0 #ffffff55,inset -1px 0 0 #ffffff22}
+.single-controls::after{content:"";position:absolute;inset:1px;border-radius:inherit;pointer-events:none;border-top:1px solid #ffffff70;border-bottom:1px solid #ffffff24;background:linear-gradient(180deg,#ffffff0d,transparent 28%,transparent 84%,#ffffff09)}
+.glass-player,.single-controls audio,.glass-error{position:relative;z-index:1}
+.glass-timeline,.glass-volume,.glass-player input[type="range"]{height:28px}.glass-play{width:44px;height:44px;padding:5px}.glass-play svg{width:32px;height:32px}.glass-time{font-size:10px}.glass-timeline,.glass-volume{gap:6px}.glass-device-volume{min-height:28px;font-size:9px}.glass-airplay{width:28px;height:28px;flex-basis:28px}.glass-transport{gap:18px}
+@media(min-width:761px) and (max-width:960px){.media-gallery>.single-track{width:280px}}
+@media(prefers-reduced-transparency:reduce){.single-controls{background:#102a36;backdrop-filter:none;-webkit-backdrop-filter:none}.single-controls::before,.single-controls::after{display:none}}
+@media(forced-colors:active){.single-controls{background:Canvas;border-color:CanvasText;backdrop-filter:none;-webkit-backdrop-filter:none}.single-controls::before,.single-controls::after{display:none}}
+
+/* Liquid-glass approximation: a separate refractive rim and surface reflection.
+   No displacement filter touches artwork or control glyphs. */
+.single-controls{box-shadow:0 4px 9px #00000020,inset 0 1px 0 #ffffffa6,inset 0 -1px 0 #ffffff40,inset 1px 0 1px #ffffff38,inset -1px 0 1px #1b354326}
+.single-controls::before{inset:0;border-radius:inherit;background:none;box-shadow:inset 0 2px 1px #ffffff50,inset 0 -2px 1px #ffffff26,inset 2px 0 2px #ffffff24;pointer-events:none}
+@supports((mask-composite:exclude) or (-webkit-mask-composite:xor)){
+ .single-controls::before{padding:2px;background:conic-gradient(from 205deg at 50% 50%,#ffffff12 0deg,#fff9 46deg,#fff2 85deg,#ffedc999 132deg,#fff1 185deg,#d5f0ff88 240deg,#fff2 282deg,#ffffffa6 320deg,#ffffff12 360deg);box-shadow:none;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+}
+.single-controls::after{inset:2px;border-radius:16px;border:0;background:radial-gradient(ellipse at 12% 0%,#ffffff2b,transparent 52%),linear-gradient(164deg,#ffffff14 0%,#ffffff02 30%,transparent 31%,transparent 74%,#ffffff08 100%);box-shadow:inset 0 1px 0 #ffffff40,inset 0 -1px 0 #e2f3ff26;pointer-events:none}
+@media(prefers-reduced-transparency:reduce){.single-controls{background:#102a36;backdrop-filter:none;-webkit-backdrop-filter:none}.single-controls::before,.single-controls::after{display:none}}
+@media(forced-colors:active){.single-controls{background:Canvas;box-shadow:none}.single-controls::before,.single-controls::after{display:none}}
+
+/* v20: clear glass rims for every image/video host. The image pixels stay sharp.
+   No backdrop blur, displacement, opacity, crop or sizing changes on media. */
+:is(.hero-art,.image-button,.original-thumbs button,.album-artwork,.single-track,.video-stage,.dialog-content){position:relative;--media-glass-inset:0px}
+.video-stage{--media-glass-inset:14px}
+:is(.hero-art,.image-button,.original-thumbs button,.album-artwork,.single-track,.video-stage,.dialog-content)::before,
+:is(.hero-art,.image-button,.original-thumbs button,.album-artwork,.single-track,.video-stage,.dialog-content)::after{content:"";position:absolute;inset:var(--media-glass-inset);z-index:1;pointer-events:none;border-radius:2px}
+:is(.hero-art,.image-button,.original-thumbs button,.album-artwork,.single-track,.video-stage,.dialog-content)::before{border:1px solid #ffffff40;box-shadow:inset 0 1px 0 #ffffff70,inset 1px 0 1px #fff3,inset 0 -1px 0 #d9f0ff30,0 2px 6px #00000018}
+@supports((mask-composite:exclude) or (-webkit-mask-composite:xor)){
+ :is(.hero-art,.image-button,.original-thumbs button,.album-artwork,.single-track,.video-stage,.dialog-content)::before{border:0;padding:2px;background:conic-gradient(from 215deg,#fff1,#ffffff9c 50deg,#fff2 104deg,#fff7 162deg,#e3f4ff24 228deg,#ffffff88 295deg,#fff1);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+}
+:is(.hero-art,.image-button,.original-thumbs button,.album-artwork,.single-track,.video-stage,.dialog-content)::after{background:linear-gradient(112deg,transparent 8%,#ffffff08 11%,#ffffff02 19%,transparent 23%,transparent 84%,#eaf6ff05 91%,transparent 96%),linear-gradient(180deg,#ffffff18,transparent) top/100% 12px no-repeat,linear-gradient(90deg,#ffffff10,transparent) left/10px 100% no-repeat;box-shadow:inset 0 1px 0 #ffffff2b}
+/* Coupon codes and enlarged originals get edge-only treatment, no surface tint. */
+.coupon-paper .image-button::after,.dialog-content::after{background:none;box-shadow:none}
+.dialog-content img{outline:1px solid #ffffff42;outline-offset:1px;box-shadow:0 0 0 2px #dff1ff12}
+.single-controls,.video-play,.image-button .expand{z-index:2}
+@media(prefers-reduced-transparency:reduce){
+ :is(.hero-art,.image-button,.original-thumbs button,.album-artwork,.single-track,.video-stage,.dialog-content)::after{display:none}
+ :is(.hero-art,.image-button,.original-thumbs button,.album-artwork,.single-track,.video-stage,.dialog-content)::before{padding:0;background:none;-webkit-mask:none;mask:none;border:1px solid #cfdae3;box-shadow:none}
+}
+@media(forced-colors:active){
+ :is(.hero-art,.image-button,.original-thumbs button,.album-artwork,.single-track,.video-stage,.dialog-content)::before,
+ :is(.hero-art,.image-button,.original-thumbs button,.album-artwork,.single-track,.video-stage,.dialog-content)::after{display:none}
+ .dialog-content img{outline-color:CanvasText;box-shadow:none}
+}
