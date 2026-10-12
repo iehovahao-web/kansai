@@ -186,3 +186,46 @@ html[lang="zh-Hant"] [lang="ja"]{font-family:"Hiragino Kaku Gothic ProN","Yu Got
 .glass-play,.glass-skip,.glass-airplay,.glass-volume svg{filter:drop-shadow(0 1px 2px #0009)}
 @media(prefers-reduced-transparency:reduce){.single-controls{background:#102a36;backdrop-filter:none;-webkit-backdrop-filter:none}.single-controls::before,.single-controls::after{display:none}}
 @media(forced-colors:active){.single-controls{background:Canvas;box-shadow:none}.glass-play,.glass-skip,.glass-airplay,.glass-volume svg{filter:none}.single-controls::before,.single-controls::after{display:none}}
+
+/* v22: temporary tactile frost; default v21 surfaces stay clear. */
+@media(hover:hover) and (pointer:fine){:is(.image-button,.original-thumbs button,.album-artwork){cursor:pointer}}
+:is(.image-button,.original-thumbs button,.album-artwork,.video-stage)::after,.single-controls{transition:backdrop-filter 200ms ease,-webkit-backdrop-filter 200ms ease,background-color 200ms ease}
+/* Keep the transient film away from the native video control strip. */
+.video-stage::after{bottom:68px}
+@media(hover:hover) and (pointer:fine){
+ :is(.image-button,.original-thumbs button,.album-artwork,.video-stage):hover::after{backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);background-color:#ffffff08}
+ .single-controls:hover{backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);background-color:#ffffff08}
+}
+@media(hover:none),(pointer:coarse){
+ :is(.image-button,.original-thumbs button,.album-artwork,.video-stage):active::after{backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);background-color:#ffffff06}
+ .single-controls:active{backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);background-color:#ffffff06}
+}
+:is(.image-button,.original-thumbs button,.album-artwork):focus-visible::after,.video-stage:has(:focus-visible)::after{backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);background-color:#ffffff06}
+.single-controls:has(:focus-visible){backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);background-color:#ffffff06}
+/* Never soften barcode pixels, even during a press. */
+.coupon-paper .image-button:is(:hover,:active,:focus-visible)::after{backdrop-filter:none;-webkit-backdrop-filter:none;background-color:transparent}
+@media(prefers-reduced-motion:reduce){:is(.image-button,.original-thumbs button,.album-artwork,.video-stage)::after,.single-controls{transition:none}}
+@media(prefers-reduced-transparency:reduce),(forced-colors:active){
+ :is(.image-button,.original-thumbs button,.album-artwork,.video-stage):is(:hover,:active,:focus-visible)::after,.video-stage:has(:focus-visible)::after{backdrop-filter:none;-webkit-backdrop-filter:none;background-color:transparent}
+ .single-controls:is(:hover,:active),.single-controls:has(:focus-visible){backdrop-filter:none;-webkit-backdrop-filter:none;background-color:#102a36}
+}
+@media(forced-colors:active){.single-controls:is(:hover,:active),.single-controls:has(:focus-visible){background-color:Canvas}}
+
+/* Touch press persists through native range drags; release/cancel clears it. */
+:is(.image-button,.original-thumbs button,.album-artwork,.video-stage).is-glass-pressed::after{backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);background-color:#ffffff0a}
+.single-controls.is-glass-pressed{backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);background-color:#ffffff0a}
+@media(hover:none),(pointer:coarse){
+ :is(.image-button,.original-thumbs button,.album-artwork,.video-stage):active::after,.single-controls:active{backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);background-color:#ffffff0a}
+ /* Prevent retained range focus from leaving a frosted state after release. */
+ :is(.image-button,.original-thumbs button,.album-artwork):focus-visible:not(:active):not(.is-glass-pressed)::after,.video-stage:has(:focus-visible):not(:active):not(.is-glass-pressed)::after,.single-controls:has(:focus-visible):not(:active):not(.is-glass-pressed){backdrop-filter:none;-webkit-backdrop-filter:none;background-color:transparent}
+}
+.coupon-paper .image-button:is(:hover,:active,:focus-visible,.is-glass-pressed)::after{backdrop-filter:none;-webkit-backdrop-filter:none;background-color:transparent}
+@media(prefers-reduced-transparency:reduce),(forced-colors:active){
+ :is(.image-button,.original-thumbs button,.album-artwork,.video-stage):is(:active,.is-glass-pressed)::after{backdrop-filter:none;-webkit-backdrop-filter:none;background-color:transparent}
+ .single-controls:is(:active,.is-glass-pressed),.single-controls:has(:focus-visible):not(:active):not(.is-glass-pressed){backdrop-filter:none;-webkit-backdrop-filter:none;background-color:#102a36}
+}
+@media(forced-colors:active){.single-controls:is(:active,.is-glass-pressed),.single-controls:has(:focus-visible):not(:active):not(.is-glass-pressed){background-color:Canvas}}
+
+/* Use actual SVG hidden attributes; never show both transport states. */
+.glass-skip svg{display:block;width:27px;height:27px;fill:currentColor}
+.glass-play svg[hidden],.glass-play [data-play-label][hidden],.glass-play [data-pause-label][hidden]{display:none!important}
