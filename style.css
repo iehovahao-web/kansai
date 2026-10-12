@@ -229,3 +229,17 @@ html[lang="zh-Hant"] [lang="ja"]{font-family:"Hiragino Kaku Gothic ProN","Yu Got
 /* Use actual SVG hidden attributes; never show both transport states. */
 .glass-skip svg{display:block;width:27px;height:27px;fill:currentColor}
 .glass-play svg[hidden],.glass-play [data-play-label][hidden],.glass-play [data-pause-label][hidden]{display:none!important}
+
+/* v23: native video controls and the picture stay above the glass.
+   Browsers own the native control shadow tree, so frost only the 14px frame
+   below the video instead of overlaying the control bar or picture. */
+.media-gallery .video-stage{isolation:isolate}
+.media-gallery .video-stage .feature-video{position:relative;z-index:1;filter:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.media-gallery .video-stage::before{z-index:0}
+.media-gallery .video-stage::after{top:auto;right:14px;bottom:0;left:14px;height:14px;z-index:0;pointer-events:none;border-radius:0;background:linear-gradient(180deg,#ffffff12,#ffffff04);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:inset 0 1px 0 #ffffff44}
+.media-gallery .video-stage .video-play{z-index:2;filter:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+@media(hover:hover) and (pointer:fine){.media-gallery .video-stage:hover::after{backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}}
+@media(hover:none),(pointer:coarse){.media-gallery .video-stage:active::after{backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}}
+.media-gallery .video-stage.is-glass-pressed::after{backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.media-gallery .video-stage:has(:focus-visible):not(:hover):not(:active):not(.is-glass-pressed)::after{backdrop-filter:none;-webkit-backdrop-filter:none}
+@media(prefers-reduced-transparency:reduce),(forced-colors:active){.media-gallery .video-stage::after,.media-gallery .video-stage:is(:hover,:active,.is-glass-pressed)::after,.media-gallery .video-stage:has(:focus-visible)::after{display:none;backdrop-filter:none;-webkit-backdrop-filter:none}}
