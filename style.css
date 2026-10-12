@@ -112,3 +112,13 @@ html[lang="zh-Hant"] [lang="ja"]{font-family:"Hiragino Kaku Gothic ProN","Yu Got
 .review-platform-links a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid #dca75b;border-radius:6px;background:#102e3b;color:#f7c86e;font-size:13px;font-weight:700;text-decoration:none}
 .review-platform-links a:hover{background:#214653;color:#ffe1a0}
 .review-platform-links a:focus-visible{outline:2px solid #f7c86e;outline-offset:3px}
+
+/* A compact local single beneath the existing album and film. */
+.media-gallery>.single-track{grid-column:1/-1;display:grid;grid-template-columns:160px minmax(0,1fr);gap:28px;align-items:center;width:100%;padding:28px;border:1px solid #b28b4b55;background:#102a36;border-radius:8px}
+.single-cover{display:block;width:100%;height:auto;object-fit:contain;border-radius:3px;box-shadow:0 8px 24px #0004}
+.single-copy{min-width:0}.single-copy .chapter-kicker{margin:0 0 10px;font-size:10px}
+.single-copy h3{margin:0;color:#f3dfbb;font-family:var(--serif);font-size:25px;font-weight:400;line-height:1.4;overflow-wrap:anywhere}
+.single-copy h3 span{display:block}.single-copy h3 span+span{margin-top:5px;font-size:14px}.single-copy h3 span[lang="en"]{font-family:var(--sans);font-size:11px;letter-spacing:.08em;line-height:1.6}
+.single-artist{margin:14px 0;color:#f3dfbb;font-size:18px;font-weight:600;line-height:1.5;letter-spacing:.02em}.single-listen{margin:16px 0 8px;color:#dfb56d;font-size:12px}
+.single-copy audio{display:block;width:100%;min-width:0;max-width:100%;height:54px;color-scheme:dark}.single-copy audio:focus-visible{outline:2px solid #dfb56d;outline-offset:4px;border-radius:5px}
+@media(max-width:760px){.media-gallery>.single-track{grid-template-columns:minmax(0,1fr);gap:22px;padding:20px}.single-cover{width:min(100%,180px);justify-self:center}.single-copy h3{font-size:24px}}
