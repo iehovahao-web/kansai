@@ -253,3 +253,12 @@ html[lang="zh-Hant"] [lang="ja"]{font-family:"Hiragino Kaku Gothic ProN","Yu Got
 .osaka-track-select{display:block;width:100%;max-width:100%;min-width:0;min-height:44px;padding:10px 8px;border:1px solid #a88e5866;border-radius:5px;background:#102a36;color:#f3e8d1;font:12px/1.5 var(--sans)}
 .osaka-track-select:focus-visible{outline:2px solid #ffe1a0;outline-offset:3px}
 @media(min-width:761px) and (max-width:960px){.osaka-stage{max-width:280px}}
+
+/* v25: magazine-style diagonal rhythm for the Sound & Vision grid. */
+@media(min-width:761px){
+  .media-gallery>.media-heading{grid-area:1/1/2/3}
+  .media-gallery>#album{grid-area:2/1/3/2}
+  .media-gallery>#sound-and-vision{grid-area:2/2/3/3}
+  .media-gallery>.yodogawa-video{grid-area:3/1/4/2;width:min(100%,270px);justify-self:center}
+  .media-gallery>.single-track{grid-area:3/2/4/3;width:min(100%,270px);justify-self:center}
+}
