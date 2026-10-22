@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200" role="img" aria-labelledby="title desc">
+  <title id="title">Golden autumn oak leaf</title>
+  <desc id="desc">Original transparent vector artwork of a lobed golden-brown oak leaf.</desc>
+  <defs>
+    <linearGradient id="oak-fill" x1=".14" y1=".05" x2=".86" y2=".96">
+      <stop stop-color="#efc25b"/>
+      <stop offset=".48" stop-color="#c98231"/>
+      <stop offset="1" stop-color="#7c4626"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#oak-fill)" stroke="#714127" stroke-width="2.4" stroke-linejoin="round" d="M83 166c-13-3-25-10-31-22-4-8-2-15 4-21-13 2-24-4-28-14-4-11 1-20 11-25-10-5-14-14-10-24 5-12 17-17 29-13-2-13 4-24 16-29 14-5 28 2 33 15 3 8 1 16-5 23 13-3 25 3 29 14 4 10 0 20-10 26 12 5 17 15 13 26-4 11-15 17-28 15 6 8 7 16 3 24-5 11-15 17-26 15Z"/>
+  <path fill="#785035" d="M82 155c4-1 8 0 11 3 0 14 4 26 10 36l-9 4c-8-15-12-29-12-43Z"/>
+  <path fill="none" stroke="#784529" stroke-width="2.4" stroke-linecap="round" d="M91 169 78 48"/>
+  <g fill="none" stroke="#8f572c" stroke-width="1.6" stroke-linecap="round" opacity=".83">
+    <path d="m80 67-24-14m27 35 31-23m-27 48-42-22m45 47 34-25m-31 45-36-20"/>
+  </g>
+  <path fill="none" stroke="#ffe299" stroke-width="2.2" stroke-linecap="round" opacity=".34" d="M66 39c9 29 13 62 17 94"/>
+</svg>
