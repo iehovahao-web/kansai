@@ -26,6 +26,13 @@
       hintJa: '実りと感謝を分かち合う日。',
       hintZh: '分享豐收、團聚與感恩的一天。',
       when: 'FOURTH THURSDAY OF NOVEMBER · 11月第4木曜日'
+    },
+    christmas: {
+      title: 'Christmas', ja: 'クリスマス', zh: '聖誕節',
+      en: 'May light and joy fill the season.',
+      hintJa: '光と喜びに包まれる季節。',
+      hintZh: '願這個季節充滿光與喜悅。',
+      when: 'DECEMBER 25 · 12月25日'
     }
   };
   const LIGHT_LABELS = {
@@ -73,6 +80,7 @@
     if (parts.month === 10 && parts.day >= 20 && parts.day <= 31) return 'halloween';
     const distance = daysFrom(parts, fourthThursday(parts.year));
     if (distance >= -2 && distance <= 3) return 'thanksgiving';
+    if (parts.month === 12 && parts.day >= 15 && parts.day <= 28) return 'christmas';
     return null;
   }
 
@@ -80,7 +88,7 @@
     const local = location.protocol === 'file:' || !location.hostname || ['localhost', '127.0.0.1', '::1', '[::1]'].includes(location.hostname);
     if (!local) return null;
     const value = new URLSearchParams(location.search).get('season');
-    return ['halloween', 'thanksgiving', 'off', 'none'].includes(value) ? (value === 'none' ? 'off' : value) : null;
+    return ['halloween', 'thanksgiving', 'christmas', 'off', 'none'].includes(value) ? (value === 'none' ? 'off' : value) : null;
   }
 
   function currentTheme() {
@@ -137,6 +145,18 @@
       updateLightLabel(lightSwitch);
     } else {
       title.textContent = copy.title;
+    }
+
+    if (theme === 'christmas') {
+      const garland = image('seasonal-caption-christmas-lights', 'openclipart-christmas-garland.svg');
+      const bulbs = document.createElement('span');
+      bulbs.className = 'seasonal-caption-bulbs';
+      for (let index = 0; index < 9; index += 1) bulbs.append(document.createElement('i'));
+      const holly = image('seasonal-caption-mistletoe', 'openclipart-holly.svg');
+      const bow = image('seasonal-caption-bow', 'openclipart-bow.svg');
+      const caneLeft = image('seasonal-caption-candy-cane', 'openclipart-candy-cane.svg');
+      const caneRight = image('seasonal-caption-candy-cane is-right', 'openclipart-candy-cane.svg');
+      caption.append(garland, bulbs, holly, bow, caneLeft, caneRight);
     }
 
     const names = document.createElement('span');
@@ -291,6 +311,55 @@
     document.body.append(footer);
   }
 
+  function addChristmas(layer, compact) {
+    const snowCount = compact ? 36 : 96;
+    for (let index = 0; index < snowCount; index += 1) {
+      const snow = image('seasonal-particle seasonal-snow', 'openclipart-snowflake.svg');
+      const direction = index % 2 ? -1 : 1;
+      snow.style.setProperty('--x', `${3 + ((index * 37 + 11) % 94)}vw`);
+      snow.style.setProperty('--start-y', `${5 + ((index * 19) % 82)}vh`);
+      snow.style.setProperty('--delay', `${-((index * 2.37) % 21).toFixed(2)}s`);
+      snow.style.setProperty('--duration', `${11 + (index % 7) * 1.6}s`);
+      snow.style.setProperty('--scale', `${(0.72 + (index % 5) * 0.11).toFixed(2)}`);
+      snow.style.setProperty('--drift-7', `${direction * 7}px`);
+      snow.style.setProperty('--drift-11', `${direction * 11}px`);
+      snow.style.setProperty('--drift-18', `${direction * 18}px`);
+      layer.append(snow);
+    }
+
+    layer.append(accent('seasonal-winter-glow'));
+
+    const lights = image('seasonal-accent seasonal-string-lights', 'openclipart-christmas-garland.svg');
+    const wreath = image('seasonal-accent seasonal-christmas-wreath', 'openclipart-christmas-wreath.webp');
+    layer.append(lights, wreath);
+
+    const trees = accent('seasonal-winter-trees');
+    for (let index = 0; index < 2; index += 1) {
+      const tree = image(`seasonal-tree-image ${index ? 'is-right' : 'is-left'}`, 'golden-spiral-tree.svg?v=20261022-9');
+      trees.append(tree);
+    }
+    layer.append(trees);
+
+    const gifts = accent('seasonal-gift-row');
+    ['is-left', 'is-right'].forEach(side => {
+      const cluster = document.createElement('span');
+      cluster.className = `seasonal-gift-cluster ${side}`;
+      const boxCount = compact ? 3 : 5;
+      for (let index = 0; index < boxCount; index += 1) {
+        const gift = document.createElement('i');
+        gift.className = `seasonal-gift-box gift-${index + 1}`;
+        cluster.append(gift);
+      }
+      cluster.append(image('seasonal-gift-candy-cane', 'openclipart-candy-cane.svg'));
+      gifts.append(cluster);
+    });
+    layer.append(gifts, accent('seasonal-christmas-snowbank'));
+
+    const flight = accent('seasonal-santa-flight');
+    flight.append(image('seasonal-santa-flight-art', 'golden-running-reindeer-sleigh-cloud.svg?v=20261022-2'));
+    layer.append(flight);
+  }
+
   let renderedTheme;
   let renderedDate;
   function render(theme) {
@@ -309,6 +378,7 @@
     layer.setAttribute('aria-hidden', 'true');
     if (theme === 'halloween') addHalloween(layer, compact);
     if (theme === 'thanksgiving') addThanksgiving(layer, compact);
+    if (theme === 'christmas') addChristmas(layer, compact);
     document.body.append(layer);
     addCaption(theme);
     document.dispatchEvent(new CustomEvent('kansai-season-change', { detail: { theme } }));
@@ -347,6 +417,37 @@
   document.addEventListener('ended', updateMediaFocus, true);
   document.addEventListener('fullscreenchange', updateMediaFocus);
   document.addEventListener('guide-language-change', () => updateLightLabel(document.querySelector('.seasonal-halloween-light-switch')));
+  let lastSnowTrailAt = 0;
+  function localSnowShower(x, y, requestedCount) {
+    const layer = document.querySelector('.seasonal-layer.seasonal-theme-christmas');
+    if (!layer || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const compact = matchMedia('(max-width: 680px)').matches || navigator.connection?.saveData === true;
+    const count = compact ? Math.min(8, requestedCount) : requestedCount;
+    const existing = layer.querySelectorAll('.seasonal-snow-burst');
+    [...existing].slice(0, Math.max(0, existing.length + count - (compact ? 32 : 72))).forEach(node => node.remove());
+    for (let index = 0; index < count; index += 1) {
+      const flake = image('seasonal-snow-burst', 'openclipart-snowflake.svg');
+      flake.style.setProperty('--burst-x', `${x + (index % 3 - 1) * (13 + index * 2)}px`);
+      flake.style.setProperty('--burst-y', `${y - 18 - (index % 4) * 9}px`);
+      const drift = ((index * 29) % 90) - 45;
+      const scale = 0.62 + (index % 5) * 0.18;
+      flake.style.setProperty('--burst-dx', `${drift}px`);
+      flake.style.setProperty('--burst-dx-quarter', `${drift * 0.25}px`);
+      flake.style.setProperty('--burst-scale', scale.toFixed(2));
+      flake.style.setProperty('--burst-scale-end', (scale * 0.75).toFixed(2));
+      flake.style.setProperty('--burst-delay', `${-(index % 3) * 0.12}s`);
+      layer.append(flake);
+      window.setTimeout(() => flake.remove(), 5900);
+    }
+  }
+  document.addEventListener('pointermove', event => {
+    if (event.pointerType !== 'mouse' || matchMedia('(max-width: 680px)').matches) return;
+    const now = performance.now();
+    if (now - lastSnowTrailAt < 78) return;
+    lastSnowTrailAt = now;
+    localSnowShower(event.clientX, event.clientY, 9);
+  }, { passive: true });
+  document.addEventListener('pointerdown', event => localSnowShower(event.clientX, event.clientY, 24), { passive: true });
   matchMedia('(max-width: 680px)').addEventListener?.('change', () => render(currentTheme()));
   window.addEventListener('pageshow', () => { sync(); scheduleNextOsakaMidnight(); });
   sync();

@@ -1,0 +1,73 @@
+/* Confirmed Christmas treatment. Kept separate from the unfinished New Year work. */
+.seasonal-theme-christmas{background:linear-gradient(180deg,#18304a13,transparent 43%,#1435250d)}
+.seasonal-theme-christmas .seasonal-particle{position:absolute;left:var(--x);top:var(--start-y);display:block;transform:translate(-50%,-50%) scale(var(--scale));animation-delay:var(--delay)!important;animation-duration:var(--duration)!important}
+.seasonal-theme-christmas .seasonal-snow{width:clamp(12px,1.45vw,24px);height:clamp(12px,1.45vw,24px);border:0;background:transparent;filter:drop-shadow(0 0 5px #fff);opacity:.72;animation:seasonalSnowFall 16s linear infinite}
+.seasonal-theme-christmas .seasonal-snow:nth-child(3n){opacity:.42;filter:drop-shadow(0 0 3px #d6ecffb8)}
+.seasonal-theme-christmas .seasonal-snow:nth-child(4n){width:clamp(8px,1vw,16px);height:clamp(8px,1vw,16px);opacity:.52}
+.seasonal-winter-glow{inset:80px 0 0;opacity:.4;background:radial-gradient(circle at 15% 18%,#d7b66b18,transparent 25%),radial-gradient(circle at 84% 37%,#8db8ce17,transparent 28%),linear-gradient(180deg,transparent 72%,#1a4a3321)}
+
+.seasonal-string-lights{left:50%;top:69px;width:min(960px,97vw);height:190px;transform:translateX(-50%);opacity:1;object-fit:contain;object-position:center top;filter:brightness(1.16) saturate(1.14) drop-shadow(0 0 10px #f7d881a8) drop-shadow(0 0 22px #e98c486b);animation:seasonalLightTwinkle 4.8s ease-in-out infinite}
+.seasonal-christmas-wreath{left:22px;top:124px;width:86px;height:86px;opacity:.88;filter:drop-shadow(0 4px 7px #07170f80)}
+.seasonal-winter-trees{left:0;right:0;bottom:0;height:342px;opacity:.98}
+.seasonal-winter-trees .seasonal-tree-image{position:absolute;z-index:2;left:12px;bottom:25px;width:clamp(128px,14vw,184px);height:clamp(248px,27vw,320px);object-position:center bottom;opacity:.98;filter:drop-shadow(0 0 7px #f6ce6582) drop-shadow(0 10px 12px #04130d8a);animation:seasonalGoldenTreeFloat 6.8s ease-in-out infinite;transform-origin:50% 100%}
+.seasonal-winter-trees .seasonal-tree-image.is-right{left:auto;right:12px;animation-delay:-3.4s}
+.seasonal-christmas-snowbank{z-index:5;left:-3vw;right:-3vw;bottom:-4px;height:74px;opacity:.92;background:radial-gradient(ellipse 13% 31px at 2% 100%,#f9fcff 0 68%,transparent 70%),radial-gradient(ellipse 17% 38px at 18% 100%,#eef7ff 0 69%,transparent 71%),radial-gradient(ellipse 20% 42px at 39% 100%,#fbfdff 0 70%,transparent 72%),radial-gradient(ellipse 18% 36px at 60% 100%,#eef7ff 0 69%,transparent 71%),radial-gradient(ellipse 21% 43px at 81% 100%,#fbfdff 0 70%,transparent 72%),radial-gradient(ellipse 16% 35px at 98% 100%,#edf7ff 0 68%,transparent 70%),linear-gradient(180deg,transparent 23%,#f7fbffe8 27%,#dceaf6f2 100%);filter:drop-shadow(0 -4px 7px #dff2ff7a)}
+.seasonal-christmas-snowbank::before{content:"";position:absolute;left:2%;right:2%;top:24px;height:34px;opacity:.54;background:radial-gradient(circle at 8% 38%,#fff 0 1.5px,transparent 2.5px),radial-gradient(circle at 29% 56%,#d5e7f4 0 1px,transparent 2px),radial-gradient(circle at 52% 31%,#fff 0 1.5px,transparent 2.5px),radial-gradient(circle at 74% 59%,#d5e7f4 0 1px,transparent 2px),radial-gradient(circle at 91% 34%,#fff 0 1.5px,transparent 2.5px)}
+.seasonal-christmas-snowbank::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30px;background:linear-gradient(180deg,transparent,#d6e6f3b8);opacity:.72}
+
+.seasonal-gift-row{left:0;right:0;bottom:18px;height:96px;opacity:1}
+.seasonal-gift-cluster{position:absolute;bottom:0;width:148px;height:92px}
+.seasonal-gift-cluster.is-left{left:5px}.seasonal-gift-cluster.is-right{right:5px}
+.seasonal-gift-cluster>i,.seasonal-gift-cluster>img{position:absolute;display:block}
+.seasonal-gift-box{bottom:0;border-radius:5px;background-color:#a72f3b;background-image:linear-gradient(90deg,transparent 39%,#f2c75e 40% 58%,transparent 59%),linear-gradient(180deg,#c74950 0 20%,#a72f3b 21%);box-shadow:inset 0 0 0 1px #ffe8a24a,0 4px 8px #04101869;transform-origin:50% 100%;animation:seasonalGiftGlow 5.8s ease-in-out infinite}
+.seasonal-gift-box::before{content:"";position:absolute;left:50%;top:-10px;width:22px;height:13px;border:4px solid #f2c75e;border-bottom:0;border-radius:55% 55% 18% 18%;transform:translateX(-50%) rotate(-4deg)}
+.seasonal-gift-box::after{content:"";position:absolute;left:0;right:0;top:19%;height:3px;background:#f2c75e99}
+.seasonal-gift-box.gift-1{z-index:6;left:0;width:50px;height:43px}
+.seasonal-gift-box.gift-2{z-index:4;left:37px;bottom:2px;width:42px;height:55px;background-color:#1e6b4d;background-image:linear-gradient(90deg,transparent 38%,#ecd57a 39% 59%,transparent 60%),linear-gradient(180deg,#318866 0 20%,#1e6b4d 21%);animation-delay:-1.1s}
+.seasonal-gift-box.gift-3{z-index:6;left:73px;width:56px;height:38px;background-color:#b9862f;background-image:linear-gradient(90deg,transparent 40%,#a9333e 41% 58%,transparent 59%),linear-gradient(180deg,#d3a03e 0 20%,#b9862f 21%);animation-delay:-2.2s}
+.seasonal-gift-box.gift-4{z-index:4;left:96px;bottom:33px;width:34px;height:31px;background-color:#8f2940;background-image:linear-gradient(90deg,transparent 38%,#e8c868 39% 59%,transparent 60%),linear-gradient(180deg,#b33b53 0 20%,#8f2940 21%);animation-delay:-3.3s}
+.seasonal-gift-box.gift-5{z-index:4;left:60px;bottom:38px;width:32px;height:28px;background-color:#236b54;background-image:linear-gradient(90deg,transparent 39%,#e9c65e 40% 58%,transparent 59%),linear-gradient(180deg,#36856b 0 20%,#236b54 21%);animation-delay:-4.4s}
+.seasonal-gift-candy-cane{z-index:4;left:119px;bottom:-6px;width:28px;height:58px;filter:drop-shadow(0 3px 4px #06121a70) drop-shadow(0 0 4px #fff4dd5e);transform:rotate(12deg);transform-origin:50% 100%}
+.seasonal-gift-cluster.is-right .gift-1{left:auto;right:0}.seasonal-gift-cluster.is-right .gift-2{left:auto;right:37px}.seasonal-gift-cluster.is-right .gift-3{left:auto;right:73px}.seasonal-gift-cluster.is-right .gift-4{left:auto;right:96px}.seasonal-gift-cluster.is-right .gift-5{left:auto;right:60px}.seasonal-gift-cluster.is-right .seasonal-gift-candy-cane{left:auto;right:119px;transform:rotate(-12deg) scaleX(-1)}
+
+.seasonal-santa-flight{display:block;right:-720px;top:60vh;width:clamp(520px,64vw,760px);height:clamp(175px,23vw,260px);opacity:0;filter:drop-shadow(0 8px 10px #08121a70) drop-shadow(0 0 8px #f5ce616b);animation:seasonalSantaRunAcross 28s -4s linear infinite;transform-origin:center;will-change:transform,opacity}
+.seasonal-santa-flight-art{width:100%;height:100%;object-fit:contain;image-rendering:auto}
+
+.seasonal-caption-christmas{overflow:visible;padding-left:48px;padding-right:42px}
+.seasonal-caption-christmas strong{position:relative;z-index:2;font-family:Georgia,var(--serif);color:#f3d58b;text-shadow:0 0 8px #d8a75670}
+.seasonal-caption-christmas .seasonal-label-names,.seasonal-caption-christmas .seasonal-label-hint{position:relative;z-index:2}
+.seasonal-caption-christmas-lights{position:absolute;z-index:4;left:19px;right:31px;top:27px;width:calc(100% - 50px);height:57px;object-fit:fill;opacity:.98;filter:drop-shadow(0 0 5px #fff0b5) drop-shadow(0 0 11px #f4bc58);animation:seasonalCaptionLights 2.8s ease-in-out infinite}
+.seasonal-caption-bulbs{position:absolute;z-index:6;left:48px;right:55px;top:29px;height:39px;display:flex;align-items:flex-start;justify-content:space-between}
+.seasonal-caption-bulbs i{position:relative;width:7px;height:11px;border-radius:48% 48% 60% 60%;background:#ffe9a6;box-shadow:0 0 4px #fff5c9,0 0 10px #ffc44d;animation:seasonalCaptionBulb 1.75s ease-in-out infinite}
+.seasonal-caption-bulbs i::before{content:"";position:absolute;left:2px;top:-3px;width:3px;height:4px;border-radius:1px;background:#8a7656}
+.seasonal-caption-bulbs i:nth-child(2n){margin-top:7px;background:#f26359;box-shadow:0 0 4px #ffd3cf,0 0 11px #ef5045;animation-delay:-.42s}
+.seasonal-caption-bulbs i:nth-child(3n){margin-top:12px;background:#72d485;box-shadow:0 0 4px #e1ffe7,0 0 11px #50c66a;animation-delay:-.84s}
+.seasonal-caption-bulbs i:nth-child(4n){margin-top:5px;background:#f8d66f;animation-delay:-1.21s}
+.seasonal-caption-mistletoe,.seasonal-caption-bow,.seasonal-caption-candy-cane{position:absolute;z-index:5;filter:drop-shadow(0 2px 4px #05121d99)}
+.seasonal-caption-mistletoe{left:-19px;top:17px;width:62px;height:62px;transform:rotate(-14deg)}
+.seasonal-caption-bow{right:4px;top:29px;width:48px;height:37px}
+.seasonal-caption-christmas .seasonal-caption-candy-cane{left:-27px;bottom:-7px;width:29px;height:46px;transform:rotate(-18deg)}
+.seasonal-caption-christmas .seasonal-caption-candy-cane.is-right{left:auto;right:-24px;transform:rotate(17deg) scaleX(-1)}
+
+.seasonal-snow-burst{position:fixed;z-index:1;left:var(--burst-x);top:var(--burst-y);width:22px;height:22px;opacity:0;filter:drop-shadow(0 0 6px #fff);animation:seasonalSnowBurst 5.6s var(--burst-delay) ease-out forwards;will-change:transform,opacity}
+
+@keyframes seasonalSnowFall{0%{transform:translate(-50%,-12vh) scale(var(--scale));opacity:0}12%{opacity:.46}38%{transform:translate(calc(-50% + var(--drift-11)),36vh) scale(var(--scale));opacity:.4}68%{transform:translate(calc(-50% - var(--drift-7)),72vh) scale(var(--scale));opacity:.34}100%{transform:translate(calc(-50% + var(--drift-18)),112vh) scale(var(--scale));opacity:0}}
+@keyframes seasonalLightTwinkle{0%,100%{opacity:.36}45%{opacity:.62}70%{opacity:.46}}
+@keyframes seasonalGoldenTreeFloat{0%,100%{transform:translateY(0) scale(1);filter:drop-shadow(0 0 6px #f6ce6570) drop-shadow(0 10px 12px #04130d8a)}50%{transform:translateY(-3px) scale(1.012);filter:drop-shadow(0 0 11px #ffe58aa8) drop-shadow(0 11px 13px #04130d7a)}}
+@keyframes seasonalGiftGlow{0%,100%{filter:brightness(.92)}50%{filter:brightness(1.12) drop-shadow(0 0 5px #f4cf6d4f)}}
+@keyframes seasonalSantaRunAcross{0%{opacity:0;transform:translate3d(0,0,0) rotate(-9deg) scaleX(1)}4%{opacity:.96}45%{opacity:.96;transform:translate3d(calc(-100vw - 760px),-50vh,0) rotate(-9deg) scaleX(1)}46.5%{opacity:0;transform:translate3d(calc(-100vw - 760px),-50vh,0) rotate(-9deg) scaleX(1)}48.5%{opacity:0;transform:translate3d(calc(-100vw - 760px),-50vh,0) rotate(9deg) scaleX(-1)}52%{opacity:.96}93%{opacity:.96;transform:translate3d(0,0,0) rotate(9deg) scaleX(-1)}95%{opacity:0;transform:translate3d(0,0,0) rotate(9deg) scaleX(-1)}100%{opacity:0;transform:translate3d(0,0,0) rotate(-9deg) scaleX(1)}}
+@keyframes seasonalCaptionLights{0%,100%{filter:drop-shadow(0 0 4px #fff0b5) drop-shadow(0 0 9px #edb34e);opacity:.84}36%{filter:drop-shadow(0 0 7px #fff3c4) drop-shadow(0 0 15px #f76758);opacity:1}68%{filter:drop-shadow(0 0 6px #e6ffdc) drop-shadow(0 0 14px #62cf85);opacity:.94}}
+@keyframes seasonalCaptionBulb{0%,100%{opacity:.58;filter:brightness(.9)}38%{opacity:1;filter:brightness(1.55)}62%{opacity:.74;filter:brightness(1.08)}}
+@keyframes seasonalSnowBurst{0%{transform:translate(-50%,-50%) scale(.15) rotate(0);opacity:0}9%{opacity:.88}24%{transform:translate(calc(-50% + var(--burst-dx-quarter)),18px) scale(var(--burst-scale)) rotate(75deg);opacity:.92}70%{opacity:.62}100%{transform:translate(calc(-50% + var(--burst-dx)),190px) scale(var(--burst-scale-end)) rotate(310deg);opacity:0}}
+
+@media(max-width:680px){
+  .seasonal-string-lights{top:72px;width:98vw;height:142px}
+  .seasonal-christmas-wreath{left:8px;top:126px;width:58px;height:58px}
+  .seasonal-winter-trees{bottom:calc(64px + env(safe-area-inset-bottom));height:206px}
+  .seasonal-winter-trees .seasonal-tree-image{bottom:8px;left:2px;width:100px;height:190px}.seasonal-winter-trees .seasonal-tree-image.is-right{right:2px}
+  .seasonal-christmas-snowbank{bottom:calc(60px + env(safe-area-inset-bottom));height:54px}
+  .seasonal-gift-row{bottom:calc(70px + env(safe-area-inset-bottom));height:72px}.seasonal-gift-cluster{width:142px;height:72px}.seasonal-gift-cluster.is-left{left:-8px}.seasonal-gift-cluster.is-right{right:-8px}.seasonal-gift-cluster>i,.seasonal-gift-cluster>img{scale:.68;transform-origin:0 100%}.seasonal-gift-cluster.is-right>i,.seasonal-gift-cluster.is-right>img{transform-origin:100% 100%}.seasonal-gift-box.gift-4,.seasonal-gift-box.gift-5{display:none}.seasonal-gift-candy-cane{left:116px;width:38px;height:74px}.seasonal-gift-cluster.is-right .seasonal-gift-candy-cane{right:116px}
+  .seasonal-santa-flight{right:-520px;top:62vh;width:500px;height:178px}
+  .seasonal-caption-christmas{padding-left:31px;padding-right:31px}.seasonal-caption-christmas-lights{left:14px;right:18px;top:25px;width:calc(100% - 32px);height:42px}.seasonal-caption-bulbs{left:39px;right:42px;top:28px;height:29px}.seasonal-caption-bulbs i{width:5px;height:8px}.seasonal-caption-mistletoe{left:-5px;top:16px;width:46px;height:46px}.seasonal-caption-bow{right:1px;top:26px;width:38px;height:30px}.seasonal-caption-christmas .seasonal-caption-candy-cane{left:-2px;bottom:-3px;width:23px;height:38px}.seasonal-caption-christmas .seasonal-caption-candy-cane.is-right{display:none}
+}
+@media(prefers-reduced-motion:reduce){.seasonal-theme-christmas .seasonal-snow{top:var(--start-y);transform:translate(-50%,-50%) scale(var(--scale))}.seasonal-santa-flight{right:2vw;opacity:.72;transform:none;scale:.72}.seasonal-snow-burst{display:none!important}}

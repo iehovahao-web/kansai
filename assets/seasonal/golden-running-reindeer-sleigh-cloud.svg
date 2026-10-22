@@ -1,0 +1,449 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 420" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Animated Santa in a red and gold sleigh with six running reindeer">
+  <defs>
+    <linearGradient id="fur" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd995" />
+      <stop offset="38%" stop-color="#c77a35" />
+      <stop offset="72%" stop-color="#a45126" />
+      <stop offset="100%" stop-color="#e8a956" />
+    </linearGradient>
+    <linearGradient id="belly" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff0c5" />
+      <stop offset="100%" stop-color="#e2b66f" />
+    </linearGradient>
+    <linearGradient id="muzzle" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff1ce" />
+      <stop offset="100%" stop-color="#dba56b" />
+    </linearGradient>
+    <linearGradient id="antler" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe4a2" />
+      <stop offset="45%" stop-color="#b36f2c" />
+      <stop offset="100%" stop-color="#6b371e" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff5b9" />
+      <stop offset="38%" stop-color="#f4c853" />
+      <stop offset="70%" stop-color="#b26a17" />
+      <stop offset="100%" stop-color="#ffe486" />
+    </linearGradient>
+    <linearGradient id="red" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff5c59" />
+      <stop offset="44%" stop-color="#c5222e" />
+      <stop offset="100%" stop-color="#6f101d" />
+    </linearGradient>
+    <linearGradient id="sack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9d3b2e" />
+      <stop offset="100%" stop-color="#5b1d22" />
+    </linearGradient>
+    <radialGradient id="noseRed">
+      <stop stop-color="#fff8cf" />
+      <stop offset=".2" stop-color="#ff8c74" />
+      <stop offset=".66" stop-color="#eb2635" />
+      <stop offset="1" stop-color="#8e0d19" />
+    </radialGradient>
+    <filter id="softShadow" x="-30%" y="-40%" width="170%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="b" />
+      <feOffset dy="5" result="o" />
+      <feColorMatrix in="o" values="0 0 0 0 0.02 0 0 0 0 0.05 0 0 0 0 0.1 0 0 0 .48 0" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="goldGlow" x="-180%" y="-180%" width="460%" height="460%">
+      <feGaussianBlur stdDeviation="4" result="b" />
+      <feMerge>
+        <feMergeNode in="b" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="redGlow" x="-220%" y="-220%" width="540%" height="540%">
+      <feGaussianBlur stdDeviation="5" result="b" />
+      <feMerge>
+        <feMergeNode in="b" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <marker id="hoof" markerWidth="16" markerHeight="12" refX="8" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 3 C7 1 13 2 15 6 C12 10 7 11 2 9Z" fill="#40251c" stroke="#6c351c" stroke-width="1.4" />
+    </marker>
+    <style>
+      .rein{fill:none;stroke:#d79c3b;stroke-width:2.4;stroke-linecap:round;opacity:.9}
+      .bell{filter:url(#goldGlow);transform-origin:70px 80px;animation:ring .34s ease-in-out infinite alternate}
+      .spark{fill:#ffe79a;filter:url(#goldGlow);animation:twinkle 1.6s ease-in-out infinite}
+      .spark:nth-of-type(2n){animation-delay:-.7s;animation-duration:2.1s}
+      @keyframes ring{from{transform:rotate(-5deg)}to{transform:rotate(6deg)}}
+      @keyframes twinkle{0%,100%{opacity:.18;transform:scale(.65)}50%{opacity:1;transform:scale(1.12)}}
+    </style>
+  </defs>
+  <g aria-hidden="true" opacity=".92">
+    <path d="M20 88 H95 M255 52 H320 M705 62 H790 M1240 58 H1340" fill="none" stroke="#f8d878" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 13" opacity=".46">
+      <animate attributeName="stroke-dashoffset" from="0" to="-48" dur="1.2s" repeatCount="indefinite" />
+    </path>
+    <g class="spark" transform="translate(72 78)">
+      <path d="M0-8 2-2 8 0 2 2 0 8-2 2-8 0-2-2Z" />
+    </g>
+    <g class="spark" transform="translate(486 52)">
+      <path d="M0-6 2-2 6 0 2 2 0 6-2 2-6 0-2-2Z" />
+    </g>
+    <g class="spark" transform="translate(788 350)">
+      <path d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" />
+    </g>
+    <g class="spark" transform="translate(1324 92)">
+      <path d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" />
+    </g>
+  </g>
+  <g>
+    <path d="M96.5 242.4 C216.5 237.4 770.0 206.0 980 211" class="rein">
+      <animate attributeName="d" values="M96.5 242.4 C216.5 237.4 770.0 206.0 980 211;M96.5 238.4 C216.5 244.4 770.0 200.0 980 211;M96.5 242.4 C216.5 237.4 770.0 206.0 980 211" dur=".64s" begin="0.00s" repeatCount="indefinite" />
+    </path>
+    <path d="M251.9 182.6 C371.9 177.6 770.0 194.0 980 211" class="rein">
+      <animate attributeName="d" values="M251.9 182.6 C371.9 177.6 770.0 194.0 980 211;M251.9 178.6 C371.9 184.6 770.0 188.0 980 211;M251.9 182.6 C371.9 177.6 770.0 194.0 980 211" dur=".64s" begin="-0.10s" repeatCount="indefinite" />
+    </path>
+    <path d="M260.2 311.5 C380.2 306.5 770.0 206.0 980 211" class="rein">
+      <animate attributeName="d" values="M260.2 311.5 C380.2 306.5 770.0 206.0 980 211;M260.2 307.5 C380.2 313.5 770.0 200.0 980 211;M260.2 311.5 C380.2 306.5 770.0 206.0 980 211" dur=".64s" begin="-0.21s" repeatCount="indefinite" />
+    </path>
+    <path d="M442.9 173.6 C562.9 168.6 770.0 194.0 980 211" class="rein">
+      <animate attributeName="d" values="M442.9 173.6 C562.9 168.6 770.0 194.0 980 211;M442.9 169.6 C562.9 175.6 770.0 188.0 980 211;M442.9 173.6 C562.9 168.6 770.0 194.0 980 211" dur=".64s" begin="-0.31s" repeatCount="indefinite" />
+    </path>
+    <path d="M461.3 321.5 C581.3 316.5 770.0 206.0 980 211" class="rein">
+      <animate attributeName="d" values="M461.3 321.5 C581.3 316.5 770.0 206.0 980 211;M461.3 317.5 C581.3 323.5 770.0 200.0 980 211;M461.3 321.5 C581.3 316.5 770.0 206.0 980 211" dur=".64s" begin="-0.42s" repeatCount="indefinite" />
+    </path>
+    <path d="M681.6 255.8 C801.6 250.8 770.0 194.0 980 211" class="rein">
+      <animate attributeName="d" values="M681.6 255.8 C801.6 250.8 770.0 194.0 980 211;M681.6 251.8 C801.6 257.8 770.0 188.0 980 211;M681.6 255.8 C801.6 250.8 770.0 194.0 980 211" dur=".64s" begin="-0.52s" repeatCount="indefinite" />
+    </path>
+  </g>
+  <g>
+    <g id="deer-1" transform="translate(55 194) scale(0.62)">
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0 -10;-4 -3;0 6;5 -1;1 -11;-3 -15;0 -10" keyTimes="0;.14;.32;.50;.68;.84;1" dur=".64s" begin="0.00s" repeatCount="indefinite" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" />
+        <g class="far-legs">
+          <path d="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" fill="none" stroke="#c87937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="0.62">
+            <animate attributeName="d" values="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130;M79 108 C61 123 44 146 29 171 C24 180 27 188 35 191;M79 108 C72 130 72 152 80 171 C84 180 82 187 75 191;M79 108 C94 123 114 143 134 160 C142 167 145 176 139 184;M79 108 C98 116 120 123 140 127 C149 129 154 125 151 118;M79 108 C92 113 104 120 110 128 C113 135 108 141 99 141;M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" dur=".64s" begin="-0.035s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+          </path>
+          <path d="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" fill="none" stroke="#c87937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="0.62">
+            <animate attributeName="d" values="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136;M141 109 C130 116 117 123 106 131 C100 137 103 144 111 146;M141 109 C132 129 129 151 136 171 C140 180 137 187 130 191;M141 109 C159 127 179 150 196 173 C202 181 199 188 191 192;M141 109 C165 118 188 131 207 146 C214 152 215 159 209 165;M141 109 C129 114 117 121 112 129 C109 136 115 142 123 142;M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" dur=".64s" begin="-0.035s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+          </path>
+        </g>
+        <path d="M58 78 C43 68 35 55 38 42 C49 51 59 56 70 56Z" fill="#d58a42" stroke="#6c351c" stroke-width="3" />
+        <path d="M60 68 C68 53 83 43 99 45 C109 30 128 24 151 27 C178 30 193 47 193 68 C193 89 179 108 156 117 C126 127 91 123 70 108 C55 97 51 83 60 68Z" fill="#c87937" stroke="#6c351c" stroke-width="4" />
+        <path d="M84 79 C105 95 146 100 181 85 C172 106 150 116 123 116 C100 116 84 104 84 79Z" fill="#efc989" opacity=".76" />
+        <g class="deer-head-motion">
+          <animateTransform attributeName="transform" type="translate" values="-6 -1;-3 1;1 3;3 0;-6 -3;-9 -4;-6 -1" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" dur=".64s" begin="0.00s" repeatCount="indefinite" />
+          <animateTransform attributeName="transform" type="rotate" values="-7 64 68;-2 64 68;5 64 68;1 64 68;-8 64 68;-11 64 68;-7 64 68" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" dur=".64s" begin="0.00s" additive="sum" repeatCount="indefinite" />
+          <path d="M67 58 C63 39 49 27 30 27 C13 27 -2 36 -8 50 C-13 63 -4 74 12 77 C30 80 51 73 66 63Z" fill="#c87937" stroke="#6c351c" stroke-width="4" />
+          <path d="M4 54 C-6 49 -19 51 -27 59 C-21 70 -4 75 11 69 C20 66 21 59 14 55Z" fill="#f3d2a0" stroke="#6c351c" stroke-width="3" />
+          <ellipse cx="-25" cy="60" rx="7" ry="6" fill="#ef3340" filter="url(#redGlow)">
+            <animate attributeName="r" values="7;8.8;7" dur="1.1s" repeatCount="indefinite" />
+          </ellipse>
+          <ellipse cx="22" cy="46" rx="4.6" ry="5.4" fill="#2b1a16" />
+          <circle cx="20.8" cy="44.7" r="1.4" fill="#fff9db" />
+          <path d="M35 33 C25 20 9 17 -2 27 C12 29 23 35 31 43Z" fill="#f0c682" stroke="#6c351c" stroke-width="3" />
+          <path d="M56 37 C64 22 79 18 89 28 C75 31 65 37 58 48Z" fill="#e5b069" stroke="#6c351c" stroke-width="3" />
+          <g fill="none" stroke="#dca154" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M30 31 C25 14 25 2 32 -10 M28 12 L15 1 M31 5 L43 -7 M36 25 C43 12 53 4 65 0 M47 11 L48 -5 M54 7 L68 -3" />
+            <path d="M52 33 C56 17 66 6 80 0 M62 14 L61 -2 M70 8 L84 -1" opacity=".9" />
+          </g>
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="-3 47 58;4 47 58;-3 47 58" dur=".64s" begin="0.00s" repeatCount="indefinite" />
+            <path d="M-7 70 C9 77 29 77 45 70" fill="none" stroke="#7f4223" stroke-width="2.2" stroke-linecap="round" opacity=".72" />
+          </g>
+        </g>
+        <path d="M58 66 C66 71 73 78 78 88" fill="none" stroke="#b9282d" stroke-width="10" stroke-linecap="round" />
+        <g class="bell">
+          <circle cx="68" cy="77" r="5.5" fill="#f6cb59" stroke="#fff3ba" stroke-width="1.4" />
+          <circle cx="77" cy="87" r="4.8" fill="#f6cb59" stroke="#fff3ba" stroke-width="1.2" />
+        </g>
+        <path d="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" fill="none" stroke="#c87937" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="1">
+          <animate attributeName="d" values="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130;M79 108 C61 123 44 146 29 171 C24 180 27 188 35 191;M79 108 C72 130 72 152 80 171 C84 180 82 187 75 191;M79 108 C94 123 114 143 134 160 C142 167 145 176 139 184;M79 108 C98 116 120 123 140 127 C149 129 154 125 151 118;M79 108 C92 113 104 120 110 128 C113 135 108 141 99 141;M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" dur=".64s" begin="0.000s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+        </path>
+        <path d="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" fill="none" stroke="#c87937" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="1">
+          <animate attributeName="d" values="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136;M141 109 C130 116 117 123 106 131 C100 137 103 144 111 146;M141 109 C132 129 129 151 136 171 C140 180 137 187 130 191;M141 109 C159 127 179 150 196 173 C202 181 199 188 191 192;M141 109 C165 118 188 131 207 146 C214 152 215 159 209 165;M141 109 C129 114 117 121 112 129 C109 136 115 142 123 142;M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" dur=".64s" begin="0.000s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+        </path>
+      </g>
+    </g>
+    <g id="deer-2" transform="translate(205 128) scale(0.7)">
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0 -10;-4 -3;0 6;5 -1;1 -11;-3 -15;0 -10" keyTimes="0;.14;.32;.50;.68;.84;1" dur=".64s" begin="-0.10s" repeatCount="indefinite" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" />
+        <g class="far-legs">
+          <path d="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" fill="none" stroke="#c87937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="0.62">
+            <animate attributeName="d" values="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130;M79 108 C61 123 44 146 29 171 C24 180 27 188 35 191;M79 108 C72 130 72 152 80 171 C84 180 82 187 75 191;M79 108 C94 123 114 143 134 160 C142 167 145 176 139 184;M79 108 C98 116 120 123 140 127 C149 129 154 125 151 118;M79 108 C92 113 104 120 110 128 C113 135 108 141 99 141;M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" dur=".64s" begin="-0.135s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+          </path>
+          <path d="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" fill="none" stroke="#c87937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="0.62">
+            <animate attributeName="d" values="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136;M141 109 C130 116 117 123 106 131 C100 137 103 144 111 146;M141 109 C132 129 129 151 136 171 C140 180 137 187 130 191;M141 109 C159 127 179 150 196 173 C202 181 199 188 191 192;M141 109 C165 118 188 131 207 146 C214 152 215 159 209 165;M141 109 C129 114 117 121 112 129 C109 136 115 142 123 142;M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" dur=".64s" begin="-0.135s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+          </path>
+        </g>
+        <path d="M58 78 C43 68 35 55 38 42 C49 51 59 56 70 56Z" fill="#d58a42" stroke="#6c351c" stroke-width="3" />
+        <path d="M60 68 C68 53 83 43 99 45 C109 30 128 24 151 27 C178 30 193 47 193 68 C193 89 179 108 156 117 C126 127 91 123 70 108 C55 97 51 83 60 68Z" fill="#c87937" stroke="#6c351c" stroke-width="4" />
+        <path d="M84 79 C105 95 146 100 181 85 C172 106 150 116 123 116 C100 116 84 104 84 79Z" fill="#efc989" opacity=".76" />
+        <g class="deer-head-motion">
+          <animateTransform attributeName="transform" type="translate" values="-6 -1;-3 1;1 3;3 0;-6 -3;-9 -4;-6 -1" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" dur=".64s" begin="-0.10s" repeatCount="indefinite" />
+          <animateTransform attributeName="transform" type="rotate" values="-7 64 68;-2 64 68;5 64 68;1 64 68;-8 64 68;-11 64 68;-7 64 68" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" dur=".64s" begin="-0.10s" additive="sum" repeatCount="indefinite" />
+          <path d="M67 58 C63 39 49 27 30 27 C13 27 -2 36 -8 50 C-13 63 -4 74 12 77 C30 80 51 73 66 63Z" fill="#c87937" stroke="#6c351c" stroke-width="4" />
+          <path d="M4 54 C-6 49 -19 51 -27 59 C-21 70 -4 75 11 69 C20 66 21 59 14 55Z" fill="#f3d2a0" stroke="#6c351c" stroke-width="3" />
+          <ellipse cx="-25" cy="60" rx="7" ry="6" fill="#4a2416" />
+          <ellipse cx="22" cy="46" rx="4.6" ry="5.4" fill="#2b1a16" />
+          <circle cx="20.8" cy="44.7" r="1.4" fill="#fff9db" />
+          <path d="M35 33 C25 20 9 17 -2 27 C12 29 23 35 31 43Z" fill="#f0c682" stroke="#6c351c" stroke-width="3" />
+          <path d="M56 37 C64 22 79 18 89 28 C75 31 65 37 58 48Z" fill="#e5b069" stroke="#6c351c" stroke-width="3" />
+          <g fill="none" stroke="#dca154" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M30 31 C25 14 25 2 32 -10 M28 12 L15 1 M31 5 L43 -7 M36 25 C43 12 53 4 65 0 M47 11 L48 -5 M54 7 L68 -3" />
+            <path d="M52 33 C56 17 66 6 80 0 M62 14 L61 -2 M70 8 L84 -1" opacity=".9" />
+          </g>
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="-3 47 58;4 47 58;-3 47 58" dur=".64s" begin="-0.10s" repeatCount="indefinite" />
+            <path d="M-7 70 C9 77 29 77 45 70" fill="none" stroke="#7f4223" stroke-width="2.2" stroke-linecap="round" opacity=".72" />
+          </g>
+        </g>
+        <path d="M58 66 C66 71 73 78 78 88" fill="none" stroke="#b9282d" stroke-width="10" stroke-linecap="round" />
+        <g class="bell">
+          <circle cx="68" cy="77" r="5.5" fill="#f6cb59" stroke="#fff3ba" stroke-width="1.4" />
+          <circle cx="77" cy="87" r="4.8" fill="#f6cb59" stroke="#fff3ba" stroke-width="1.2" />
+        </g>
+        <path d="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" fill="none" stroke="#c87937" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="1">
+          <animate attributeName="d" values="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130;M79 108 C61 123 44 146 29 171 C24 180 27 188 35 191;M79 108 C72 130 72 152 80 171 C84 180 82 187 75 191;M79 108 C94 123 114 143 134 160 C142 167 145 176 139 184;M79 108 C98 116 120 123 140 127 C149 129 154 125 151 118;M79 108 C92 113 104 120 110 128 C113 135 108 141 99 141;M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" dur=".64s" begin="-0.100s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+        </path>
+        <path d="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" fill="none" stroke="#c87937" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="1">
+          <animate attributeName="d" values="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136;M141 109 C130 116 117 123 106 131 C100 137 103 144 111 146;M141 109 C132 129 129 151 136 171 C140 180 137 187 130 191;M141 109 C159 127 179 150 196 173 C202 181 199 188 191 192;M141 109 C165 118 188 131 207 146 C214 152 215 159 209 165;M141 109 C129 114 117 121 112 129 C109 136 115 142 123 142;M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" dur=".64s" begin="-0.100s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+        </path>
+      </g>
+    </g>
+    <g id="deer-3" transform="translate(210 253) scale(0.75)">
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0 -10;-4 -3;0 6;5 -1;1 -11;-3 -15;0 -10" keyTimes="0;.14;.32;.50;.68;.84;1" dur=".64s" begin="-0.21s" repeatCount="indefinite" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" />
+        <g class="far-legs">
+          <path d="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" fill="none" stroke="#c87937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="0.62">
+            <animate attributeName="d" values="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130;M79 108 C61 123 44 146 29 171 C24 180 27 188 35 191;M79 108 C72 130 72 152 80 171 C84 180 82 187 75 191;M79 108 C94 123 114 143 134 160 C142 167 145 176 139 184;M79 108 C98 116 120 123 140 127 C149 129 154 125 151 118;M79 108 C92 113 104 120 110 128 C113 135 108 141 99 141;M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" dur=".64s" begin="-0.245s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+          </path>
+          <path d="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" fill="none" stroke="#c87937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="0.62">
+            <animate attributeName="d" values="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136;M141 109 C130 116 117 123 106 131 C100 137 103 144 111 146;M141 109 C132 129 129 151 136 171 C140 180 137 187 130 191;M141 109 C159 127 179 150 196 173 C202 181 199 188 191 192;M141 109 C165 118 188 131 207 146 C214 152 215 159 209 165;M141 109 C129 114 117 121 112 129 C109 136 115 142 123 142;M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" dur=".64s" begin="-0.245s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+          </path>
+        </g>
+        <path d="M58 78 C43 68 35 55 38 42 C49 51 59 56 70 56Z" fill="#d58a42" stroke="#6c351c" stroke-width="3" />
+        <path d="M60 68 C68 53 83 43 99 45 C109 30 128 24 151 27 C178 30 193 47 193 68 C193 89 179 108 156 117 C126 127 91 123 70 108 C55 97 51 83 60 68Z" fill="#c87937" stroke="#6c351c" stroke-width="4" />
+        <path d="M84 79 C105 95 146 100 181 85 C172 106 150 116 123 116 C100 116 84 104 84 79Z" fill="#efc989" opacity=".76" />
+        <g class="deer-head-motion">
+          <animateTransform attributeName="transform" type="translate" values="-6 -1;-3 1;1 3;3 0;-6 -3;-9 -4;-6 -1" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" dur=".64s" begin="-0.21s" repeatCount="indefinite" />
+          <animateTransform attributeName="transform" type="rotate" values="-7 64 68;-2 64 68;5 64 68;1 64 68;-8 64 68;-11 64 68;-7 64 68" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" dur=".64s" begin="-0.21s" additive="sum" repeatCount="indefinite" />
+          <path d="M67 58 C63 39 49 27 30 27 C13 27 -2 36 -8 50 C-13 63 -4 74 12 77 C30 80 51 73 66 63Z" fill="#c87937" stroke="#6c351c" stroke-width="4" />
+          <path d="M4 54 C-6 49 -19 51 -27 59 C-21 70 -4 75 11 69 C20 66 21 59 14 55Z" fill="#f3d2a0" stroke="#6c351c" stroke-width="3" />
+          <ellipse cx="-25" cy="60" rx="7" ry="6" fill="#4a2416" />
+          <ellipse cx="22" cy="46" rx="4.6" ry="5.4" fill="#2b1a16" />
+          <circle cx="20.8" cy="44.7" r="1.4" fill="#fff9db" />
+          <path d="M35 33 C25 20 9 17 -2 27 C12 29 23 35 31 43Z" fill="#f0c682" stroke="#6c351c" stroke-width="3" />
+          <path d="M56 37 C64 22 79 18 89 28 C75 31 65 37 58 48Z" fill="#e5b069" stroke="#6c351c" stroke-width="3" />
+          <g fill="none" stroke="#dca154" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M30 31 C25 14 25 2 32 -10 M28 12 L15 1 M31 5 L43 -7 M36 25 C43 12 53 4 65 0 M47 11 L48 -5 M54 7 L68 -3" />
+            <path d="M52 33 C56 17 66 6 80 0 M62 14 L61 -2 M70 8 L84 -1" opacity=".9" />
+          </g>
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="-3 47 58;4 47 58;-3 47 58" dur=".64s" begin="-0.21s" repeatCount="indefinite" />
+            <path d="M-7 70 C9 77 29 77 45 70" fill="none" stroke="#7f4223" stroke-width="2.2" stroke-linecap="round" opacity=".72" />
+          </g>
+        </g>
+        <path d="M58 66 C66 71 73 78 78 88" fill="none" stroke="#b9282d" stroke-width="10" stroke-linecap="round" />
+        <g class="bell">
+          <circle cx="68" cy="77" r="5.5" fill="#f6cb59" stroke="#fff3ba" stroke-width="1.4" />
+          <circle cx="77" cy="87" r="4.8" fill="#f6cb59" stroke="#fff3ba" stroke-width="1.2" />
+        </g>
+        <path d="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" fill="none" stroke="#c87937" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="1">
+          <animate attributeName="d" values="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130;M79 108 C61 123 44 146 29 171 C24 180 27 188 35 191;M79 108 C72 130 72 152 80 171 C84 180 82 187 75 191;M79 108 C94 123 114 143 134 160 C142 167 145 176 139 184;M79 108 C98 116 120 123 140 127 C149 129 154 125 151 118;M79 108 C92 113 104 120 110 128 C113 135 108 141 99 141;M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" dur=".64s" begin="-0.210s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+        </path>
+        <path d="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" fill="none" stroke="#c87937" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="1">
+          <animate attributeName="d" values="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136;M141 109 C130 116 117 123 106 131 C100 137 103 144 111 146;M141 109 C132 129 129 151 136 171 C140 180 137 187 130 191;M141 109 C159 127 179 150 196 173 C202 181 199 188 191 192;M141 109 C165 118 188 131 207 146 C214 152 215 159 209 165;M141 109 C129 114 117 121 112 129 C109 136 115 142 123 142;M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" dur=".64s" begin="-0.210s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+        </path>
+      </g>
+    </g>
+    <g id="deer-4" transform="translate(390 112) scale(0.79)">
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0 -10;-4 -3;0 6;5 -1;1 -11;-3 -15;0 -10" keyTimes="0;.14;.32;.50;.68;.84;1" dur=".64s" begin="-0.31s" repeatCount="indefinite" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" />
+        <g class="far-legs">
+          <path d="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" fill="none" stroke="#c87937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="0.62">
+            <animate attributeName="d" values="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130;M79 108 C61 123 44 146 29 171 C24 180 27 188 35 191;M79 108 C72 130 72 152 80 171 C84 180 82 187 75 191;M79 108 C94 123 114 143 134 160 C142 167 145 176 139 184;M79 108 C98 116 120 123 140 127 C149 129 154 125 151 118;M79 108 C92 113 104 120 110 128 C113 135 108 141 99 141;M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" dur=".64s" begin="-0.345s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+          </path>
+          <path d="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" fill="none" stroke="#c87937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="0.62">
+            <animate attributeName="d" values="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136;M141 109 C130 116 117 123 106 131 C100 137 103 144 111 146;M141 109 C132 129 129 151 136 171 C140 180 137 187 130 191;M141 109 C159 127 179 150 196 173 C202 181 199 188 191 192;M141 109 C165 118 188 131 207 146 C214 152 215 159 209 165;M141 109 C129 114 117 121 112 129 C109 136 115 142 123 142;M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" dur=".64s" begin="-0.345s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+          </path>
+        </g>
+        <path d="M58 78 C43 68 35 55 38 42 C49 51 59 56 70 56Z" fill="#d58a42" stroke="#6c351c" stroke-width="3" />
+        <path d="M60 68 C68 53 83 43 99 45 C109 30 128 24 151 27 C178 30 193 47 193 68 C193 89 179 108 156 117 C126 127 91 123 70 108 C55 97 51 83 60 68Z" fill="#c87937" stroke="#6c351c" stroke-width="4" />
+        <path d="M84 79 C105 95 146 100 181 85 C172 106 150 116 123 116 C100 116 84 104 84 79Z" fill="#efc989" opacity=".76" />
+        <g class="deer-head-motion">
+          <animateTransform attributeName="transform" type="translate" values="-6 -1;-3 1;1 3;3 0;-6 -3;-9 -4;-6 -1" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" dur=".64s" begin="-0.31s" repeatCount="indefinite" />
+          <animateTransform attributeName="transform" type="rotate" values="-7 64 68;-2 64 68;5 64 68;1 64 68;-8 64 68;-11 64 68;-7 64 68" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" dur=".64s" begin="-0.31s" additive="sum" repeatCount="indefinite" />
+          <path d="M67 58 C63 39 49 27 30 27 C13 27 -2 36 -8 50 C-13 63 -4 74 12 77 C30 80 51 73 66 63Z" fill="#c87937" stroke="#6c351c" stroke-width="4" />
+          <path d="M4 54 C-6 49 -19 51 -27 59 C-21 70 -4 75 11 69 C20 66 21 59 14 55Z" fill="#f3d2a0" stroke="#6c351c" stroke-width="3" />
+          <ellipse cx="-25" cy="60" rx="7" ry="6" fill="#4a2416" />
+          <ellipse cx="22" cy="46" rx="4.6" ry="5.4" fill="#2b1a16" />
+          <circle cx="20.8" cy="44.7" r="1.4" fill="#fff9db" />
+          <path d="M35 33 C25 20 9 17 -2 27 C12 29 23 35 31 43Z" fill="#f0c682" stroke="#6c351c" stroke-width="3" />
+          <path d="M56 37 C64 22 79 18 89 28 C75 31 65 37 58 48Z" fill="#e5b069" stroke="#6c351c" stroke-width="3" />
+          <g fill="none" stroke="#dca154" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M30 31 C25 14 25 2 32 -10 M28 12 L15 1 M31 5 L43 -7 M36 25 C43 12 53 4 65 0 M47 11 L48 -5 M54 7 L68 -3" />
+            <path d="M52 33 C56 17 66 6 80 0 M62 14 L61 -2 M70 8 L84 -1" opacity=".9" />
+          </g>
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="-3 47 58;4 47 58;-3 47 58" dur=".64s" begin="-0.31s" repeatCount="indefinite" />
+            <path d="M-7 70 C9 77 29 77 45 70" fill="none" stroke="#7f4223" stroke-width="2.2" stroke-linecap="round" opacity=".72" />
+          </g>
+        </g>
+        <path d="M58 66 C66 71 73 78 78 88" fill="none" stroke="#b9282d" stroke-width="10" stroke-linecap="round" />
+        <g class="bell">
+          <circle cx="68" cy="77" r="5.5" fill="#f6cb59" stroke="#fff3ba" stroke-width="1.4" />
+          <circle cx="77" cy="87" r="4.8" fill="#f6cb59" stroke="#fff3ba" stroke-width="1.2" />
+        </g>
+        <path d="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" fill="none" stroke="#c87937" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="1">
+          <animate attributeName="d" values="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130;M79 108 C61 123 44 146 29 171 C24 180 27 188 35 191;M79 108 C72 130 72 152 80 171 C84 180 82 187 75 191;M79 108 C94 123 114 143 134 160 C142 167 145 176 139 184;M79 108 C98 116 120 123 140 127 C149 129 154 125 151 118;M79 108 C92 113 104 120 110 128 C113 135 108 141 99 141;M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" dur=".64s" begin="-0.310s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+        </path>
+        <path d="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" fill="none" stroke="#c87937" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="1">
+          <animate attributeName="d" values="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136;M141 109 C130 116 117 123 106 131 C100 137 103 144 111 146;M141 109 C132 129 129 151 136 171 C140 180 137 187 130 191;M141 109 C159 127 179 150 196 173 C202 181 199 188 191 192;M141 109 C165 118 188 131 207 146 C214 152 215 159 209 165;M141 109 C129 114 117 121 112 129 C109 136 115 142 123 142;M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" dur=".64s" begin="-0.310s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+        </path>
+      </g>
+    </g>
+    <g id="deer-5" transform="translate(405 256) scale(0.84)">
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0 -10;-4 -3;0 6;5 -1;1 -11;-3 -15;0 -10" keyTimes="0;.14;.32;.50;.68;.84;1" dur=".64s" begin="-0.42s" repeatCount="indefinite" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" />
+        <g class="far-legs">
+          <path d="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" fill="none" stroke="#c87937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="0.62">
+            <animate attributeName="d" values="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130;M79 108 C61 123 44 146 29 171 C24 180 27 188 35 191;M79 108 C72 130 72 152 80 171 C84 180 82 187 75 191;M79 108 C94 123 114 143 134 160 C142 167 145 176 139 184;M79 108 C98 116 120 123 140 127 C149 129 154 125 151 118;M79 108 C92 113 104 120 110 128 C113 135 108 141 99 141;M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" dur=".64s" begin="-0.455s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+          </path>
+          <path d="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" fill="none" stroke="#c87937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="0.62">
+            <animate attributeName="d" values="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136;M141 109 C130 116 117 123 106 131 C100 137 103 144 111 146;M141 109 C132 129 129 151 136 171 C140 180 137 187 130 191;M141 109 C159 127 179 150 196 173 C202 181 199 188 191 192;M141 109 C165 118 188 131 207 146 C214 152 215 159 209 165;M141 109 C129 114 117 121 112 129 C109 136 115 142 123 142;M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" dur=".64s" begin="-0.455s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+          </path>
+        </g>
+        <path d="M58 78 C43 68 35 55 38 42 C49 51 59 56 70 56Z" fill="#d58a42" stroke="#6c351c" stroke-width="3" />
+        <path d="M60 68 C68 53 83 43 99 45 C109 30 128 24 151 27 C178 30 193 47 193 68 C193 89 179 108 156 117 C126 127 91 123 70 108 C55 97 51 83 60 68Z" fill="#c87937" stroke="#6c351c" stroke-width="4" />
+        <path d="M84 79 C105 95 146 100 181 85 C172 106 150 116 123 116 C100 116 84 104 84 79Z" fill="#efc989" opacity=".76" />
+        <g class="deer-head-motion">
+          <animateTransform attributeName="transform" type="translate" values="-6 -1;-3 1;1 3;3 0;-6 -3;-9 -4;-6 -1" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" dur=".64s" begin="-0.42s" repeatCount="indefinite" />
+          <animateTransform attributeName="transform" type="rotate" values="-7 64 68;-2 64 68;5 64 68;1 64 68;-8 64 68;-11 64 68;-7 64 68" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" dur=".64s" begin="-0.42s" additive="sum" repeatCount="indefinite" />
+          <path d="M67 58 C63 39 49 27 30 27 C13 27 -2 36 -8 50 C-13 63 -4 74 12 77 C30 80 51 73 66 63Z" fill="#c87937" stroke="#6c351c" stroke-width="4" />
+          <path d="M4 54 C-6 49 -19 51 -27 59 C-21 70 -4 75 11 69 C20 66 21 59 14 55Z" fill="#f3d2a0" stroke="#6c351c" stroke-width="3" />
+          <ellipse cx="-25" cy="60" rx="7" ry="6" fill="#4a2416" />
+          <ellipse cx="22" cy="46" rx="4.6" ry="5.4" fill="#2b1a16" />
+          <circle cx="20.8" cy="44.7" r="1.4" fill="#fff9db" />
+          <path d="M35 33 C25 20 9 17 -2 27 C12 29 23 35 31 43Z" fill="#f0c682" stroke="#6c351c" stroke-width="3" />
+          <path d="M56 37 C64 22 79 18 89 28 C75 31 65 37 58 48Z" fill="#e5b069" stroke="#6c351c" stroke-width="3" />
+          <g fill="none" stroke="#dca154" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M30 31 C25 14 25 2 32 -10 M28 12 L15 1 M31 5 L43 -7 M36 25 C43 12 53 4 65 0 M47 11 L48 -5 M54 7 L68 -3" />
+            <path d="M52 33 C56 17 66 6 80 0 M62 14 L61 -2 M70 8 L84 -1" opacity=".9" />
+          </g>
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="-3 47 58;4 47 58;-3 47 58" dur=".64s" begin="-0.42s" repeatCount="indefinite" />
+            <path d="M-7 70 C9 77 29 77 45 70" fill="none" stroke="#7f4223" stroke-width="2.2" stroke-linecap="round" opacity=".72" />
+          </g>
+        </g>
+        <path d="M58 66 C66 71 73 78 78 88" fill="none" stroke="#b9282d" stroke-width="10" stroke-linecap="round" />
+        <g class="bell">
+          <circle cx="68" cy="77" r="5.5" fill="#f6cb59" stroke="#fff3ba" stroke-width="1.4" />
+          <circle cx="77" cy="87" r="4.8" fill="#f6cb59" stroke="#fff3ba" stroke-width="1.2" />
+        </g>
+        <path d="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" fill="none" stroke="#c87937" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="1">
+          <animate attributeName="d" values="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130;M79 108 C61 123 44 146 29 171 C24 180 27 188 35 191;M79 108 C72 130 72 152 80 171 C84 180 82 187 75 191;M79 108 C94 123 114 143 134 160 C142 167 145 176 139 184;M79 108 C98 116 120 123 140 127 C149 129 154 125 151 118;M79 108 C92 113 104 120 110 128 C113 135 108 141 99 141;M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" dur=".64s" begin="-0.420s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+        </path>
+        <path d="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" fill="none" stroke="#c87937" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="1">
+          <animate attributeName="d" values="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136;M141 109 C130 116 117 123 106 131 C100 137 103 144 111 146;M141 109 C132 129 129 151 136 171 C140 180 137 187 130 191;M141 109 C159 127 179 150 196 173 C202 181 199 188 191 192;M141 109 C165 118 188 131 207 146 C214 152 215 159 209 165;M141 109 C129 114 117 121 112 129 C109 136 115 142 123 142;M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" dur=".64s" begin="-0.420s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+        </path>
+      </g>
+    </g>
+    <g id="deer-6" transform="translate(620 184) scale(0.92)">
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0 -10;-4 -3;0 6;5 -1;1 -11;-3 -15;0 -10" keyTimes="0;.14;.32;.50;.68;.84;1" dur=".64s" begin="-0.52s" repeatCount="indefinite" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" />
+        <g class="far-legs">
+          <path d="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" fill="none" stroke="#c87937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="0.62">
+            <animate attributeName="d" values="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130;M79 108 C61 123 44 146 29 171 C24 180 27 188 35 191;M79 108 C72 130 72 152 80 171 C84 180 82 187 75 191;M79 108 C94 123 114 143 134 160 C142 167 145 176 139 184;M79 108 C98 116 120 123 140 127 C149 129 154 125 151 118;M79 108 C92 113 104 120 110 128 C113 135 108 141 99 141;M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" dur=".64s" begin="-0.555s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+          </path>
+          <path d="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" fill="none" stroke="#c87937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="0.62">
+            <animate attributeName="d" values="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136;M141 109 C130 116 117 123 106 131 C100 137 103 144 111 146;M141 109 C132 129 129 151 136 171 C140 180 137 187 130 191;M141 109 C159 127 179 150 196 173 C202 181 199 188 191 192;M141 109 C165 118 188 131 207 146 C214 152 215 159 209 165;M141 109 C129 114 117 121 112 129 C109 136 115 142 123 142;M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" dur=".64s" begin="-0.555s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+          </path>
+        </g>
+        <path d="M58 78 C43 68 35 55 38 42 C49 51 59 56 70 56Z" fill="#d58a42" stroke="#6c351c" stroke-width="3" />
+        <path d="M60 68 C68 53 83 43 99 45 C109 30 128 24 151 27 C178 30 193 47 193 68 C193 89 179 108 156 117 C126 127 91 123 70 108 C55 97 51 83 60 68Z" fill="#c87937" stroke="#6c351c" stroke-width="4" />
+        <path d="M84 79 C105 95 146 100 181 85 C172 106 150 116 123 116 C100 116 84 104 84 79Z" fill="#efc989" opacity=".76" />
+        <g class="deer-head-motion">
+          <animateTransform attributeName="transform" type="translate" values="-6 -1;-3 1;1 3;3 0;-6 -3;-9 -4;-6 -1" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" dur=".64s" begin="-0.52s" repeatCount="indefinite" />
+          <animateTransform attributeName="transform" type="rotate" values="-7 64 68;-2 64 68;5 64 68;1 64 68;-8 64 68;-11 64 68;-7 64 68" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" dur=".64s" begin="-0.52s" additive="sum" repeatCount="indefinite" />
+          <path d="M67 58 C63 39 49 27 30 27 C13 27 -2 36 -8 50 C-13 63 -4 74 12 77 C30 80 51 73 66 63Z" fill="#c87937" stroke="#6c351c" stroke-width="4" />
+          <path d="M4 54 C-6 49 -19 51 -27 59 C-21 70 -4 75 11 69 C20 66 21 59 14 55Z" fill="#f3d2a0" stroke="#6c351c" stroke-width="3" />
+          <ellipse cx="-25" cy="60" rx="7" ry="6" fill="#4a2416" />
+          <ellipse cx="22" cy="46" rx="4.6" ry="5.4" fill="#2b1a16" />
+          <circle cx="20.8" cy="44.7" r="1.4" fill="#fff9db" />
+          <path d="M35 33 C25 20 9 17 -2 27 C12 29 23 35 31 43Z" fill="#f0c682" stroke="#6c351c" stroke-width="3" />
+          <path d="M56 37 C64 22 79 18 89 28 C75 31 65 37 58 48Z" fill="#e5b069" stroke="#6c351c" stroke-width="3" />
+          <g fill="none" stroke="#dca154" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M30 31 C25 14 25 2 32 -10 M28 12 L15 1 M31 5 L43 -7 M36 25 C43 12 53 4 65 0 M47 11 L48 -5 M54 7 L68 -3" />
+            <path d="M52 33 C56 17 66 6 80 0 M62 14 L61 -2 M70 8 L84 -1" opacity=".9" />
+          </g>
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="-3 47 58;4 47 58;-3 47 58" dur=".64s" begin="-0.52s" repeatCount="indefinite" />
+            <path d="M-7 70 C9 77 29 77 45 70" fill="none" stroke="#7f4223" stroke-width="2.2" stroke-linecap="round" opacity=".72" />
+          </g>
+        </g>
+        <path d="M58 66 C66 71 73 78 78 88" fill="none" stroke="#b9282d" stroke-width="10" stroke-linecap="round" />
+        <g class="bell">
+          <circle cx="68" cy="77" r="5.5" fill="#f6cb59" stroke="#fff3ba" stroke-width="1.4" />
+          <circle cx="77" cy="87" r="4.8" fill="#f6cb59" stroke="#fff3ba" stroke-width="1.2" />
+        </g>
+        <path d="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" fill="none" stroke="#c87937" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="1">
+          <animate attributeName="d" values="M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130;M79 108 C61 123 44 146 29 171 C24 180 27 188 35 191;M79 108 C72 130 72 152 80 171 C84 180 82 187 75 191;M79 108 C94 123 114 143 134 160 C142 167 145 176 139 184;M79 108 C98 116 120 123 140 127 C149 129 154 125 151 118;M79 108 C92 113 104 120 110 128 C113 135 108 141 99 141;M79 108 C61 108 41 111 21 116 C14 118 10 124 13 130" dur=".64s" begin="-0.520s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+        </path>
+        <path d="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" fill="none" stroke="#c87937" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#hoof)" opacity="1">
+          <animate attributeName="d" values="M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136;M141 109 C130 116 117 123 106 131 C100 137 103 144 111 146;M141 109 C132 129 129 151 136 171 C140 180 137 187 130 191;M141 109 C159 127 179 150 196 173 C202 181 199 188 191 192;M141 109 C165 118 188 131 207 146 C214 152 215 159 209 165;M141 109 C129 114 117 121 112 129 C109 136 115 142 123 142;M141 109 C161 109 181 113 201 120 C209 123 212 130 208 136" dur=".64s" begin="-0.520s" calcMode="spline" keyTimes="0;.14;.32;.50;.68;.84;1" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" repeatCount="indefinite" />
+        </path>
+      </g>
+    </g>
+  </g>
+  <g id="sleigh-team">
+    <animateTransform attributeName="transform" type="translate" values="0 -4;-3 -1;0 4;4 0;1 -7;-2 -9;0 -4" keyTimes="0;.14;.32;.50;.68;.84;1" dur=".72s" repeatCount="indefinite" keySplines=".28 0 .22 1;.34 0 .28 1;.28 0 .3 1;.26 0 .24 1;.32 0 .25 1;.28 0 .22 1" calcMode="spline" begin="-.08s" />
+    <path d="M954 207 C986 170 1044 158 1120 167 L1300 179 C1344 181 1371 164 1392 139 C1386 201 1352 248 1290 270 C1193 305 1047 293 979 252 C953 236 944 220 954 207Z" fill="#c72531" stroke="#f6cb59" stroke-width="7" stroke-linejoin="round" />
+    <path d="M974 221 C1054 246 1196 250 1329 208 M990 258 C1093 281 1217 276 1303 243" fill="none" stroke="#ffd971" stroke-width="3.2" stroke-linecap="round" opacity=".8" />
+    <path d="M978 278 C1024 332 1122 349 1230 330 C1307 316 1362 286 1390 244 M1002 286 C980 317 1004 342 1062 350 C1166 365 1321 333 1385 273" fill="none" stroke="#f6cb59" stroke-width="9" stroke-linecap="round" />
+    <path d="M1030 317 C1080 334 1141 336 1205 326 M1296 306 C1337 291 1366 273 1383 251" fill="none" stroke="#fff0a9" stroke-width="3" stroke-linecap="round" opacity=".72" />
+    <g>
+      <path d="M1232 177 C1249 119 1300 91 1352 116 C1383 131 1392 161 1377 190Z" fill="#8e3a2e" stroke="#f6cb59" stroke-width="5" />
+      <path d="M1250 130 C1275 111 1310 105 1343 118" fill="none" stroke="#ffe39a" stroke-width="4" stroke-linecap="round" />
+      <path d="M1290 109 L1303 81 L1318 111 M1330 117 L1351 92 L1360 124" fill="none" stroke="#44a071" stroke-width="8" stroke-linecap="round" />
+      <rect x="1261" y="115" width="37" height="38" rx="4" fill="#386e61" stroke="#f3c958" stroke-width="3" />
+      <path d="M1279 115v38m-18-19h37" stroke="#f3c958" stroke-width="3" />
+      <rect x="1311" y="126" width="34" height="31" rx="4" fill="#d12c3c" stroke="#f3c958" stroke-width="3" />
+      <path d="M1328 126v31m-17-16h34" stroke="#f3c958" stroke-width="3" />
+    </g>
+    <g>
+      <path d="M1056 224 C1057 176 1073 134 1108 121 C1148 106 1185 134 1197 185 L1206 248 L1048 248Z" fill="#c72531" stroke="#7b1720" stroke-width="5" />
+      <path d="M1081 125 C1096 90 1125 68 1159 66 C1190 64 1213 78 1227 102 C1195 93 1167 103 1147 130Z" fill="#c72531" stroke="#f6d675" stroke-width="5" />
+      <circle cx="1228" cy="103" r="10" fill="#fff1c8" filter="url(#goldGlow)" />
+      <circle cx="1123" cy="145" r="41" fill="#e2a171" stroke="#f5d277" stroke-width="5" />
+      <path d="M1088 146 C1093 178 1115 196 1144 190 C1170 184 1183 159 1172 134 C1161 148 1149 153 1136 147 C1120 161 1104 160 1088 146Z" fill="#fff3dd" />
+      <path d="M1099 134 C1107 128 1116 127 1124 131 M1141 131 C1149 127 1158 129 1164 135" fill="none" stroke="#6b3422" stroke-width="3" stroke-linecap="round" />
+      <circle cx="1114" cy="137" r="3.2" fill="#38221b" />
+      <circle cx="1151" cy="137" r="3.2" fill="#38221b" />
+      <circle cx="1133" cy="149" r="4.5" fill="#ce6f5c" />
+      <path d="M1118 163 C1128 170 1140 170 1150 162" fill="none" stroke="#ad2431" stroke-width="4" stroke-linecap="round" />
+      <path d="M1071 190 C1037 177 1008 189 988 216" fill="none" stroke="#c72432" stroke-width="22" stroke-linecap="round" />
+      <g>
+        <animateTransform attributeName="transform" type="rotate" values="-13 994 215;13 994 215;-13 994 215" dur="1.05s" repeatCount="indefinite" />
+        <circle cx="990" cy="217" r="13" fill="#fff0d8" stroke="#d8a448" stroke-width="3" />
+        <path d="M980 211 C986 205 993 204 1001 209" fill="none" stroke="#d8a448" stroke-width="2" />
+      </g>
+      <path d="M1057 208 H1197" stroke="#4b2b28" stroke-width="13" stroke-linecap="round" />
+      <rect x="1118" y="201" width="25" height="17" rx="2.5" fill="#f4c94f" stroke="#fff0a6" stroke-width="2" />
+      <circle cx="1131" cy="181" r="4" fill="#fff3dc" />
+      <circle cx="1131" cy="230" r="4" fill="#fff3dc" />
+      <path d="M1057 245 H1204" stroke="#fff4dc" stroke-width="16" stroke-linecap="round" />
+    </g>
+    <g filter="url(#goldGlow)">
+      <circle cx="1025" cy="282" r="5" fill="#ffe996">
+        <animate attributeName="opacity" values=".35;1;.35" dur=".72s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="1094" cy="294" r="5" fill="#fff5c8">
+        <animate attributeName="opacity" values="1;.35;1" dur=".92s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="1171" cy="298" r="6" fill="#efbd46">
+        <animate attributeName="opacity" values=".4;1;.4" dur=".65s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="1251" cy="288" r="5" fill="#fff0a2">
+        <animate attributeName="opacity" values="1;.3;1" dur="1.1s" repeatCount="indefinite" />
+      </circle>
+    </g>
+  </g>
+</svg>

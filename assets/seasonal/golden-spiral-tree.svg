@@ -1,0 +1,338 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -60 900 1260" role="img" aria-label="Abstract golden spiral Christmas tree">
+  <defs>
+    <linearGradient id="goldRibbon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8f5910"/>
+      <stop offset="0.18" stop-color="#d99f25"/>
+      <stop offset="0.38" stop-color="#fff2a0"/>
+      <stop offset="0.56" stop-color="#c88718"/>
+      <stop offset="0.77" stop-color="#ffe58a"/>
+      <stop offset="1" stop-color="#9b6215"/>
+    </linearGradient>
+    <linearGradient id="goldEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f1ba42" stop-opacity=".12"/>
+      <stop offset=".32" stop-color="#fff8c9" stop-opacity=".95"/>
+      <stop offset=".7" stop-color="#f0bb3d" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#fff0a0" stop-opacity=".82"/>
+    </linearGradient>
+    <radialGradient id="starGold" cx="42%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#fffde3"/>
+      <stop offset=".27" stop-color="#fff2a2"/>
+      <stop offset=".58" stop-color="#e2a72a"/>
+      <stop offset="1" stop-color="#8d560c"/>
+    </radialGradient>
+    <linearGradient id="iceGlint" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#eefaff" stop-opacity="0"/>
+      <stop offset=".22" stop-color="#f5fdff" stop-opacity=".62"/>
+      <stop offset=".55" stop-color="#ffffff" stop-opacity=".9"/>
+      <stop offset=".82" stop-color="#dff6ff" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#effaff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rainbowSpiral" gradientUnits="userSpaceOnUse" x1="300" y1="125" x2="610" y2="1095" spreadMethod="reflect">
+      <stop offset="0" stop-color="#ff2155"/>
+      <stop offset=".1" stop-color="#ff7a18"/>
+      <stop offset=".2" stop-color="#fff126"/>
+      <stop offset=".31" stop-color="#62ff4f"/>
+      <stop offset=".43" stop-color="#22ffe6"/>
+      <stop offset=".55" stop-color="#26bfff"/>
+      <stop offset=".68" stop-color="#5368ff"/>
+      <stop offset=".8" stop-color="#bd47ff"/>
+      <stop offset=".9" stop-color="#ff35c8"/>
+      <stop offset="1" stop-color="#ff2155"/>
+    </linearGradient>
+    <filter id="softGold" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+    </filter>
+    <filter id="ribbonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="starGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="wide"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="near"/>
+      <feMerge>
+        <feMergeNode in="wide"/>
+        <feMergeNode in="near"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="lightGlow" x="-380%" y="-380%" width="860%" height="860%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.2" result="lightBlur"/>
+      <feMerge>
+        <feMergeNode in="lightBlur"/>
+        <feMergeNode in="lightBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="rainbowNeonGlow" x="-65%" y="-65%" width="230%" height="230%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="wide"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="near"/>
+      <feMerge>
+        <feMergeNode in="wide"/>
+        <feMergeNode in="wide"/>
+        <feMergeNode in="near"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <path id="spiral" d="M450 151
+      C472 154 474 163 449 168
+      C420 174 423 184 458 190
+      C497 196 494 208 441 215
+      C386 222 390 236 464 243
+      C533 250 531 267 431 275
+      C350 283 357 302 478 311
+      C574 319 568 341 417 351
+      C307 360 317 385 493 396
+      C620 405 612 434 401 445
+      C268 455 280 487 510 499
+      C660 510 648 545 382 557
+      C232 568 242 605 531 619
+      C702 631 687 671 359 685
+      C194 696 209 741 552 755
+      C739 768 721 815 339 832
+      C165 844 181 894 579 909
+      C777 921 758 973 311 990
+      C143 1001 169 1048 607 1061
+      C777 1068 761 1091 663 1097"/>
+    <clipPath id="treeClip">
+      <path d="M450 128 L104 1094 Q450 1162 796 1094 Z"/>
+    </clipPath>
+    <style>
+      .tree-top-star {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: treeStarFlash 1.9s cubic-bezier(.16, 1, .3, 1) infinite;
+      }
+      .tree-star-halo {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: treeStarHalo 1.9s ease-out infinite;
+      }
+      .tree-star-body {
+        animation: treeStarBody 1.9s ease-out infinite;
+      }
+      .tree-star-core {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: treeStarCore 1.9s ease-out infinite;
+      }
+      .tree-star-center {
+        animation: treeStarCenter 1.9s ease-out infinite;
+      }
+      .spiral-body {
+        animation: spiralGoldBreath 4.4s ease-in-out infinite;
+      }
+      .spiral-edge {
+        animation: spiralGoldFlow 4.8s linear infinite;
+      }
+      .spiral-rainbow,
+      .spiral-rainbow-glow,
+      .spiral-rainbow-pulse,
+      .spiral-rainbow-flow {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .spiral-rainbow-glow {
+        stroke: url(#rainbowSpiral);
+        stroke-width: 58px;
+        opacity: .24;
+        filter: url(#lightGlow);
+      }
+      .spiral-rainbow {
+        stroke: url(#rainbowSpiral);
+        stroke-width: 29px;
+        opacity: .82;
+        filter: url(#lightGlow);
+      }
+      .spiral-rainbow-pulse {
+        stroke: url(#rainbowSpiral);
+        stroke-width: 38px;
+        stroke-dasharray: 24 126;
+        opacity: .58;
+        filter: url(#lightGlow);
+        animation: rainbowDownward 4.4s linear infinite;
+      }
+      .spiral-rainbow-flow {
+        stroke: #fffef0;
+        stroke-width: 6px;
+        stroke-dasharray: 8 142;
+        opacity: .86;
+        filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #ffe65c);
+        animation: rainbowDownward 4.4s linear infinite;
+      }
+      @keyframes treeStarFlash {
+        0%, 4%, 100% {
+          opacity: 1;
+          transform: scale(1.72);
+          filter: brightness(2.75) drop-shadow(0 0 12px #fffbd5) drop-shadow(0 0 32px #ffd02f) drop-shadow(0 0 62px rgba(255, 153, 0, 1));
+        }
+        12% {
+          opacity: .95;
+          transform: scale(1.52);
+          filter: brightness(1.7) drop-shadow(0 0 9px #fff0a0) drop-shadow(0 0 24px rgba(255, 183, 35, .92));
+        }
+        58% {
+          opacity: .68;
+          transform: scale(1.38);
+          filter: brightness(1.12) drop-shadow(0 0 5px rgba(255, 197, 59, .68));
+        }
+        90% {
+          opacity: .52;
+          transform: scale(1.32);
+          filter: brightness(.96) drop-shadow(0 0 4px rgba(255, 190, 43, .52));
+        }
+      }
+      @keyframes treeStarHalo {
+        0%, 4%, 100% { opacity: 1; transform: scale(2.05); }
+        18% { opacity: .78; transform: scale(1.72); }
+        90% { opacity: .22; transform: scale(1.36); }
+      }
+      @keyframes treeStarBody {
+        0%, 5%, 100% { fill: #fff0a0; opacity: 1; }
+        24% { fill: #eab131; opacity: .92; }
+        90% { fill: #c68618; opacity: .7; }
+      }
+      @keyframes treeStarCore {
+        0%, 5%, 100% { opacity: 1; transform: scale(1.28); }
+        22% { opacity: .86; transform: scale(1.12); }
+        90% { opacity: .52; transform: scale(1); }
+      }
+      @keyframes treeStarCenter {
+        0%, 5%, 100% { opacity: 1; filter: brightness(3) drop-shadow(0 0 13px #fffbd9); }
+        24% { opacity: .9; filter: brightness(1.55) drop-shadow(0 0 7px #ffe57a); }
+        90% { opacity: .52; filter: brightness(.9); }
+      }
+      @keyframes spiralGoldBreath {
+        0%, 100% {
+          opacity: .78;
+          filter: drop-shadow(0 0 1.5px rgba(255, 191, 56, .42));
+        }
+        50% {
+          opacity: 1;
+          filter: drop-shadow(0 0 4px rgba(255, 220, 104, .82));
+        }
+      }
+      @keyframes spiralGoldFlow {
+        0% { stroke-dasharray: 9 26; stroke-dashoffset: 0; opacity: .55; }
+        50% { opacity: 1; }
+        100% { stroke-dasharray: 9 26; stroke-dashoffset: -70; opacity: .55; }
+      }
+      @keyframes rainbowDownward {
+        from { stroke-dashoffset: 0; }
+        to { stroke-dashoffset: -150; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .tree-top-star, .tree-star-halo, .tree-star-core,
+        .tree-star-body, .tree-star-center, .spiral-body, .spiral-edge,
+        .spiral-rainbow, .spiral-rainbow-glow, .spiral-rainbow-pulse, .spiral-rainbow-flow { animation: none; }
+        .tree-top-star { opacity: 1; filter: brightness(1.35) drop-shadow(0 0 10px #ffd34f); }
+        .tree-star-halo { opacity: .72; }
+        .spiral-body, .spiral-edge { opacity: 1; }
+        .spiral-rainbow { opacity: 1; filter: brightness(1.2) saturate(1.4) drop-shadow(0 0 4px rgba(255,255,255,.66)); }
+        .spiral-rainbow-glow { opacity: .3; filter: blur(3px); }
+        .spiral-rainbow-flow { opacity: .85; }
+        .spiral-rainbow-pulse { opacity: .65; }
+      }
+    </style>
+  </defs>
+
+  <!-- Eight-point topper. -->
+  <g class="tree-top-star">
+    <path class="tree-star-halo" d="M450 24 L459 64 L487 38 L478 72 L526 76 L480 87 L507 116 L469 98 L450 142 L440 99 L408 121 L422 87 L374 78 L420 70 L394 39 L432 61 Z"
+      fill="#efb52c" opacity=".58" filter="url(#starGlow)"/>
+    <path class="tree-star-body" d="M450 24 L459 64 L487 38 L478 72 L526 76 L480 87 L507 116 L469 98 L450 142 L440 99 L408 121 L422 87 L374 78 L420 70 L394 39 L432 61 Z"
+      fill="#e6aa28" stroke="#fff0a1" stroke-width="2.1" stroke-linejoin="round"/>
+    <path class="tree-star-core" d="M450 35 L456 67 L477 48 L469 74 L509 78 L471 86 L493 107 L462 93 L450 128 L443 94 L419 111 L430 86 L391 79 L429 72 L408 49 L439 66 Z"
+      fill="#ffe178" opacity=".7"/>
+    <circle class="tree-star-center" cx="450" cy="79" r="7" fill="#fffbd8" opacity=".9"/>
+  </g>
+
+  <!-- Main ribbon: broad golden body with a fine luminous edge. -->
+  <use href="#spiral" fill="none" stroke="#9a6215" stroke-opacity=".2" stroke-width="16" stroke-linecap="round" filter="url(#softGold)"/>
+  <use class="spiral-body" href="#spiral" fill="none" stroke="url(#goldRibbon)" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#ribbonGlow)"/>
+  <use class="spiral-edge" href="#spiral" fill="none" stroke="url(#goldEdge)" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- A continuous rainbow ribbon runs from the star to the lowest spiral. -->
+  <g class="spiral-rainbow-strand" transform="translate(450 0) scale(1.16 1) translate(-450 0)">
+    <use class="spiral-rainbow-glow" href="#spiral" stroke="url(#rainbowSpiral)"/>
+    <use class="spiral-rainbow" href="#spiral" stroke="url(#rainbowSpiral)"/>
+    <use class="spiral-rainbow-pulse" href="#spiral" stroke="url(#rainbowSpiral)"/>
+    <use class="spiral-rainbow-flow" href="#spiral" stroke="#fff8d4"/>
+  </g>
+
+  <!-- Irregular branch wisps keep the silhouette organic rather than geometric. -->
+  <g fill="none" stroke="url(#goldRibbon)" stroke-linecap="round" filter="url(#ribbonGlow)">
+    <path d="M429 198 C449 202 475 200 486 191" stroke-width="2.8" opacity=".76"/>
+    <path d="M408 231 C440 236 486 233 508 221" stroke-width="3.2" opacity=".7"/>
+    <path d="M377 269 C422 277 505 274 536 256" stroke-width="3.5" opacity=".7"/>
+    <path d="M346 307 C407 318 522 314 565 291" stroke-width="3.7" opacity=".68"/>
+    <path d="M315 350 C397 363 546 359 590 331" stroke-width="4" opacity=".64"/>
+    <path d="M276 400 C377 414 567 409 627 379" stroke-width="4.2" opacity=".62"/>
+    <path d="M245 451 C374 470 590 461 659 427" stroke-width="4.5" opacity=".62"/>
+    <path d="M214 510 C347 526 620 522 691 485" stroke-width="4.8" opacity=".6"/>
+    <path d="M184 570 C344 593 647 581 722 545" stroke-width="5" opacity=".58"/>
+    <path d="M155 638 C332 660 668 653 748 611" stroke-width="5.1" opacity=".56"/>
+    <path d="M133 707 C326 735 682 724 770 678" stroke-width="5.3" opacity=".54"/>
+    <path d="M115 784 C323 807 700 803 790 752" stroke-width="5.5" opacity=".52"/>
+    <path d="M102 858 C332 892 715 875 803 830" stroke-width="5.6" opacity=".5"/>
+    <path d="M92 939 C333 968 725 958 814 908" stroke-width="5.8" opacity=".5"/>
+    <path d="M83 1016 C326 1047 728 1034 822 987" stroke-width="6" opacity=".48"/>
+  </g>
+
+  <!-- Ice-white highlights follow selected ribbon contours like thin settled snow. -->
+  <g fill="none" stroke="url(#iceGlint)" stroke-linecap="round">
+    <path d="M432 177 C441 175 451 176 459 180" stroke-width="2.15"/>
+    <path d="M451 216 C468 214 483 211 490 207" stroke-width="2.25"/>
+    <path d="M393 239 C418 245 444 246 466 244" stroke-width="2.2"/>
+    <path d="M453 276 C483 274 511 269 526 264" stroke-width="2.4"/>
+    <path d="M363 308 C398 315 435 316 466 313" stroke-width="2.3"/>
+    <path d="M462 351 C507 349 550 342 568 335" stroke-width="2.6"/>
+    <path d="M325 395 C371 404 422 405 458 402" stroke-width="2.4"/>
+    <path d="M472 447 C530 444 579 436 603 427" stroke-width="2.7"/>
+    <path d="M284 499 C338 509 401 512 450 509" stroke-width="2.5"/>
+    <path d="M489 557 C556 554 619 544 647 534" stroke-width="2.85"/>
+    <path d="M245 618 C310 629 386 632 441 628" stroke-width="2.55"/>
+    <path d="M503 686 C582 683 651 672 681 660" stroke-width="2.9"/>
+    <path d="M210 755 C285 767 369 770 427 765" stroke-width="2.6"/>
+    <path d="M521 833 C609 829 682 817 716 805" stroke-width="3"/>
+    <path d="M177 909 C264 922 358 926 419 920" stroke-width="2.7"/>
+    <path d="M541 991 C629 988 706 976 744 963" stroke-width="3.1"/>
+    <path d="M190 1060 C276 1068 368 1069 432 1063" stroke-width="2.7"/>
+  </g>
+
+  <!-- Fine gold dust and restrained crystalline glints. -->
+  <g clip-path="url(#treeClip)">
+    <g fill="#ffd75d">
+      <circle cx="438" cy="184" r="2.5" opacity=".85"/><circle cx="474" cy="222" r="1.7" opacity=".58"/>
+      <circle cx="412" cy="258" r="2.1" opacity=".72"/><circle cx="509" cy="288" r="2.7" opacity=".76"/>
+      <circle cx="369" cy="337" r="1.9" opacity=".62"/><circle cx="544" cy="365" r="2.8" opacity=".8"/>
+      <circle cx="328" cy="419" r="2.4" opacity=".68"/><circle cx="591" cy="453" r="1.8" opacity=".54"/>
+      <circle cx="281" cy="493" r="2.6" opacity=".7"/><circle cx="628" cy="526" r="2.9" opacity=".82"/>
+      <circle cx="235" cy="580" r="1.8" opacity=".55"/><circle cx="671" cy="609" r="2.5" opacity=".73"/>
+      <circle cx="196" cy="672" r="2.9" opacity=".8"/><circle cx="710" cy="709" r="2" opacity=".6"/>
+      <circle cx="166" cy="772" r="2.4" opacity=".7"/><circle cx="746" cy="797" r="2.8" opacity=".76"/>
+      <circle cx="137" cy="866" r="1.9" opacity=".6"/><circle cx="773" cy="894" r="2.4" opacity=".7"/>
+      <circle cx="120" cy="966" r="2.7" opacity=".72"/><circle cx="790" cy="991" r="1.8" opacity=".58"/>
+      <circle cx="178" cy="1045" r="2.5" opacity=".68"/><circle cx="725" cy="1064" r="2.6" opacity=".72"/>
+    </g>
+    <g fill="#fff9d0">
+      <path d="M395 296 l3.2 7.4 7.4 3.2-7.4 3.2-3.2 7.4-3.2-7.4-7.4-3.2 7.4-3.2z" opacity=".72"/>
+      <path d="M568 414 l2.6 6.2 6.2 2.6-6.2 2.6-2.6 6.2-2.6-6.2-6.2-2.6 6.2-2.6z" opacity=".66"/>
+      <path d="M336 552 l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" opacity=".68"/>
+      <path d="M653 649 l3.5 8 8 3.5-8 3.5-3.5 8-3.5-8-8-3.5 8-3.5z" opacity=".72"/>
+      <path d="M265 745 l2.8 6.6 6.6 2.8-6.6 2.8-2.8 6.6-2.8-6.6-6.6-2.8 6.6-2.8z" opacity=".62"/>
+      <path d="M588 858 l3.1 7.2 7.2 3.1-7.2 3.1-3.1 7.2-3.1-7.2-7.2-3.1 7.2-3.1z" opacity=".7"/>
+      <path d="M359 1003 l2.7 6.4 6.4 2.7-6.4 2.7-2.7 6.4-2.7-6.4-6.4-2.7 6.4-2.7z" opacity=".64"/>
+    </g>
+  </g>
+
+  <!-- Open lower flourish anchors the spiral without creating a solid base. -->
+  <g fill="none" stroke-linecap="round" filter="url(#ribbonGlow)">
+    <path d="M113 1090 C250 1131 590 1138 785 1089 C685 1145 536 1165 425 1153 C334 1144 325 1160 370 1171"
+      stroke="url(#goldRibbon)" stroke-width="7.2" opacity=".9"/>
+    <path d="M140 1092 C301 1120 585 1125 751 1093" stroke="url(#goldEdge)" stroke-width="1.9" opacity=".8"/>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 150" role="img" aria-labelledby="title desc">
+  <title id="title">Christmas light garland</title>
+  <desc id="desc">A lightweight vector derivative inspired by Openclipart Christmas Lights 300259, Public Domain.</desc>
+  <metadata>Source: https://openclipart.org/detail/300259/christmas-lights — Public Domain / CC0 derivative.</metadata>
+  <defs>
+    <filter id="glow" x="-120%" y="-120%" width="340%" height="340%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <radialGradient id="warm"><stop stop-color="#fff9d7"/><stop offset=".42" stop-color="#ffd36c"/><stop offset="1" stop-color="#d58a24"/></radialGradient>
+    <radialGradient id="red"><stop stop-color="#ffb09c"/><stop offset=".46" stop-color="#df5545"/><stop offset="1" stop-color="#8f252d"/></radialGradient>
+    <radialGradient id="green"><stop stop-color="#d8f4bd"/><stop offset=".46" stop-color="#59a76c"/><stop offset="1" stop-color="#23604c"/></radialGradient>
+    <radialGradient id="ivory"><stop stop-color="#fff"/><stop offset=".5" stop-color="#f6e8c0"/><stop offset="1" stop-color="#bda86c"/></radialGradient>
+    <g id="bulb"><path d="M-4-9h8v7h-8z" fill="#73644f"/><path d="M-5-7h10" stroke="#c6af7c"/><ellipse cy="8" rx="9" ry="13" fill="var(--lamp)" filter="url(#glow)"/><ellipse cx="-3" cy="3" rx="2.3" ry="4.2" fill="#fff" opacity=".72"/></g>
+  </defs>
+  <path d="M8 20C155 70 230 84 342 58S548 40 615 77s202 35 286-8 181-52 291-19" fill="none" stroke="#5f563f" stroke-width="3" opacity=".9"/>
+  <path d="M12 22C160 74 238 88 345 62S548 45 616 81s204 36 288-8 181-50 288-18" fill="none" stroke="#d7bf76" stroke-width="1" opacity=".5"/>
+  <g>
+    <use xlink:href="#bulb" x="55" y="40" style="--lamp:url(#warm)"/><use xlink:href="#bulb" x="125" y="62" style="--lamp:url(#red)"/><use xlink:href="#bulb" x="196" y="76" style="--lamp:url(#green)"/><use xlink:href="#bulb" x="270" y="74" style="--lamp:url(#ivory)"/><use xlink:href="#bulb" x="344" y="59" style="--lamp:url(#warm)"/><use xlink:href="#bulb" x="420" y="46" style="--lamp:url(#red)"/><use xlink:href="#bulb" x="500" y="52" style="--lamp:url(#green)"/><use xlink:href="#bulb" x="576" y="70" style="--lamp:url(#ivory)"/><use xlink:href="#bulb" x="652" y="93" style="--lamp:url(#warm)"/><use xlink:href="#bulb" x="730" y="104" style="--lamp:url(#red)"/><use xlink:href="#bulb" x="808" y="96" style="--lamp:url(#green)"/><use xlink:href="#bulb" x="884" y="76" style="--lamp:url(#ivory)"/><use xlink:href="#bulb" x="960" y="52" style="--lamp:url(#warm)"/><use xlink:href="#bulb" x="1038" y="40" style="--lamp:url(#red)"/><use xlink:href="#bulb" x="1118" y="45" style="--lamp:url(#green)"/>
+  </g>
+</svg>
