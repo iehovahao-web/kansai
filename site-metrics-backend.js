@@ -74,13 +74,16 @@
 
   function readTotalCache() {
     let value;
-    try { value = JSON.parse(sessionStorage.getItem(TOTAL_CACHE_KEY) || '{}'); }
+    try { value = JSON.parse(localStorage.getItem(TOTAL_CACHE_KEY) || sessionStorage.getItem(TOTAL_CACHE_KEY) || '{}'); }
     catch (_) { value = {}; }
     return value && typeof value === 'object' ? value : {};
   }
   function writeTotalCache(value) {
-    try { sessionStorage.setItem(TOTAL_CACHE_KEY, JSON.stringify(value)); }
-    catch (_) {}
+    try { localStorage.setItem(TOTAL_CACHE_KEY, JSON.stringify(value)); }
+    catch (_) {
+      try { sessionStorage.setItem(TOTAL_CACHE_KEY, JSON.stringify(value)); }
+      catch (_) {}
+    }
   }
   async function totals(operationFor = null) {
     const metrics = Object.entries(TOTAL_KEYS);
@@ -110,9 +113,15 @@
     return values;
   }
 
+  const initialCache = readTotalCache();
   window.KansaiMetricsProvider = Object.freeze({
     scope: 'global',
     readOnly: isVerification,
+    initialTotals: Object.freeze({
+      visits: Number.isSafeInteger(initialCache.visits) && initialCache.visits >= 0 ? initialCache.visits : 208,
+      music: Number.isSafeInteger(initialCache.music) && initialCache.music >= 0 ? initialCache.music : 0,
+      video: Number.isSafeInteger(initialCache.video) && initialCache.video >= 0 ? initialCache.video : 0
+    }),
     totalKeys: Object.freeze({ ...TOTAL_KEYS }),
     detailKeys: Object.freeze([...DETAIL_KEYS]),
     readAll() { return totals(); },

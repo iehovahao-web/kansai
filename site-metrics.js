@@ -61,7 +61,12 @@
   const deviceProvider = createDeviceProvider();
   const injected = window.KansaiMetricsProvider;
   const provider = injected && typeof injected.readAll === 'function' && typeof injected.increment === 'function' ? injected : deviceProvider;
-  let language = languageFromDocument(), state = 'loading', totals = { visits: null, music: null, video: null };
+  const initialTotals = provider.scope === 'global' ? provider.initialTotals : null;
+  let language = languageFromDocument(), state = 'loading', totals = initialTotals ? {
+    visits: Number.isSafeInteger(initialTotals.visits) && initialTotals.visits >= 0 ? initialTotals.visits : BASELINE_VISITS,
+    music: Number.isSafeInteger(initialTotals.music) && initialTotals.music >= 0 ? initialTotals.music : 0,
+    video: Number.isSafeInteger(initialTotals.video) && initialTotals.video >= 0 ? initialTotals.video : 0
+  } : { visits: null, music: null, video: null };
 
   async function providerCall(method, ...args) {
     return provider[method](...args);
@@ -102,12 +107,12 @@
       if (provider.readOnly) totals = await providerCall('readAll');
       else totals = await providerCall('increment', 'visits');
       renderTotals(); updateStatus(provider.scope === 'global' ? 'global' : 'device');
-    } catch (_) { totals = { visits: null, music: null, video: null }; renderTotals(); updateStatus('unavailable'); }
+    } catch (_) { renderTotals(); updateStatus('unavailable'); }
   }
   async function recordQualifiedPlay(name) {
     if (wasRecorded(name)) return;
     try { totals = await providerCall('increment', name); markRecorded(name); renderTotals(); updateStatus(provider.scope === 'global' ? 'global' : 'device'); }
-    catch (_) { totals[name] = null; renderTotals(); updateStatus('unavailable'); }
+    catch (_) { renderTotals(); updateStatus('unavailable'); }
   }
   const monitoredMedia = new WeakSet();
   function monitorPlayback(media, name) {

@@ -96,7 +96,7 @@ To pre-create a catalog key at zero, Abacus uses unauthenticated `GET /create/{n
 ## Failure, security, and privacy behavior
 
 - The provider uses CORS `GET /get/{namespace}/{key}` and `GET /hit/{namespace}/{key}`, with a 4.5-second timeout, omitted credentials, no referrer, no URL/query payload, and no personal fields.
-- Successful global values are cached for the current tab session and fill any temporarily failed reads. If production has neither a live nor cached global value, the page shows the global counter as unavailable; it never substitutes unrelated device-local totals. Local and non-production previews use the device-local provider.
+- Successful global values are cached in the browser and rendered immediately on later loads, so a refresh does not replace the three totals with placeholders while the network request is pending. The authorized `208 / 0 / 0` baseline is the first-paint fallback before any cache exists. A successful response always replaces it with the current shared totals. Production never substitutes unrelated device-local totals. Local and non-production previews use the device-local provider.
 - A failed remote increment is never followed by a device-local increment because the remote service may have accepted the request before its response was lost. This prevents a single action from being counted in two stores.
 - Detailed backend-only events are best effort. They are not queued in local storage and do not block links, media, language switching, or seasonal controls.
 - Abacus is a free third-party service. It currently allows CORS and reports a limit of 30 requests per 10 seconds per IP. It has no project SLA. The visitor's IP is visible to that service as with any HTTP request.
