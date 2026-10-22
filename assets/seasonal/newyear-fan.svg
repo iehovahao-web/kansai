@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 220" role="img" aria-labelledby="title desc">
+  <title id="title">新春の扇</title><desc id="desc">Original gold folding fan with red plum blossoms and a ceremonial cord.</desc>
+  <defs><linearGradient id="paper" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f9e8b0"/><stop offset=".55" stop-color="#d7b667"/><stop offset="1" stop-color="#9d7131"/></linearGradient><g id="ume"><g fill="#b73546" stroke="#f6ccad" stroke-width="1"><circle cy="-9" r="8"/><circle cx="9" cy="-3" r="8"/><circle cx="6" cy="7" r="8"/><circle cx="-6" cy="7" r="8"/><circle cx="-9" cy="-3" r="8"/></g><circle r="3" fill="#f9d47e"/></g></defs>
+  <ellipse cx="164" cy="204" rx="129" ry="9" fill="#01090f" opacity=".35"/>
+  <path d="M33 111Q164-38 296 111L164 195Z" fill="url(#paper)" stroke="#e8c97b" stroke-width="2"/>
+  <g fill="none" stroke="#99723a" stroke-width="1.2" opacity=".62"><path d="M164 195L33 111M164 195L56 88M164 195L81 69M164 195L108 55M164 195L135 46M164 195V44M164 195L194 46M164 195L223 55M164 195L249 69M164 195L274 89M164 195L296 111"/></g>
+  <path d="M42 111Q164-20 287 111" fill="none" stroke="#fff4c6" stroke-width="3" opacity=".8"/>
+  <path d="M113 154Q180 91 252 101M172 119L182 86M212 105L225 81" fill="none" stroke="#704135" stroke-width="3"/>
+  <use href="#ume" x="183" y="86"/><use href="#ume" x="224" y="82"/><use href="#ume" x="252" y="101"/><use href="#ume" x="147" y="130"/>
+  <path d="M155 192Q137 182 136 195Q137 208 160 199Q185 209 187 196Q188 183 168 192M163 199L151 217M168 199L180 216" fill="none" stroke="#bd3c48" stroke-width="4"/>
+  <circle cx="164" cy="195" r="5" fill="#f7d583"/>
+</svg>

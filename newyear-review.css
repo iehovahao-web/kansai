@@ -1,0 +1,58 @@
+/* Local-review Japanese New Year treatment. This file is intentionally separate
+   from the already confirmed Halloween, Thanksgiving, and Christmas styles. */
+.seasonal-theme-newyear,
+.seasonal-theme-newyear *,
+.seasonal-theme-newyear *::before,
+.seasonal-theme-newyear *::after,
+.seasonal-caption-newyear,
+.seasonal-caption-newyear *{pointer-events:none!important;user-select:none}
+
+.seasonal-theme-newyear{background:radial-gradient(circle at 50% 15%,#17365618,transparent 40%),linear-gradient(180deg,#03152414 0,transparent 46%,#611b1917 100%)}
+.seasonal-theme-newyear .seasonal-image{image-rendering:auto}
+.seasonal-theme-newyear .seasonal-particle{position:absolute;left:var(--x);top:var(--start-y);display:block;transform:translate(-50%,-50%) scale(var(--scale));animation-delay:var(--delay)!important;animation-duration:var(--duration)!important}
+.seasonal-theme-newyear .seasonal-gold-paper{top:-26px;width:clamp(5px,.65vw,10px);height:clamp(10px,1.05vw,16px);border:0;border-radius:1px;background:linear-gradient(145deg,#fff1a2 0,#dc9e2e 46%,#fff0a1 52%,#a96b17 100%);box-shadow:0 0 5px #f2c96335;opacity:.56;clip-path:none;animation:seasonalNewYearConfetti 19s linear infinite}
+.seasonal-theme-newyear .seasonal-gold-paper:nth-child(3n){background:linear-gradient(145deg,#ffddd4,#b62b31 50%,#79171d);clip-path:polygon(50% 0,86% 18%,100% 60%,63% 100%,14% 83%,0 35%)}
+.seasonal-theme-newyear .seasonal-gold-paper:nth-child(4n){background:linear-gradient(145deg,#fffdf0,#e9d9b8 56%,#b9975f);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+
+.seasonal-newyear-glow{inset:72px 0 0;opacity:.76;background:radial-gradient(circle at 12% 23%,#e34b3924,transparent 26%),radial-gradient(circle at 87% 36%,#f0c45b20,transparent 30%),linear-gradient(180deg,transparent 67%,#7c20171d)}
+.seasonal-newyear-garland{left:50%;top:78px;width:min(1120px,94vw);height:94px;transform:translateX(-50%);opacity:.8;object-fit:fill;object-position:center top;filter:drop-shadow(0 3px 6px #07131f6b)}
+.seasonal-newyear-sunrise{left:-24px;top:27vh;width:clamp(150px,17vw,230px);height:clamp(130px,15vw,200px);opacity:.28;object-position:left center;filter:drop-shadow(0 0 12px #e7b94e33);animation:seasonalNewYearSunrise 8s ease-in-out infinite}
+
+.seasonal-fireworks{display:block;inset:0;overflow:hidden;opacity:.82;contain:layout paint;isolation:isolate}
+.seasonal-fireworks-canvas{position:fixed;inset:0;display:block;width:100vw;height:100vh;opacity:1;mix-blend-mode:screen;image-rendering:auto;filter:saturate(1.32) contrast(1.08) brightness(1.09);pointer-events:none}
+
+.seasonal-kadomatsu,.seasonal-kadomatsu-right{bottom:12px;width:clamp(104px,11vw,146px);height:clamp(160px,17vw,225px);opacity:.95;object-position:center bottom;filter:drop-shadow(0 7px 9px #04101899)}
+.seasonal-kadomatsu{left:1.2%}.seasonal-kadomatsu-right{right:1.2%;transform:scaleX(-1)}
+.seasonal-newyear-lanterns{left:clamp(90px,10vw,134px);bottom:12px;width:clamp(100px,12vw,158px);height:clamp(70px,8vw,106px);opacity:.88;object-position:center bottom;filter:drop-shadow(0 5px 7px #09141c82)}
+.seasonal-newyear-gifts{right:clamp(90px,10vw,134px);bottom:10px;width:clamp(145px,15vw,200px);height:clamp(104px,11vw,144px);opacity:.96;object-position:center bottom;filter:drop-shadow(0 6px 8px #08141d85)}
+
+/* Absolute positioning keeps the greeting with the first screen instead of
+   making it follow the visitor over controls and content while scrolling. */
+.seasonal-caption-newyear{position:absolute;z-index:15;display:block;visibility:visible;opacity:1;top:112px;right:clamp(18px,3vw,46px);width:min(330px,calc(100vw - 36px));padding:12px 18px 13px;border:1px solid #d6ad5d55;border-right:2px solid #e0bd6e;background:linear-gradient(112deg,#061b2ce8,#351b22e3);text-align:right;box-shadow:0 10px 28px #030d1852,inset 0 0 0 1px #fff8dc08;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.seasonal-caption-newyear::before{content:"";position:absolute;left:13px;top:12px;width:42px;height:42px;border:1px solid #e3bf714f;border-radius:50%;box-shadow:inset 0 0 0 7px #b22e2a12,0 0 12px #eac66a1f}
+.seasonal-caption-newyear strong{position:relative;color:#f8d986;font:500 clamp(24px,2.5vw,32px)/1.08 Georgia,"Times New Roman",serif;letter-spacing:.06em;text-shadow:0 0 9px #d99d4140,0 2px 2px #210b0b}
+.seasonal-caption-newyear .seasonal-label-date{color:#f2cf87}.seasonal-caption-newyear .seasonal-label-names i{font-size:10px;color:#fff4dc}.seasonal-caption-newyear .seasonal-label-hint{color:#f2eee5}
+
+@keyframes seasonalNewYearConfetti{0%{transform:translate(-50%,-12vh) rotate(0) scale(var(--scale));opacity:0}12%{opacity:.62}100%{transform:translate(calc(-50% + var(--drift-35)),112vh) rotate(330deg) scale(var(--scale));opacity:0}}
+@keyframes seasonalNewYearSunrise{0%,100%{filter:drop-shadow(0 0 15px #e7b94e52) drop-shadow(0 10px 18px #06121d70)}50%{filter:drop-shadow(0 0 29px #ffd9728a) drop-shadow(0 12px 21px #06121d68)}}
+
+@media(max-width:680px){
+  .seasonal-theme-newyear .seasonal-newyear-garland{top:104px;width:94vw;height:58px;transform:translateX(-50%);opacity:.68}
+  .seasonal-theme-newyear .seasonal-newyear-sunrise{left:-30px;top:31vh;width:140px;height:118px;opacity:.18}
+  .seasonal-theme-newyear .seasonal-kadomatsu,.seasonal-theme-newyear .seasonal-kadomatsu-right{bottom:calc(66px + env(safe-area-inset-bottom));width:80px;height:124px;transform:none;opacity:.85}
+  .seasonal-theme-newyear .seasonal-kadomatsu{left:-7px}.seasonal-theme-newyear .seasonal-kadomatsu-right{right:-7px;transform:scaleX(-1)}
+  .seasonal-theme-newyear .seasonal-newyear-lanterns{left:50px;bottom:calc(67px + env(safe-area-inset-bottom));width:82px;height:58px;opacity:.82}
+  .seasonal-theme-newyear .seasonal-newyear-gifts{right:49px;bottom:calc(65px + env(safe-area-inset-bottom));width:108px;height:78px;opacity:.9}
+  .seasonal-fireworks-canvas{filter:saturate(1.1) contrast(1.03)}
+  .seasonal-holiday-note.seasonal-caption-newyear{top:116px;right:12px;width:min(250px,calc(100vw - 24px));padding:8px 12px 9px;background:linear-gradient(112deg,#061b2cf0,#351b22e8);opacity:1}
+  .seasonal-caption-newyear::before{left:9px;top:9px;width:27px;height:27px;box-shadow:inset 0 0 0 4px #b22e2a12}
+  .seasonal-holiday-note.seasonal-caption-newyear strong{font-size:23px;letter-spacing:.045em}.seasonal-caption-newyear .seasonal-label-date{font-size:6.5px;letter-spacing:.1em}.seasonal-caption-newyear .seasonal-label-names i{font-size:8px}.seasonal-caption-newyear .seasonal-label-hint-secondary{display:none}
+}
+@media(max-height:600px) and (min-width:681px){.seasonal-theme-newyear .seasonal-kadomatsu,.seasonal-theme-newyear .seasonal-kadomatsu-right{width:98px;height:151px}.seasonal-theme-newyear .seasonal-newyear-lanterns{left:94px;width:105px;height:70px}.seasonal-theme-newyear .seasonal-newyear-gifts{right:94px;width:138px;height:99px}.seasonal-caption-newyear{top:98px;width:290px;padding:9px 14px}.seasonal-caption-newyear strong{font-size:27px}.seasonal-newyear-garland{height:72px}}
+@media(prefers-reduced-motion:reduce){
+  .seasonal-theme-newyear .seasonal-gold-paper{display:none}
+  .seasonal-newyear-sunrise{animation:none}
+  .seasonal-fireworks{opacity:.22}.seasonal-fireworks-canvas{opacity:.7}
+}
+@media(prefers-reduced-transparency:reduce){.seasonal-theme-newyear *{box-shadow:none!important;filter:none!important}.seasonal-caption-newyear{backdrop-filter:none;-webkit-backdrop-filter:none}}
+@media(forced-colors:active),print{.seasonal-theme-newyear,.seasonal-caption-newyear,.newyear-sound-toggle{display:none!important}}

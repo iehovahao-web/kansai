@@ -33,6 +33,13 @@
       hintJa: '光と喜びに包まれる季節。',
       hintZh: '願這個季節充滿光與喜悅。',
       when: 'DECEMBER 25 · 12月25日'
+    },
+    newyear: {
+      title: 'HAPPY NEW YEAR', ja: '謹賀新年・お正月', zh: '日本新年',
+      en: 'Welcome the first light of a new year.',
+      hintJa: '新しい年の初光を迎えます。',
+      hintZh: '迎接新一年的第一束光。',
+      when: 'DEC 29–JAN 7 · 年末年始'
     }
   };
   const LIGHT_LABELS = {
@@ -81,6 +88,7 @@
     const distance = daysFrom(parts, fourthThursday(parts.year));
     if (distance >= -2 && distance <= 3) return 'thanksgiving';
     if (parts.month === 12 && parts.day >= 15 && parts.day <= 28) return 'christmas';
+    if ((parts.month === 12 && parts.day >= 29) || (parts.month === 1 && parts.day <= 7)) return 'newyear';
     return null;
   }
 
@@ -88,7 +96,7 @@
     const local = location.protocol === 'file:' || !location.hostname || ['localhost', '127.0.0.1', '::1', '[::1]'].includes(location.hostname);
     if (!local) return null;
     const value = new URLSearchParams(location.search).get('season');
-    return ['halloween', 'thanksgiving', 'christmas', 'off', 'none'].includes(value) ? (value === 'none' ? 'off' : value) : null;
+    return ['halloween', 'thanksgiving', 'christmas', 'newyear', 'off', 'none'].includes(value) ? (value === 'none' ? 'off' : value) : null;
   }
 
   function currentTheme() {
@@ -360,6 +368,38 @@
     layer.append(flight);
   }
 
+  function addNewYear(layer, compact) {
+    const paperCount = compact ? 6 : 14;
+    for (let index = 0; index < paperCount; index += 1) {
+      const paper = document.createElement('i');
+      paper.className = 'seasonal-particle seasonal-gold-paper';
+      const direction = index % 2 ? -1 : 1;
+      paper.style.setProperty('--x', `${3 + ((index * 37 + 11) % 94)}vw`);
+      paper.style.setProperty('--start-y', `${5 + ((index * 19) % 82)}vh`);
+      paper.style.setProperty('--delay', `${-((index * 2.37) % 21).toFixed(2)}s`);
+      paper.style.setProperty('--duration', `${11 + (index % 7) * 1.6}s`);
+      paper.style.setProperty('--drift-35', `${direction * 35}px`);
+      paper.style.setProperty('--scale', `${(0.72 + (index % 5) * 0.11).toFixed(2)}`);
+      layer.append(paper);
+    }
+
+    layer.append(accent('seasonal-newyear-glow'));
+    layer.append(image('seasonal-accent seasonal-newyear-sunrise', 'newyear-hatsuhinode.svg?v=20261023-1'));
+    layer.append(image('seasonal-accent seasonal-newyear-garland', 'newyear-mizuhiki.svg?v=20261023-1'));
+
+    const fireworks = accent('seasonal-fireworks');
+    const canvas = document.createElement('canvas');
+    canvas.className = 'seasonal-fireworks-canvas';
+    canvas.setAttribute('aria-hidden', 'true');
+    fireworks.append(canvas);
+    layer.append(fireworks);
+
+    layer.append(image('seasonal-accent seasonal-kadomatsu', 'newyear-kadomatsu.svg?v=20261023-1'));
+    layer.append(image('seasonal-accent seasonal-kadomatsu-right', 'newyear-kadomatsu.svg?v=20261023-1'));
+    layer.append(image('seasonal-accent seasonal-newyear-lanterns', 'newyear-fan.svg?v=20261023-1'));
+    layer.append(image('seasonal-accent seasonal-newyear-gifts', 'newyear-kagamimochi.svg?v=20261023-1'));
+  }
+
   let renderedTheme;
   let renderedDate;
   function render(theme) {
@@ -379,6 +419,7 @@
     if (theme === 'halloween') addHalloween(layer, compact);
     if (theme === 'thanksgiving') addThanksgiving(layer, compact);
     if (theme === 'christmas') addChristmas(layer, compact);
+    if (theme === 'newyear') addNewYear(layer, compact);
     document.body.append(layer);
     addCaption(theme);
     document.dispatchEvent(new CustomEvent('kansai-season-change', { detail: { theme } }));

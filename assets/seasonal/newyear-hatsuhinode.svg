@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" role="img" aria-labelledby="title desc">
+  <title id="title">Japanese New Year first sunrise</title>
+  <desc id="desc">Original vector artwork of the first sunrise, Mount Fuji, gold clouds, and seigaiha waves.</desc>
+  <defs>
+    <radialGradient id="sun" cx="42%" cy="38%" r="64%">
+      <stop offset="0" stop-color="#fff8c9"/>
+      <stop offset=".34" stop-color="#ffd368"/>
+      <stop offset=".72" stop-color="#e94b36"/>
+      <stop offset="1" stop-color="#a91f2e"/>
+    </radialGradient>
+    <linearGradient id="fuji" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5d7390"/>
+      <stop offset=".55" stop-color="#30475f"/>
+      <stop offset="1" stop-color="#152b3f"/>
+    </linearGradient>
+    <linearGradient id="snow" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#fffdf2"/>
+      <stop offset="1" stop-color="#dfe9ed"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff1ad"/>
+      <stop offset=".38" stop-color="#eac25a"/>
+      <stop offset="1" stop-color="#ad7421"/>
+    </linearGradient>
+    <filter id="sunGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="18" result="wide"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="near"/>
+      <feMerge><feMergeNode in="wide"/><feMergeNode in="near"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4"/></filter>
+    <pattern id="waves" width="56" height="28" patternUnits="userSpaceOnUse">
+      <path d="M0 28C7 9 21 9 28 28C35 9 49 9 56 28" fill="none" stroke="#e8c56b" stroke-width="2.4" opacity=".65"/>
+      <path d="M0 28C7 16 21 16 28 28C35 16 49 16 56 28" fill="none" stroke="#fff4bf" stroke-width="1" opacity=".42"/>
+    </pattern>
+    <style>
+      .sun-disc{transform-box:fill-box;transform-origin:center;animation:newyearSun 5.8s ease-in-out infinite}
+      .sun-rays{transform-origin:360px 154px;animation:newyearRays 26s linear infinite}
+      .cloud-a{animation:newyearCloudA 10s ease-in-out infinite}.cloud-b{animation:newyearCloudB 12s ease-in-out infinite}
+      @keyframes newyearSun{0%,100%{opacity:.88;transform:scale(.97)}50%{opacity:1;transform:scale(1.035)}}
+      @keyframes newyearRays{to{transform:rotate(360deg)}}
+      @keyframes newyearCloudA{0%,100%{transform:translateX(-5px)}50%{transform:translateX(7px)}}
+      @keyframes newyearCloudB{0%,100%{transform:translateX(6px)}50%{transform:translateX(-7px)}}
+      @media(prefers-reduced-motion:reduce){.sun-disc,.sun-rays,.cloud-a,.cloud-b{animation:none}}
+    </style>
+  </defs>
+
+  <g class="sun-rays" opacity=".42" stroke="url(#gold)" stroke-linecap="round">
+    <path d="M360 10v52M360 246v52M216 154h58M446 154h58M258 52l38 42M424 214l38 42M462 52l-38 42M296 214l-38 42" stroke-width="4"/>
+    <path d="M285 19l20 50M435 239l20 50M495 79l-48 24M225 205l-48 24M495 229l-48-24M225 103l-48-24" stroke-width="2" opacity=".58"/>
+  </g>
+  <circle cx="360" cy="154" r="94" fill="#dd503a" opacity=".2" filter="url(#soft)"/>
+  <circle class="sun-disc" cx="360" cy="154" r="76" fill="url(#sun)" filter="url(#sunGlow)"/>
+
+  <g class="cloud-a" fill="none" stroke="url(#gold)" stroke-linecap="round">
+    <path d="M66 153h112c18 0 25-24 44-24h43" stroke-width="8" opacity=".8"/>
+    <path d="M95 171h82c16 0 22-16 38-16h32" stroke-width="2.5" opacity=".5"/>
+  </g>
+  <g class="cloud-b" fill="none" stroke="url(#gold)" stroke-linecap="round">
+    <path d="M655 204H548c-18 0-24-23-43-23h-35" stroke-width="8" opacity=".75"/>
+    <path d="M632 222h-80c-15 0-21-16-36-16h-30" stroke-width="2.5" opacity=".48"/>
+  </g>
+
+  <path d="M96 416L360 170L624 416Z" fill="url(#fuji)" stroke="#d8bd70" stroke-width="2.5"/>
+  <path d="M360 170L285 256L318 247L337 271L360 245L385 272L404 247L438 258Z" fill="url(#snow)" stroke="#fff7dc" stroke-width="1.5"/>
+  <path d="M99 416C182 389 260 396 360 419C458 441 551 437 624 416V520H99Z" fill="#0b263b" opacity=".96"/>
+  <path d="M0 398C111 364 210 382 314 418C433 459 590 449 720 393V520H0Z" fill="url(#waves)" opacity=".82"/>
+  <path d="M0 420C129 389 236 414 331 444C458 484 592 459 720 419" fill="none" stroke="#f1cf73" stroke-width="3" opacity=".62"/>
+  <path d="M0 456C121 430 216 448 319 474C465 511 593 485 720 449" fill="none" stroke="#dca945" stroke-width="2" opacity=".5"/>
+</svg>

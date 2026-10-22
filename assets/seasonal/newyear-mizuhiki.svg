@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 150" role="img" aria-labelledby="title desc">
+  <title id="title">Red and gold mizuhiki New Year ornament</title>
+  <desc id="desc">Original vector artwork of ceremonial Japanese mizuhiki cords with plum blossoms.</desc>
+  <defs>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#8e1627"/><stop offset=".5" stop-color="#f15d4f"/><stop offset="1" stop-color="#8e1627"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#9f6b1f"/><stop offset=".32" stop-color="#ffe9a0"/><stop offset=".7" stop-color="#d9a73e"/><stop offset="1" stop-color="#fff0b3"/></linearGradient>
+    <filter id="glow" x="-30%" y="-80%" width="160%" height="260%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <g id="ume"><circle r="5.5" fill="#f2c75c"/><g fill="#f6e9dc" stroke="#bd3c43" stroke-width="1.6"><ellipse cy="-11" rx="7" ry="10"/><ellipse cy="-11" rx="7" ry="10" transform="rotate(72)"/><ellipse cy="-11" rx="7" ry="10" transform="rotate(144)"/><ellipse cy="-11" rx="7" ry="10" transform="rotate(216)"/><ellipse cy="-11" rx="7" ry="10" transform="rotate(288)"/></g></g>
+    <style>.shine{stroke-dasharray:80 220;animation:mizuhikiShine 5s linear infinite}@keyframes mizuhikiShine{to{stroke-dashoffset:-300}}@media(prefers-reduced-motion:reduce){.shine{animation:none}}</style>
+  </defs>
+  <g fill="none" stroke-linecap="round" filter="url(#glow)">
+    <path d="M6 55C210 21 367 26 505 63C556 77 574 84 600 84C626 84 644 77 695 63C833 26 990 21 1194 55" stroke="url(#gold)" stroke-width="7"/>
+    <path d="M6 70C215 42 374 43 516 76C558 86 580 95 600 95C620 95 642 86 684 76C826 43 985 42 1194 70" stroke="url(#red)" stroke-width="6"/>
+    <path d="M7 84C226 64 391 66 530 91C567 98 586 106 600 106C614 106 633 98 670 91C809 66 974 64 1193 84" stroke="url(#gold)" stroke-width="3" opacity=".88"/>
+    <path class="shine" d="M8 55C214 22 372 27 510 64C557 77 577 84 600 84C623 84 643 77 690 64C828 27 986 22 1192 55" stroke="#fff8cf" stroke-width="2.2" opacity=".86"/>
+    <path d="M600 82C548 21 514 20 492 44C470 67 501 100 558 102C520 91 499 67 516 53C534 38 564 56 600 93" stroke="url(#red)" stroke-width="8"/>
+    <path d="M600 82C652 21 686 20 708 44C730 67 699 100 642 102C680 91 701 67 684 53C666 38 636 56 600 93" stroke="url(#gold)" stroke-width="8"/>
+    <path d="M588 92L557 137M612 92L645 137" stroke="url(#gold)" stroke-width="7"/>
+    <path d="M596 91L583 140M606 91L619 140" stroke="url(#red)" stroke-width="5"/>
+  </g>
+  <circle cx="600" cy="87" r="13" fill="#a92432" stroke="#ffe79a" stroke-width="4"/>
+  <use href="#ume" x="174" y="58"/><use href="#ume" x="1026" y="58"/><use href="#ume" x="236" y="72" transform="scale(.66)"/><use href="#ume" x="1554" y="108" transform="scale(.66)"/>
+</svg>

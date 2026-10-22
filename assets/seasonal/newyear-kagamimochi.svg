@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 230" role="img" aria-labelledby="title desc">
+  <title id="title">鏡餅とだるま</title><desc id="desc">Original Japanese New Year still life with kagami mochi, a red daruma, and a gold folding screen.</desc>
+  <defs><linearGradient id="rice" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fffdf0"/><stop offset=".6" stop-color="#f1e9da"/><stop offset="1" stop-color="#bdc1b6"/></linearGradient><linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e15750"/><stop offset=".5" stop-color="#a82e3b"/><stop offset="1" stop-color="#6e1d2c"/></linearGradient><linearGradient id="gold" x1="0" x2="1"><stop stop-color="#795a32"/><stop offset=".5" stop-color="#d8b573"/><stop offset="1" stop-color="#a57a39"/></linearGradient></defs>
+  <ellipse cx="163" cy="211" rx="141" ry="10" fill="#020b10" opacity=".4"/>
+  <path d="M110 173V64L156 48L199 64L241 49L285 65V175Z" fill="url(#gold)" opacity=".7" stroke="#edd397" stroke-width="1.3"/><path d="M156 48V174M199 64V175M241 49V175" stroke="#5e452a" fill="none" opacity=".5"/>
+  <path d="M128 180L276 180L266 198L140 198Z" fill="#9d3041" stroke="#e5bc74" stroke-width="1.4"/><path d="M151 197L253 197L246 215L158 215Z" fill="#775137" stroke="#b89561" stroke-width="1"/>
+  <path d="M145 162L260 162L271 183L134 183Z" fill="#fcf2db" stroke="#d7be92" stroke-width="1"/><path d="M185 181l17 26l18-26" fill="#eee7d2" stroke="#d9c6a3"/>
+  <path d="M146 152C146 125 169 115 201 115C236 115 257 129 257 152C257 166 232 171 201 171C169 171 146 166 146 152Z" fill="url(#rice)" stroke="#fff5db" stroke-width="1.4"/>
+  <path d="M163 119C163 97 180 88 202 88C226 88 242 99 242 119C242 131 226 136 202 136C179 136 163 131 163 119Z" fill="url(#rice)" stroke="#fff5db" stroke-width="1.4"/>
+  <ellipse cx="203" cy="84" rx="17" ry="15" fill="#e78a2f" stroke="#f3bd60" stroke-width="1"/><path d="M202 70Q217 57 224 69Q214 79 202 72" fill="#466c45"/><path d="M202 70l2-9" stroke="#79603d" stroke-width="2"/>
+  <path d="M35 184C27 157 31 120 55 107C73 98 101 103 113 121C128 141 128 170 117 190C103 210 50 212 35 184Z" fill="url(#red)" stroke="#edbb8d" stroke-width="1.4"/>
+  <path d="M45 145C39 118 62 108 80 110C101 109 117 124 110 145C102 164 53 164 45 145Z" fill="#f0dfbb" stroke="#b57059" stroke-width="1"/>
+  <path d="M52 126Q61 115 70 123M86 123Q96 115 104 128" fill="none" stroke="#2c2930" stroke-width="3" stroke-linecap="round"/><ellipse cx="61" cy="134" rx="9" ry="10" fill="#fff9e8"/><ellipse cx="96" cy="134" rx="9" ry="10" fill="#fff9e8"/><circle cx="62" cy="134" r="4" fill="#252831"/><circle cx="95" cy="134" r="4" fill="#252831"/><path d="M70 147Q79 153 89 147M78 136v8" fill="none" stroke="#5b3331" stroke-width="2" stroke-linecap="round"/>
+  <path d="M53 173l9 19M78 170v26M101 173l-8 19M44 159l5 5M112 159l-5 5" fill="none" stroke="#e6bd75" stroke-width="3" stroke-linecap="round"/>
+</svg>
