@@ -1,0 +1,322 @@
+(() => {
+  'use strict';
+
+  const API_ORIGIN = 'https://abacus.jasoncameron.dev';
+  const NAMESPACE = 'iehovahao-web.github.io-kansai';
+  const PRODUCTION_HOST = 'iehovahao-web.github.io';
+  const PRODUCTION_PATH = /^\/kansai(?:\/|$)/;
+  const REQUEST_TIMEOUT_MS = 4500;
+  const DETAIL_SESSION_PREFIX = 'kansai-global-detail-session-v1:';
+  const TOTAL_CACHE_KEY = 'kansai-global-metrics-cache-v1';
+  const TOTAL_KEYS = Object.freeze({
+    visits: 'site-visits',
+    music: 'music-listeners',
+    video: 'video-viewers'
+  });
+  const LANGUAGE_CODES = new Set(['zh', 'en', 'ja', 'ko', 'es', 'de', 'fr', 'it', 'ar', 'th']);
+  const SEASONAL_AUDIO_THEMES = new Set(['halloween', 'christmas']);
+  const SECTION_TARGETS = ['food', 'sea', 'shopping', 'coupon', 'addresses'];
+  const DETAIL_KEYS = new Set([
+    ...SECTION_TARGETS.flatMap(section => [`section-link-${section}`, `module-${section}-view`]),
+    'navigation-brand-top',
+    'navigation-header-food', 'navigation-header-sea', 'navigation-header-shopping', 'navigation-header-coupon',
+    'navigation-hero-food', 'navigation-hero-addresses',
+    'navigation-footer-addresses', 'navigation-footer-top', 'navigation-mobile-addresses',
+    'review-platform-kkday', 'review-platform-klook', 'review-platform-trip-com',
+    ...['kagonoya', 'aburiya', 'daiko-sushi'].flatMap(venue =>
+      ['map', 'site', 'image', 'copy'].map(action => `food-${venue}-${action}`)),
+    ...['map', 'site', 'media', 'copy'].map(action => `sea-suma-aquarium-${action}`),
+    'shopping-ora2-image', 'shopping-rishiri-image', 'shopping-kyushin-image',
+    'coupon-download', 'coupon-download-main', 'coupon-download-dialog', 'coupon-download-mobile',
+    'coupon-preview', 'coupon-tsuruha-locator',
+    ...['kagonoya', 'aburiya', 'daiko-sushi', 'suma-aquarium'].flatMap(venue =>
+      ['map', 'site', 'copy'].map(action => `addresses-${venue}-${action}`)),
+    'addresses-tsuruha-locator',
+    ...Array.from({ length: 12 }, (_, index) => `audio-osaka-track-${String(index + 1).padStart(2, '0')}`),
+    ...Array.from({ length: 12 }, (_, index) => `audio-osaka-track-select-${String(index + 1).padStart(2, '0')}`),
+    'audio-delicious-in-progress', 'video-jazz-impression', 'video-yodogawa-light-never-sleeps',
+    'control-osaka-previous', 'control-osaka-play-toggle', 'control-osaka-next', 'control-osaka-airplay',
+    'control-delicious-rewind', 'control-delicious-play-toggle', 'control-delicious-forward', 'control-delicious-airplay',
+    'control-video-jazz-play', 'control-video-yodogawa-play',
+    ...[...LANGUAGE_CODES].map(language => `language-${language}`),
+    ...[...SEASONAL_AUDIO_THEMES].flatMap(theme => [`seasonal-audio-${theme}-on`, `seasonal-audio-${theme}-off`])
+  ]);
+
+  const isProduction = location.protocol === 'https:' &&
+    location.hostname === PRODUCTION_HOST && PRODUCTION_PATH.test(location.pathname);
+  if (!isProduction) return;
+  const isVerification = new URLSearchParams(location.search).has('verify');
+
+  const validKey = value => /^[A-Za-z0-9_.-]{3,64}$/.test(value);
+  function endpoint(operation, key) {
+    if (!validKey(NAMESPACE) || !validKey(key) || !['get', 'hit'].includes(operation)) throw new Error('Invalid counter identifier');
+    return `${API_ORIGIN}/${operation}/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(key)}`;
+  }
+
+  async function request(operation, key, keepalive = false) {
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+    try {
+      const response = await fetch(endpoint(operation, key), {
+        method: 'GET', mode: 'cors', credentials: 'omit', cache: 'no-store',
+        referrerPolicy: 'no-referrer', keepalive, signal: controller.signal,
+        headers: { Accept: 'application/json' }
+      });
+      if (!response.ok) throw new Error(`Counter request failed: ${response.status}`);
+      const body = await response.json();
+      const value = Number(body?.value);
+      if (!Number.isSafeInteger(value) || value < 0) throw new Error('Counter returned an invalid value');
+      return value;
+    } finally {
+      window.clearTimeout(timer);
+    }
+  }
+
+  function readTotalCache() {
+    let value;
+    try { value = JSON.parse(sessionStorage.getItem(TOTAL_CACHE_KEY) || '{}'); }
+    catch (_) { value = {}; }
+    return value && typeof value === 'object' ? value : {};
+  }
+  function writeTotalCache(value) {
+    try { sessionStorage.setItem(TOTAL_CACHE_KEY, JSON.stringify(value)); }
+    catch (_) {}
+  }
+  async function totals(operationFor = null) {
+    const metrics = Object.entries(TOTAL_KEYS);
+    const settled = await Promise.allSettled(metrics.map(([name, key]) => request(name === operationFor ? 'hit' : 'get', key)));
+    const cached = readTotalCache();
+    const values = {};
+    let successful = 0;
+    let firstFailure;
+    metrics.forEach(([name], index) => {
+      const result = settled[index];
+      if (result.status === 'fulfilled') {
+        values[name] = result.value;
+        cached[name] = result.value;
+        successful += 1;
+      } else {
+        firstFailure ||= result.reason;
+        values[name] = Number.isSafeInteger(cached[name]) && cached[name] >= 0 ? cached[name] : null;
+      }
+    });
+    const operationIndex = operationFor ? metrics.findIndex(([name]) => name === operationFor) : -1;
+    const hasCachedValue = Object.values(values).some(value => Number.isSafeInteger(value) && value >= 0);
+    // A failed mutating request has an ambiguous outcome. Keep displaying any
+    // last-known global values instead of incrementing a second store.
+    if (operationIndex >= 0 && settled[operationIndex].status === 'rejected' && !hasCachedValue) throw settled[operationIndex].reason;
+    if (!successful && !hasCachedValue) throw firstFailure || new Error('Counter backend unavailable');
+    writeTotalCache(cached);
+    return values;
+  }
+
+  window.KansaiMetricsProvider = Object.freeze({
+    scope: 'global',
+    readOnly: isVerification,
+    totalKeys: Object.freeze({ ...TOTAL_KEYS }),
+    detailKeys: Object.freeze([...DETAIL_KEYS]),
+    readAll() { return totals(); },
+    increment(name) {
+      if (!Object.prototype.hasOwnProperty.call(TOTAL_KEYS, name)) return Promise.reject(new Error('Unknown metric'));
+      return totals(isVerification ? null : name);
+    }
+  });
+
+  // Verification links must never mutate totals or create detailed counters.
+  if (isVerification) return;
+
+  const pendingDetails = new Set();
+  function detailWasRecorded(key) {
+    try { return sessionStorage.getItem(`${DETAIL_SESSION_PREFIX}${key}`) === '1'; }
+    catch (_) { return false; }
+  }
+  function markDetailRecorded(key) {
+    try { sessionStorage.setItem(`${DETAIL_SESSION_PREFIX}${key}`, '1'); }
+    catch (_) {}
+  }
+  function recordDetailOnce(key, keepalive = false) {
+    if (!DETAIL_KEYS.has(key) || !validKey(key) || detailWasRecorded(key) || pendingDetails.has(key)) return;
+    pendingDetails.add(key);
+    request('hit', key, keepalive)
+      .then(() => markDetailRecorded(key))
+      .catch(() => {})
+      .finally(() => pendingDetails.delete(key));
+  }
+  function recordDetails(keys, keepalive = false) {
+    [...new Set(keys.filter(Boolean))].forEach(key => recordDetailOnce(key, keepalive));
+  }
+
+  const sectionTargets = new Set(SECTION_TARGETS);
+  const imageKeys = new Map([
+    ['original-23.jpeg', 'food-kagonoya-image'],
+    ['original-24.jpeg', 'food-kagonoya-image'],
+    ['original-25.jpeg', 'food-kagonoya-image'],
+    ['original-26.jpeg', 'food-aburiya-image'],
+    ['original-27.jpeg', 'food-aburiya-image'],
+    ['original-28.jpeg', 'food-aburiya-image'],
+    ['original-29.jpeg', 'food-daiko-sushi-image'],
+    ['original-30.jpeg', 'food-daiko-sushi-image'],
+    ['original-31.jpeg', 'sea-suma-aquarium-media'],
+    ['original-32.jpeg', 'shopping-kyushin-image'],
+    ['original-33.jpeg', 'shopping-ora2-image'],
+    ['original-34.jpeg', 'shopping-rishiri-image'],
+    ['original-35.jpeg', 'coupon-preview']
+  ]);
+  const venues = [
+    { slug: 'kagonoya', match: value => /1CAEEWiy9WSoGgMV9|kagonoya\.food-kr\.com/.test(value) },
+    { slug: 'aburiya', match: value => /4826901767006629121|apollo-lucias\.jp\/gourmet\/aburiya/.test(value) },
+    { slug: 'daiko-sushi', match: value => /15134371316587236401|daikosushi\.jp/.test(value) },
+    { slug: 'suma-aquarium', match: value => /ChIJgQxfKgCFAGARDDvvrnSqDw0|kobesuma-seaworld\.jp/.test(value) }
+  ];
+  function venueFor(value) { return venues.find(venue => venue.match(value))?.slug || ''; }
+  function contextFor(element) {
+    if (element.closest('#addresses')) return 'addresses';
+    if (element.closest('#food')) return 'food';
+    if (element.closest('#sea')) return 'sea';
+    if (element.closest('#shopping')) return 'shopping';
+    if (element.closest('#coupon')) return 'coupon';
+    return '';
+  }
+  function filename(value) {
+    try { return new URL(value, location.href).pathname.split('/').pop() || ''; }
+    catch (_) { return ''; }
+  }
+  function navigationDetails(link, target) {
+    const keys = sectionTargets.has(target) ? [`section-link-${target}`] : [];
+    let source = '';
+    if (link.matches('.brand') && target === 'top') source = 'navigation-brand-top';
+    else if (link.closest('.nav-links') && sectionTargets.has(target)) source = `navigation-header-${target}`;
+    else if (link.closest('.hero-actions') && sectionTargets.has(target)) source = `navigation-hero-${target}`;
+    else if (link.closest('.footer-links') && ['addresses', 'top'].includes(target)) source = `navigation-footer-${target}`;
+    else if (link.closest('.mobile-bar') && target === 'addresses') source = 'navigation-mobile-addresses';
+    if (source) keys.push(source);
+    return keys;
+  }
+  function reviewPlatformDetail(link) {
+    if (!link.closest('.review-platform-links')) return '';
+    const raw = link.getAttribute('href') || '';
+    if (/\/\/(?:[^/]+\.)?kkday\.com\//.test(raw)) return 'review-platform-kkday';
+    if (/\/\/(?:[^/]+\.)?klook\.com\//.test(raw)) return 'review-platform-klook';
+    if (/\/\/(?:[^/]+\.)?trip\.com\//.test(raw)) return 'review-platform-trip-com';
+    return '';
+  }
+  function couponDownloadSource(link) {
+    if (link.closest('.mobile-bar')) return 'coupon-download-mobile';
+    if (link.closest('#image-dialog')) return 'coupon-download-dialog';
+    return 'coupon-download-main';
+  }
+  function linkDetails(link) {
+    const raw = link.getAttribute('href') || '';
+    if (raw.startsWith('#')) {
+      const target = raw.slice(1);
+      return navigationDetails(link, target);
+    }
+    const review = reviewPlatformDetail(link);
+    if (review) return [review];
+    const context = contextFor(link);
+    const asset = filename(raw);
+    if (asset === 'original-35.jpeg' && link.hasAttribute('download')) return ['coupon-download', couponDownloadSource(link)];
+    if (/shop\.tsuruha-g\.com/.test(raw)) return [`${context === 'addresses' ? 'addresses' : 'coupon'}-tsuruha-locator`];
+    const venue = venueFor(raw);
+    if (!venue) return [];
+    const action = /maps|goo\.gl/.test(raw) ? 'map' : 'site';
+    return [`${context || 'external'}-${venue}-${action}`];
+  }
+  const controlKeys = new Map([
+    ['osaka-back', 'control-osaka-previous'],
+    ['osaka-toggle', 'control-osaka-play-toggle'],
+    ['osaka-forward', 'control-osaka-next'],
+    ['osaka-airplay', 'control-osaka-airplay'],
+    ['video-play', 'control-video-jazz-play'],
+    ['delicious-back', 'control-delicious-rewind'],
+    ['delicious-toggle', 'control-delicious-play-toggle'],
+    ['delicious-forward', 'control-delicious-forward'],
+    ['delicious-airplay', 'control-delicious-airplay']
+  ]);
+  function buttonDetails(button) {
+    const keys = [];
+    const context = contextFor(button);
+    const image = button.getAttribute('data-image');
+    if (image) keys.push(imageKeys.get(filename(image)) || '');
+    if (button.classList.contains('copy-address')) {
+      const venue = venueFor(`${button.getAttribute('data-copy') || ''} ${button.getAttribute('aria-label') || ''}`) ||
+        (/かごの屋/.test(button.dataset.copy || '') ? 'kagonoya' :
+          /あぶりや/.test(button.dataset.copy || '') ? 'aburiya' :
+            /大興寿司/.test(button.dataset.copy || '') ? 'daiko-sushi' :
+              /神戸須磨/.test(button.dataset.copy || '') ? 'suma-aquarium' : '');
+      if (venue) keys.push(`${context || 'addresses'}-${venue}-copy`);
+    }
+    let control = controlKeys.get(button.id) || '';
+    if (!control && button.classList.contains('video-play')) {
+      if (button.closest('#yodogawa-light-never-sleeps')) control = 'control-video-yodogawa-play';
+      else if (button.closest('#sound-and-vision')) control = 'control-video-jazz-play';
+    }
+    if (control) keys.push(control);
+    return keys;
+  }
+
+  document.addEventListener('kansai-seasonal-audio-toggle', event => {
+    const theme = String(event.detail?.theme || '').replace(/[^a-z0-9-]/gi, '').toLowerCase();
+    if (!SEASONAL_AUDIO_THEMES.has(theme) || typeof event.detail?.enabled !== 'boolean') return;
+    recordDetailOnce(`seasonal-audio-${theme}-${event.detail.enabled ? 'on' : 'off'}`);
+  });
+
+  document.addEventListener('click', event => {
+    const target = event.target instanceof Element ? event.target : null;
+    if (!target || target.closest('.seasonal-sound-toggle')) return;
+    const link = target.closest('a[href]');
+    const button = target.closest('button');
+    const keys = link ? linkDetails(link) : button ? buttonDetails(button) : [];
+    recordDetails(keys, Boolean(link));
+  });
+
+  document.addEventListener('change', event => {
+    if (!(event.target instanceof HTMLSelectElement)) return;
+    if (event.target.id === 'language-select') {
+      const language = String(event.target.value || '').replace(/[^a-z-]/gi, '').toLowerCase();
+      if (LANGUAGE_CODES.has(language)) recordDetailOnce(`language-${language}`);
+      return;
+    }
+    if (event.target.id === 'osaka-track-select') {
+      const index = Number(event.target.value);
+      if (Number.isInteger(index) && index >= 0 && index < 12) recordDetailOnce(`audio-osaka-track-select-${String(index + 1).padStart(2, '0')}`);
+    }
+  });
+
+  function mediaDetail(media, kind) {
+    if (!(media instanceof HTMLMediaElement)) return '';
+    if (kind === 'music') {
+      if (media.id === 'delicious-audio') return 'audio-delicious-in-progress';
+      if (media.id === 'osaka-audio') {
+        const source = media.currentSrc || media.src || media.querySelector('source')?.src || '';
+        const match = source.match(/\/osaka-tracks\/(\d{2})-/);
+        return match ? `audio-osaka-track-${match[1]}` : '';
+      }
+      return '';
+    }
+    if (kind === 'video') {
+      if (media.closest('#yodogawa-light-never-sleeps')) return 'video-yodogawa-light-never-sleeps';
+      if (media.closest('#sound-and-vision')) return 'video-jazz-impression';
+    }
+    return '';
+  }
+  document.addEventListener('kansai-qualified-media-play', event => {
+    const key = mediaDetail(event.detail?.media, event.detail?.kind);
+    if (key) recordDetailOnce(key);
+  });
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (!entry.isIntersecting || entry.intersectionRatio < 0.5) return;
+      const id = entry.target.dataset.metricsModule || '';
+      if (sectionTargets.has(id)) recordDetailOnce(`module-${id}-view`);
+    }), { threshold: [0.5] });
+    sectionTargets.forEach(id => {
+      const section = document.getElementById(id);
+      const marker = section?.querySelector('h2');
+      if (!marker) return;
+      marker.dataset.metricsModule = id;
+      observer.observe(marker);
+    });
+  }
+})();

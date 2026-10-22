@@ -265,6 +265,9 @@
     enabled = !enabled;
     try { localStorage.setItem(STORAGE_KEY, 'off'); } catch (_) {}
     updateButton();
+    document.dispatchEvent(new CustomEvent('kansai-seasonal-audio-toggle', {
+      detail: { theme: activeTheme(), enabled }
+    }));
     if (!enabled) {
       stopHalloween(true);
       stopChristmas(true);
