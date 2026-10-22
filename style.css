@@ -262,3 +262,103 @@ html[lang="zh-Hant"] [lang="ja"]{font-family:"Hiragino Kaku Gothic ProN","Yu Got
   .media-gallery>.yodogawa-video{grid-area:3/1/4/2;width:min(100%,270px);justify-self:center}
   .media-gallery>.single-track{grid-area:3/2/4/3;width:min(100%,270px);justify-self:center}
 }
+
+/* Osaka / Kansai live footer — a light editorial information band. */
+.site-footer{position:relative;overflow:hidden;padding:0 0 24px;background:radial-gradient(ellipse at 18% 0,#17364a73 0,transparent 35%),linear-gradient(145deg,#06121c 0%,#081923 56%,#06121c 100%)}
+.site-footer:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.45;background:radial-gradient(140px 34px at 86% 15%,transparent 72%,#d7b56f1a 73%,transparent 74.5%),linear-gradient(115deg,transparent 0 63%,#d7b56f08 63.15% 63.3%,transparent 63.45%)}
+.site-footer>.wrap{position:relative;z-index:1}
+.kansai-observatory{position:relative;display:grid;grid-template-columns:minmax(120px,.72fr) minmax(145px,.92fr) minmax(330px,1.8fr);gap:clamp(15px,2.2vw,29px);align-items:center;min-height:72px;padding:7px 0 6px;border-top:1px solid #a7895547;border-bottom:1px solid #96a9b21f;color:#e9e5da}
+.kansai-observatory:after{content:"水都";position:absolute;right:0;top:6px;font:600 27px/1 var(--serif);letter-spacing:-.09em;color:#dfbd7b07;pointer-events:none}
+.kansai-observatory-intro{position:relative;z-index:1;min-width:0}
+.kansai-observatory-kicker{display:block;margin-bottom:4px;color:#e7bd72;font-size:5px;font-weight:650;letter-spacing:.22em}
+.kansai-observatory-intro h2{display:flex;align-items:baseline;flex-wrap:nowrap;gap:6px;margin:0;color:#fff3de;font-weight:400;white-space:nowrap}
+.kansai-observatory-intro h2 b{font:500 16px/1.15 "Hiragino Mincho ProN","Yu Mincho",var(--serif);letter-spacing:.045em}
+.kansai-observatory-intro h2 span{color:#9dabb0;font:500 6px/1.3 var(--sans);letter-spacing:.11em;white-space:nowrap}
+.kansai-observatory-intro p{display:none}
+.kansai-clock{position:relative;min-width:0;padding:3px 0 3px 15px;border-inline-start:1px solid #a98b553b}
+.kansai-clock:before{content:"";position:absolute;left:15px;right:0;top:0;height:1px;background:linear-gradient(90deg,#e5bb6d 0 25%,#6b829043 25%)}
+.kansai-clock:after{content:"";position:absolute;right:1px;bottom:2px;width:34px;height:10px;border-top:1px solid #6e97a136;border-radius:50%;transform:rotate(-7deg);box-shadow:0 -4px 0 -3px #d5af6836;pointer-events:none}
+.kansai-clock-place{display:flex;justify-content:space-between;align-items:baseline;gap:13px;color:#e6bd75}
+.kansai-clock-place>span{font:600 7px/1 var(--sans);letter-spacing:.2em}
+.kansai-clock-place small{color:#758d97;font-size:5px;letter-spacing:.11em;white-space:nowrap}
+.kansai-clock-time{display:flex;align-items:baseline;margin:8px 0 0;color:#fff1d7;font-family:Georgia,"Times New Roman",serif;font-variant-numeric:tabular-nums lining-nums;white-space:nowrap}
+#osaka-time-hour-minute{font-size:27px;line-height:.76;letter-spacing:-.04em}
+#osaka-time-seconds{margin-inline-start:4px;color:#d6ad65;font-size:8px;letter-spacing:.02em}
+.kansai-clock-meta{display:none}
+.kansai-clock-meta span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-transform:none;letter-spacing:.04em}
+.kansai-clock-meta span:last-child{color:#b29b6b;white-space:nowrap}
+.kansai-metrics{min-width:0}
+.kansai-metrics-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.kansai-metric{position:relative;display:block;min-width:0;padding:2px clamp(10px,1.35vw,18px) 3px;border-inline-start:1px solid #8398a229}
+.kansai-metric:first-child{border-inline-start:0;padding-inline-start:0}
+.kansai-metric:last-child{padding-inline-end:0}
+.kansai-metric-index{display:none}
+.kansai-metric-value{display:block;min-height:19px;overflow:hidden;color:#f9ebd2;font:400 19px/.9 Georgia,"Times New Roman",serif;font-variant-numeric:tabular-nums lining-nums;text-overflow:ellipsis}
+.kansai-metric>span:last-child{display:block;margin-top:5px;color:#91a4aa;font-size:6px;letter-spacing:.08em;white-space:nowrap}
+.kansai-metrics-foot{display:none}
+.kansai-metrics-scope{color:#71858d;white-space:nowrap}
+.kansai-metrics-status{display:inline-flex;align-items:center;gap:6px;min-width:0}
+.kansai-metrics-status i{width:4px;height:4px;flex:0 0 auto;border-radius:50%;background:#d8ac62;box-shadow:0 0 0 3px #d8ac6210}
+.kansai-observatory[data-counter-state="loading"] .kansai-metrics-status i{animation:kansai-pulse 1.5s ease-in-out infinite}
+.kansai-observatory:is([data-counter-state="device"],[data-counter-state="global"]) .kansai-metrics-status i{background:#75b89e;box-shadow:0 0 0 3px #75b89e12}
+.kansai-observatory[data-counter-state="unavailable"] .kansai-metrics-status i{background:#b48166;box-shadow:none}
+.site-footer .footer-inner{align-items:flex-end;padding-top:16px}
+.site-footer .footer-title{font-size:19px;letter-spacing:-.02em}
+.site-footer .footer-inner p{margin-top:4px;line-height:1.6}
+.site-footer .footer-inner .production-credit{margin-top:7px;color:#cab580;font-size:10px;line-height:1.5;letter-spacing:.07em}
+.site-footer .footer-inner .copyright{margin-top:4px;color:#87999f;font-size:9px;letter-spacing:.05em}
+.site-footer .footer-links{font-size:9px;gap:18px}
+@keyframes kansai-pulse{50%{opacity:.35;transform:scale(.8)}}
+
+html[dir="rtl"] .kansai-observatory:after{right:auto;left:0}
+html[dir="rtl"] .kansai-clock{padding:7px 22px 7px 0}
+html[dir="rtl"] .kansai-clock:before{left:0;right:22px}
+html[dir="rtl"] .kansai-clock:after{right:auto;left:1px;transform:rotate(7deg)}
+
+@media(max-width:900px){
+  .kansai-observatory{grid-template-columns:minmax(115px,.74fr) minmax(135px,.9fr) minmax(270px,1.65fr);gap:12px 18px;padding:7px 0 6px}
+  .kansai-metric{padding-inline:12px}
+}
+
+@media(max-width:680px){
+  .site-footer{padding:0 0 calc(82px + env(safe-area-inset-bottom))}
+  .kansai-observatory{grid-template-columns:82px 72px minmax(135px,1fr);gap:6px;min-height:72px;padding:7px 0 6px}
+  .kansai-observatory:after{display:none}
+  .kansai-observatory-intro{padding-right:0}
+  .kansai-observatory-kicker{font-size:4px}
+  .kansai-observatory-intro h2{display:block}
+  .kansai-observatory-intro h2 b{font-size:14px}
+  .kansai-observatory-intro h2 span{display:none}
+  .kansai-clock{margin-top:0;padding:2px 0 2px 6px}
+  .kansai-clock:before{left:6px;right:0}
+  .kansai-clock:after{display:none}
+  .kansai-clock-place{display:none}
+  .kansai-clock-time{margin:0}
+  #osaka-time-hour-minute{font-size:22px}
+  #osaka-time-seconds{font-size:6px}
+  .kansai-metric{padding:2px 6px}
+  .kansai-metric-value{min-height:16px;font-size:16px}
+  .kansai-metric>span:last-child{margin-top:4px;font-size:5px;letter-spacing:.025em}
+  .site-footer .footer-inner{display:flex;align-items:flex-end;padding-top:15px;gap:14px}
+  .site-footer .footer-title{font-size:18px}
+  .site-footer .footer-inner .production-credit{font-size:9px}
+  .site-footer .footer-inner .copyright{font-size:8px}
+  .site-footer .footer-links{justify-content:flex-end;margin-top:0;font-size:8px;gap:12px}
+  html[dir="rtl"] .kansai-observatory-intro{padding:0}
+  html[dir="rtl"] .kansai-observatory:after{right:auto;left:0}
+  html[dir="rtl"] .kansai-clock{padding:2px 8px 2px 0}
+  html[dir="rtl"] .kansai-clock:before{left:0;right:8px}
+}
+
+@media(max-width:430px){
+  .kansai-observatory{grid-template-columns:82px 69px minmax(132px,1fr);gap:5px;min-height:72px;padding:7px 0 6px}
+  .kansai-observatory-kicker{letter-spacing:.13em}
+  .kansai-observatory-intro h2 b{font-size:13px}
+  .kansai-metric{padding-inline:5px}
+  .kansai-metric-value{font-size:15px}
+  .kansai-metric>span:last-child{font-size:4.5px}
+  .site-footer .footer-inner{display:block}
+  .site-footer .footer-links{justify-content:flex-start;margin-top:12px}
+}
+
+@media(prefers-reduced-motion:reduce){.kansai-observatory[data-counter-state="loading"] .kansai-metrics-status i{animation:none}}
