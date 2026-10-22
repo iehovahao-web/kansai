@@ -26,6 +26,10 @@ The local recording is 2.384063 seconds and contains no synthesized layers. It p
 
 CC0 legal text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
 
+## Procedural New Year soundscape
+
+The quiet wind, distant temple bell, shrine chimes, and D-major pentatonic instrumental texture are generated locally in the visitor's browser by `newyear-audio.js`. They do not contain downloaded samples or third-party melodies. The audio graph is created only after the visitor presses the New Year sound button, pauses whenever site music or video is playing, and is discarded when switched off or when the New Year scene closes.
+
 ## Firework renderer reference
 
 The local Canvas renderer was informed by the general rocket-and-particle model used by `fireworks-js` (MIT License): https://github.com/crashmax-dev/fireworks-js. The site implementation uses its own drawing, protected-content zones, Japanese shell patterns, pacing, reduced-motion scene, and event synchronization.

@@ -7,6 +7,9 @@
 .seasonal-caption-newyear,
 .seasonal-caption-newyear *{pointer-events:none!important;user-select:none}
 
+/* The scene itself is click-through; only the explicit sound control accepts input. */
+.newyear-sound-toggle{z-index:120!important;pointer-events:auto!important;touch-action:manipulation;cursor:pointer}
+
 .seasonal-theme-newyear{background:radial-gradient(circle at 50% 15%,#17365618,transparent 40%),linear-gradient(180deg,#03152414 0,transparent 46%,#611b1917 100%)}
 .seasonal-theme-newyear .seasonal-image{image-rendering:auto}
 .seasonal-theme-newyear .seasonal-particle{position:absolute;left:var(--x);top:var(--start-y);display:block;transform:translate(-50%,-50%) scale(var(--scale));animation-delay:var(--delay)!important;animation-duration:var(--duration)!important}
