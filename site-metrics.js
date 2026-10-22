@@ -2,6 +2,9 @@
   'use strict';
 
   const TIME_ZONE = 'Asia/Tokyo';
+  // Owner-approved starting point from GitHub's existing traffic record.
+  // New shared analytics will continue from this value instead of displaying 1.
+  const VISIT_DISPLAY_BASELINE = 208;
   const STORAGE_KEY = 'kansai-device-metrics-v1';
   const SESSION_PREFIX = 'kansai-device-metrics-session-v1:';
   const copy = {
@@ -76,7 +79,13 @@
   }
   function renderTotals() {
     const locale = localeByLanguage[language] || localeByLanguage.en;
-    Object.entries(elements.values).forEach(([name, node]) => { if (node) node.textContent = Number.isFinite(totals[name]) ? new Intl.NumberFormat(locale).format(totals[name]) : '—'; });
+    Object.entries(elements.values).forEach(([name, node]) => {
+      if (!node) return;
+      const value = name === 'visits' && Number.isFinite(totals[name])
+        ? Math.max(VISIT_DISPLAY_BASELINE, totals[name])
+        : totals[name];
+      node.textContent = Number.isFinite(value) ? new Intl.NumberFormat(locale).format(value) : '—';
+    });
   }
   function wasRecorded(name) { try { return sessionStorage.getItem(`${SESSION_PREFIX}${name}`) === '1'; } catch (_) { return false; } }
   function markRecorded(name) { try { sessionStorage.setItem(`${SESSION_PREFIX}${name}`, '1'); } catch (_) {} }
