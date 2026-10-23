@@ -31,4 +31,3 @@ language; their scans are not embedded in the generated assets.
 
 The site deliberately avoids *Yo-kai Watch*, *GeGeGe no Kitarō*, and any
 recognisable modern anime, game, film, or commercial mascot design.
-

@@ -4,7 +4,7 @@ Last checked: 2026-10-23 (Asia/Tokyo)
 
 ## Official national-holiday data
 
-Primary source: Cabinet Office, Government of Japan, **「国民の祝日」について**  
+Primary source: Cabinet Office, Government of Japan, **「国民の祝日」について**
 https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html
 
 Machine-readable source: Cabinet Office, **「昭和30年（1955年）から令和9年
@@ -121,4 +121,3 @@ any date for review; it does not change the production calendar.
 - The full-screen layers and all descendants use `pointer-events: none`.
 - `prefers-reduced-motion`, `prefers-reduced-transparency`, forced colors,
   print, narrow screens, and data-saver mode receive reduced treatments.
-

@@ -50,4 +50,3 @@ Convenience aliases include `adult`, `spring`, `green`, `child`, `sea`,
 13. `node scripts/test-japan-holidays.mjs` validates the official 2026/2027
     tables, Shift_JIS import determinism, and fixed/Happy Monday/equinox/
     substitute/bridge fallback rules (including selected 2050 dates).
-
