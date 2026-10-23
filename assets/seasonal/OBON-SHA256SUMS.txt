@@ -1,0 +1,3 @@
+c5e7263a7ade24ba1d163ae11c2b163928a262db7e1841b7a558528d1cf38cdb  assets/seasonal/obon-yokai-chochin-hitotsume-v1.webp
+d380d7c6998b7db8938ad8b993c1b100b16439b6349f8b2a06ee34aa83039cad  assets/seasonal/obon-yokai-kappa-karakasa-v1.webp
+f7173b7ab35637af0fe46e124f2bc7a84bebdc264bd0d7966f934fc6929a812f  assets/seasonal/obon-yokai-kitsune-tengu-v1.webp

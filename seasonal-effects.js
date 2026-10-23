@@ -499,19 +499,27 @@
     }
     layer.append(fireflies);
 
+    const spirits = accent('seasonal-obon-hitodama-field');
+    const spiritCount = compact ? 7 : 15;
+    for (let index = 0; index < spiritCount; index += 1) {
+      const spirit = document.createElement('i');
+      spirit.className = 'seasonal-obon-hitodama';
+      spirit.style.setProperty('--spirit-x', `${5 + ((index * 41) % 91)}vw`);
+      spirit.style.setProperty('--spirit-y', `${21 + ((index * 23) % 59)}vh`);
+      spirit.style.setProperty('--spirit-delay', `${-(index * .73).toFixed(2)}s`);
+      spirit.style.setProperty('--spirit-scale', `${(.62 + (index % 4) * .16).toFixed(2)}`);
+      spirits.append(spirit);
+    }
+    layer.append(spirits);
+
     const procession = accent('seasonal-obon-procession');
-    const characters = [
-      ['🦊', '狐'], ['👺', '天狗'], ['🐢', '河童'], ['☂️', '唐傘'], ['🦝', '狸'], ['👹', '鬼面']
-    ];
-    characters.slice(0, compact ? 4 : characters.length).forEach(([symbol, label], index) => {
-      const figure = document.createElement('i');
-      figure.className = 'seasonal-obon-yokai';
-      figure.style.setProperty('--yokai-delay', `${-(index * .52).toFixed(2)}s`);
-      const face = document.createElement('b');
-      face.textContent = symbol;
-      const tag = document.createElement('small');
-      tag.textContent = label;
-      figure.append(face, tag);
+    [
+      ['is-kappa', 'obon-yokai-kappa-karakasa-v1.webp'],
+      ['is-chochin', 'obon-yokai-chochin-hitotsume-v1.webp'],
+      ['is-kitsune', 'obon-yokai-kitsune-tengu-v1.webp']
+    ].forEach(([className, file], index) => {
+      const figure = image(`seasonal-obon-yokai-pair ${className}`, file);
+      figure.style.setProperty('--yokai-delay', `${-(index * .31).toFixed(2)}s`);
       procession.append(figure);
     });
     layer.append(procession, accent('seasonal-obon-riverlight'));
