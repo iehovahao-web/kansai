@@ -11,6 +11,7 @@ site.
 - `/?season=japanholiday&holiday=mountain#top`
 - `/?season=japanholiday&holiday=children#top`
 - `/?season=japanholiday&holiday=culture#top`
+- `/?season=off#seasonal-guides` (formal-page Sakura / autumn leaves / fireworks link group)
 
 ## Every supported national-holiday treatment
 
@@ -35,9 +36,18 @@ Convenience aliases include `adult`, `spring`, `green`, `child`, `sea`,
    `pointer-events: none`.
 5. Mobile layout remains vertical and the lower-edge decoration stays above the
    fixed mobile bar.
-6. Reduced-motion mode removes floating holiday motifs and fireflies and stops
-   lantern/yokai animation. Data Saver reduces ornament counts.
+6. Reduced-motion mode removes the holiday atmospheric particles and fireflies, stops the subject animation, and stops lantern/yokai animation. Data Saver reduces particle counts.
 7. `?season=off` suppresses all seasonal treatment locally.
-8. Automatic dates are verified against the exact 2026/2027 tables in
-   `assets/seasonal/JAPAN-HOLIDAY-SOURCES.md`.
+8. Automatic dates are verified against the exact 2026/2027 Cabinet Office
+   table in `assets/data/japan-holidays-official.json`; both Article 3 holiday
+   categories keep their distinct labels.
+9. A year present in the official JSON never mixes in calculated dates. A
+   later year uses the current-law fallback until the weekly sync imports the
+   newly published official year.
+10. Non-New-Year statutory holidays inside Jan 1–7 take priority over the extended New Year visual window; January 1 itself remains New Year.
+11. Each of the 17 holiday treatments loads its own local transparent WebP asset; the old kanji rain and geometric horizon are absent.
+12. The formal seasonal guide shows three separately tracked links: JNTO Sakura, JNTO autumn leaves, and the Kansai-wide fireworks calendar.
+13. `node scripts/test-japan-holidays.mjs` validates the official 2026/2027
+    tables, Shift_JIS import determinism, and fixed/Happy Monday/equinox/
+    substitute/bridge fallback rules (including selected 2050 dates).
 

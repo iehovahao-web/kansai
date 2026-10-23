@@ -13,11 +13,12 @@
 .seasonal-caption-obon,
 .seasonal-caption-obon *{pointer-events:none!important;user-select:none!important}
 
-/* National holidays share a quiet editorial frame; colour and the lower-edge
-   silhouette change by holiday family. */
+/* National holidays use one original transparent illustration per day.
+   Each scene has restrained movement tied to its subject and leaves the site
+   controls fully usable beneath the click-through overlay. */
 .seasonal-theme-japanholiday{
   --holiday-main:#d94b4b;--holiday-accent:#f1c86b;--holiday-soft:#fff2d3;
-  background:radial-gradient(circle at 50% 13%,color-mix(in srgb,var(--holiday-accent) 8%,transparent),transparent 40%),linear-gradient(180deg,color-mix(in srgb,var(--holiday-main) 3%,transparent),transparent 48%,color-mix(in srgb,var(--holiday-main) 5%,transparent));
+  background:radial-gradient(circle at 50% 16%,color-mix(in srgb,var(--holiday-accent) 9%,transparent),transparent 38%),linear-gradient(180deg,color-mix(in srgb,var(--holiday-main) 3%,transparent),transparent 44%,color-mix(in srgb,var(--holiday-main) 7%,transparent));
 }
 .seasonal-theme-japanholiday.holiday-family-celebration{--holiday-main:#d44e72;--holiday-accent:#f1bf65;--holiday-soft:#fff0f4}
 .seasonal-theme-japanholiday.holiday-family-civic{--holiday-main:#bd3737;--holiday-accent:#e8bb58;--holiday-soft:#fff4db}
@@ -31,29 +32,49 @@
 .seasonal-theme-japanholiday.holiday-family-sport{--holiday-main:#297ea1;--holiday-accent:#ed6d51;--holiday-soft:#ecfaff}
 .seasonal-theme-japanholiday.holiday-family-culture{--holiday-main:#664f91;--holiday-accent:#d3a858;--holiday-soft:#f7efff}
 .seasonal-theme-japanholiday.holiday-family-harvest{--holiday-main:#8e6231;--holiday-accent:#d9ad52;--holiday-soft:#fff3d2}
-
-.seasonal-jp-edgewash{inset:74px 0 0;opacity:.82;background:radial-gradient(ellipse at 0 48%,color-mix(in srgb,var(--holiday-main) 9%,transparent),transparent 25%),radial-gradient(ellipse at 100% 43%,color-mix(in srgb,var(--holiday-accent) 8%,transparent),transparent 27%)}
-.seasonal-jp-crest{inset:0}
-.seasonal-jp-crest i{position:absolute;top:31%;left:clamp(12px,2.5vw,40px);display:grid;place-items:center;width:clamp(46px,5vw,68px);aspect-ratio:1;border:1px solid color-mix(in srgb,var(--holiday-accent) 42%,transparent);border-radius:50%;background:radial-gradient(circle,#071c32e0 0 51%,color-mix(in srgb,var(--holiday-main) 32%,transparent) 52% 59%,transparent 60%);color:var(--holiday-soft);box-shadow:0 0 0 5px #071c321f,0 7px 18px #04101d4f;font:500 clamp(18px,2vw,25px)/1 var(--serif);font-style:normal;text-shadow:0 0 8px color-mix(in srgb,var(--holiday-accent) 55%,transparent);opacity:.76}
-.seasonal-jp-crest i.is-right{left:auto;right:clamp(12px,2.5vw,40px);top:auto;bottom:23%}
-.seasonal-jp-motifs{inset:0;opacity:.24}
-.seasonal-jp-motifs i{position:absolute;left:var(--motif-x);top:var(--motif-y);color:var(--holiday-soft);font:500 clamp(11px,1.15vw,17px)/1 var(--serif);font-style:normal;text-shadow:0 0 8px var(--holiday-main);transform:translate(-50%,-50%) scale(var(--motif-scale));animation:holidayMotifFloat 8s var(--motif-delay) ease-in-out infinite}
-.seasonal-jp-horizon{left:0;right:0;bottom:-14px;height:88px;opacity:.46;background:linear-gradient(180deg,transparent 0,color-mix(in srgb,var(--holiday-main) 5%,transparent) 66%,color-mix(in srgb,var(--holiday-main) 12%,transparent) 100%)}
-.seasonal-jp-horizon i{position:absolute;left:var(--shape-left);bottom:12px;width:clamp(54px,8vw,112px);height:clamp(34px,5vw,68px);border:1px solid color-mix(in srgb,var(--holiday-accent) 55%,transparent);border-radius:70% 30% 58% 42%/56% 46% 54% 44%;background:linear-gradient(145deg,color-mix(in srgb,var(--holiday-main) 24%,transparent),color-mix(in srgb,var(--holiday-accent) 12%,transparent));box-shadow:inset 0 0 12px color-mix(in srgb,var(--holiday-soft) 16%,transparent),0 0 8px color-mix(in srgb,var(--holiday-main) 12%,transparent);transform:translateX(-50%) rotate(var(--shape-rotate))}
-
-/* Each family gets a recognisable, code-native lower-edge motif. */
-.holiday-family-sea .seasonal-jp-horizon i{height:32px;border-width:2px 0 0;border-radius:50% 50% 0 0;background:transparent;box-shadow:0 -7px 0 -5px color-mix(in srgb,var(--holiday-accent) 70%,transparent),0 -14px 0 -11px color-mix(in srgb,var(--holiday-soft) 50%,transparent)}
-.holiday-family-mountain .seasonal-jp-horizon i{height:68px;border:0;border-radius:0;clip-path:polygon(50% 0,100% 100%,0 100%);background:linear-gradient(150deg,var(--holiday-soft) 0 12%,color-mix(in srgb,var(--holiday-main) 52%,transparent) 13% 100%);box-shadow:none}
-.holiday-family-children .seasonal-jp-horizon i{width:92px;height:34px;border:0;border-radius:55% 18% 18% 55%;clip-path:polygon(0 8%,78% 8%,100% 0,91% 50%,100% 100%,78% 92%,0 92%,12% 50%);background:linear-gradient(90deg,var(--holiday-main),var(--holiday-accent));box-shadow:inset 18px 0 0 color-mix(in srgb,var(--holiday-soft) 40%,transparent)}
-.holiday-family-spring .seasonal-jp-horizon i,.holiday-family-green .seasonal-jp-horizon i,.holiday-family-autumn .seasonal-jp-horizon i,.holiday-family-harvest .seasonal-jp-horizon i{width:58px;height:58px;border:0;border-radius:90% 10% 78% 22%;background:linear-gradient(145deg,var(--holiday-accent),color-mix(in srgb,var(--holiday-main) 76%,transparent));transform:translateX(-50%) rotate(var(--leaf-rotate));box-shadow:inset -7px -7px 15px #06142426}
-.holiday-family-sport .seasonal-jp-horizon i{height:46px;border:3px solid color-mix(in srgb,var(--holiday-main) 66%,transparent);border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;background:transparent;box-shadow:none;transform:translateX(-50%) rotate(var(--sport-rotate))}
-.holiday-family-culture .seasonal-jp-horizon i{width:64px;height:72px;border:0;border-radius:2px;background:linear-gradient(100deg,color-mix(in srgb,var(--holiday-soft) 62%,transparent),color-mix(in srgb,var(--holiday-main) 14%,transparent));box-shadow:inset 7px 0 color-mix(in srgb,var(--holiday-accent) 38%,transparent);transform:translateX(-50%) rotate(calc(-8deg + var(--shape-index) * 4deg))}
-.holiday-family-celebration .seasonal-jp-horizon i,.holiday-family-respect .seasonal-jp-horizon i,.holiday-family-civic .seasonal-jp-horizon i{border-radius:100% 0 100% 0;background:repeating-conic-gradient(from -16deg at 0 100%,color-mix(in srgb,var(--holiday-accent) 62%,transparent) 0 9deg,color-mix(in srgb,var(--holiday-main) 28%,transparent) 9deg 18deg);transform:translateX(-50%) rotate(var(--fan-rotate))}
-
+.seasonal-jp-edgewash{inset:74px 0 0;opacity:.9;background:radial-gradient(ellipse at 2% 53%,color-mix(in srgb,var(--holiday-main) 13%,transparent),transparent 30%),radial-gradient(ellipse at 98% 50%,color-mix(in srgb,var(--holiday-accent) 11%,transparent),transparent 31%)}
+.seasonal-jp-art-stage{inset:74px 0 0;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.seasonal-jp-art{position:absolute;left:50%;bottom:max(0px,env(safe-area-inset-bottom));width:min(1100px,94vw);height:min(60vh,620px);max-width:none;object-fit:contain;object-position:center bottom;opacity:.88;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 18%,#000 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 18%,#000 100%);filter:drop-shadow(0 12px 18px #0109148c) saturate(1.04);transform:translate3d(-50%,0,0);transform-origin:50% 100%;will-change:transform,filter}
+.seasonal-jp-motion{inset:76px 0 0;overflow:hidden;opacity:.68}
+.seasonal-jp-motion i{position:absolute;left:var(--motion-x);top:var(--motion-y);width:8px;height:8px;border-radius:50%;background:var(--holiday-accent);box-shadow:0 0 9px color-mix(in srgb,var(--holiday-accent) 70%,transparent);transform:translate(-50%,-50%) scale(var(--motion-scale));animation:holidayLightDrift 8.4s var(--motion-delay) ease-in-out infinite}
+.seasonal-jp-floorlight{left:0;right:0;bottom:0;height:98px;opacity:.65;background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--holiday-main) 10%,transparent))}
+/* Petals and leaves drift only on nature-centred observances. */
+.holiday-vernal .seasonal-jp-motion i{width:13px;height:8px;border-radius:90% 10% 90% 10%;background:#f2b6c9;animation-name:holidayPetalFall;animation-duration:9.5s}
+.holiday-greenery .seasonal-jp-motion i{width:13px;height:8px;border-radius:90% 10% 90% 10%;background:#8bc67a;animation-name:holidayLeafFloat}
+.holiday-autumnal .seasonal-jp-motion i,.holiday-respect .seasonal-jp-motion i,.holiday-labor .seasonal-jp-motion i{width:12px;height:10px;border-radius:85% 12% 82% 15%;background:var(--holiday-accent);animation-name:holidayLeafFloat}
+.holiday-marine .seasonal-jp-motion i{width:clamp(5px,1vw,12px);height:clamp(5px,1vw,12px);border:1px solid #bdf5ff;background:#79d9ed35;box-shadow:inset 0 0 4px #dffaff,0 0 8px #7edcec;animation-name:holidayBubbleRise;animation-duration:7.4s}
+.holiday-sports .seasonal-jp-motion i{width:clamp(18px,3vw,46px);height:2px;border-radius:999px;background:linear-gradient(90deg,transparent,var(--holiday-accent));box-shadow:none;animation-name:holidaySportStreak;animation-duration:5.8s}
+.holiday-culture .seasonal-jp-motion i{width:5px;height:5px;background:#30213d;box-shadow:0 0 0 1px #d9b87552;animation-name:holidayInkFloat}
+.holiday-foundation .seasonal-jp-motion i,.holiday-emperor .seasonal-jp-motion i,.holiday-showa .seasonal-jp-motion i,.holiday-constitution .seasonal-jp-motion i,.holiday-substitute .seasonal-jp-motion i,.holiday-citizens .seasonal-jp-motion i{opacity:.42;animation-duration:10.5s}
+/* Motion follows the subject: flags breathe, sea bobs, sport advances. */
+.holiday-comingage .seasonal-jp-art,.holiday-respect .seasonal-jp-art,.holiday-culture .seasonal-jp-art,.holiday-labor .seasonal-jp-art{animation:holidayArtFloat 7.2s ease-in-out infinite}
+.holiday-foundation .seasonal-jp-art,.holiday-emperor .seasonal-jp-art,.holiday-showa .seasonal-jp-art,.holiday-constitution .seasonal-jp-art,.holiday-substitute .seasonal-jp-art,.holiday-citizens .seasonal-jp-art{animation:holidayArtBreathe 8.8s ease-in-out infinite}
+.holiday-vernal .seasonal-jp-art,.holiday-greenery .seasonal-jp-art,.holiday-autumnal .seasonal-jp-art{animation:holidayArtSway 8.4s ease-in-out infinite}
+.holiday-children .seasonal-jp-art{animation:holidayKoinobori 5.8s ease-in-out infinite}
+.holiday-marine .seasonal-jp-art{animation:holidaySeaBob 6.4s ease-in-out infinite}
+.holiday-mountain .seasonal-jp-art{animation:holidayMountainMist 11s ease-in-out infinite}
+.holiday-sports .seasonal-jp-art{animation:holidaySportsStride 5.2s ease-in-out infinite}
+.holiday-marine .seasonal-jp-floorlight{height:120px;background:repeating-radial-gradient(ellipse at 50% 115%,transparent 0 33px,#80d8e629 34px 36px,transparent 37px 70px);animation:holidayWaveFlow 8s linear infinite}
+.holiday-mountain .seasonal-jp-floorlight{height:150px;background:linear-gradient(180deg,transparent,#cfe7d017 46%,#d8e7e51f);filter:blur(10px);animation:holidayMistFlow 12s ease-in-out infinite}
 .seasonal-caption-japanholiday{top:96px;border-right-color:var(--holiday-accent,#e1b461);background:linear-gradient(90deg,transparent,#071c32df);max-width:370px}
 .seasonal-caption-japanholiday strong{color:var(--holiday-accent,#edbd68);font-size:clamp(21px,2.35vw,31px);line-height:1.08;letter-spacing:.055em}
 .seasonal-caption-japanholiday .seasonal-label-date{color:color-mix(in srgb,var(--holiday-accent,#edbd68) 78%,white)}
 .seasonal-caption-japanholiday.holiday-constitution strong,.seasonal-caption-japanholiday.holiday-respect strong{font-size:clamp(19px,2vw,27px)}
+@keyframes holidayLightDrift{0%,100%{transform:translate(-50%,-50%) scale(var(--motion-scale));opacity:.14}45%{transform:translate(calc(-50% + 8px),calc(-50% - 16px)) scale(var(--motion-scale));opacity:.82}}
+@keyframes holidayPetalFall{0%{transform:translate(-50%,-120px) rotate(0) scale(var(--motion-scale));opacity:0}15%{opacity:.82}100%{transform:translate(calc(-50% + 42px),calc(100vh - var(--motion-y))) rotate(310deg) scale(var(--motion-scale));opacity:.15}}
+@keyframes holidayLeafFloat{0%,100%{transform:translate(-50%,-50%) rotate(-12deg) scale(var(--motion-scale));opacity:.2}50%{transform:translate(calc(-50% + 22px),calc(-50% - 28px)) rotate(24deg) scale(var(--motion-scale));opacity:.78}}
+@keyframes holidayBubbleRise{0%{transform:translate(-50%,48vh) scale(.35);opacity:0}18%{opacity:.78}100%{transform:translate(calc(-50% + 16px),-40vh) scale(var(--motion-scale));opacity:0}}
+@keyframes holidaySportStreak{0%,100%{transform:translate(-130px,-50%) scaleX(.4);opacity:0}35%,65%{transform:translate(60px,-50%) scaleX(var(--motion-scale));opacity:.72}}
+@keyframes holidayInkFloat{0%,100%{transform:translate(-50%,-50%) scale(.4);opacity:.12}50%{transform:translate(calc(-50% + 10px),calc(-50% - 18px)) scale(var(--motion-scale));opacity:.65}}
+@keyframes holidayArtFloat{0%,100%{transform:translate3d(-50%,0,0)}50%{transform:translate3d(-50%,-8px,0)}}
+@keyframes holidayArtBreathe{0%,100%{transform:translate3d(-50%,0,0) scale(1);filter:drop-shadow(0 12px 18px #0109148c) saturate(1.02)}50%{transform:translate3d(-50%,-3px,0) scale(1.012);filter:drop-shadow(0 15px 22px #0109148c) saturate(1.1)}}
+@keyframes holidayArtSway{0%,100%{transform:translate3d(-50%,0,0) rotate(-.3deg)}50%{transform:translate3d(-50%,-5px,0) rotate(.45deg)}}
+@keyframes holidayKoinobori{0%,100%{transform:translate3d(-50%,0,0) skewY(0)}50%{transform:translate3d(calc(-50% + 9px),-4px,0) skewY(-.5deg)}}
+@keyframes holidaySeaBob{0%,100%{transform:translate3d(-50%,2px,0) rotate(-.15deg)}50%{transform:translate3d(-50%,-7px,0) rotate(.2deg)}}
+@keyframes holidayMountainMist{0%,100%{transform:translate3d(-50%,0,0);filter:drop-shadow(0 12px 18px #0109148c) saturate(1)}50%{transform:translate3d(-50%,-2px,0);filter:drop-shadow(0 14px 20px #0109148c) saturate(1.06) brightness(1.035)}}
+@keyframes holidaySportsStride{0%,100%{transform:translate3d(calc(-50% - 5px),0,0)}50%{transform:translate3d(calc(-50% + 8px),-4px,0)}}
+@keyframes holidayWaveFlow{to{background-position:70px 0}}
+@keyframes holidayMistFlow{0%,100%{transform:translateX(-3%);opacity:.38}50%{transform:translateX(4%);opacity:.68}}
 
 /* Obon: a restrained twilight procession. It runs Aug 13–16 in automatic
    mode and is explicitly labelled as customary, not a national holiday. */
@@ -64,29 +85,28 @@
 .seasonal-obon-lantern::before{content:"";position:absolute;left:50%;bottom:100%;width:1px;height:28px;background:#d6b47c4f}.seasonal-obon-lantern::after{content:"";position:absolute;left:34%;right:34%;top:100%;height:13px;background:linear-gradient(90deg,transparent,#e3b967a8,transparent);clip-path:polygon(0 0,100% 0,65% 100%,35% 100%)}
 .seasonal-obon-fireflies{inset:0}.seasonal-obon-fireflies i{position:absolute;left:var(--firefly-x);top:var(--firefly-y);width:3px;height:3px;border-radius:50%;background:#ffe48a;box-shadow:0 0 7px 2px #eab14f77;animation:obonFirefly 6.8s var(--firefly-delay) ease-in-out infinite}
 .seasonal-obon-hitodama-field{inset:0;opacity:.78}.seasonal-obon-hitodama{position:absolute;left:var(--spirit-x);top:var(--spirit-y);width:clamp(9px,1vw,15px);height:clamp(18px,1.9vw,28px);border-radius:50% 50% 48% 52%;background:radial-gradient(circle at 48% 60%,#fffbd8 0 13%,#99ecff 22%,#61a7f4ab 48%,transparent 69%);box-shadow:0 0 9px #9cefff,0 0 22px #6594ea8a;transform-origin:50% 80%;animation:obonHitodama 7.2s var(--spirit-delay) ease-in-out infinite}.seasonal-obon-hitodama::after{content:"";position:absolute;left:23%;bottom:72%;width:64%;height:90%;border-radius:85% 15% 70% 30%;background:linear-gradient(25deg,transparent 12%,#8bdcffbf 46%,transparent 78%);transform:rotate(21deg)}
-.seasonal-obon-procession{left:-990px;bottom:5px;width:960px;height:206px;opacity:.97;transform-origin:50% 100%;will-change:transform;animation:obonNightParadeRoundTrip 46s -15s linear infinite}
+.seasonal-obon-procession{--obon-travel:calc(100vw + 990px);left:-990px;bottom:5px;width:960px;height:206px;opacity:.97;transform-origin:50% 100%;will-change:transform;animation:obonNightParadeRoundTrip 46s -15s linear infinite}
 .seasonal-obon-yokai-pair{position:absolute;bottom:0;width:318px;height:212px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 9px 8px #020813a6) drop-shadow(0 0 10px #e8a65252);transform-origin:50% 100%;will-change:transform;animation:obonYokaiStride 1.1s var(--yokai-delay) ease-in-out infinite}
 .seasonal-obon-yokai-pair.is-kappa{left:0;--asset-face:1}.seasonal-obon-yokai-pair.is-chochin{left:321px;--asset-face:1;bottom:4px}.seasonal-obon-yokai-pair.is-kitsune{left:642px;--asset-face:-1;bottom:1px}
 .seasonal-obon-riverlight{left:0;right:0;bottom:0;height:45px;background:linear-gradient(180deg,transparent,#d9924610),repeating-linear-gradient(90deg,transparent 0 7%,#e8ba6522 9%,transparent 11% 18%);filter:blur(.3px)}
 .seasonal-caption-obon{top:96px;border-color:#d5a05b38;border-right-color:#e2b567;background:linear-gradient(100deg,transparent,#171629e8);max-width:365px}.seasonal-caption-obon strong{color:#f0c379;font-family:"Hiragino Mincho ProN","Yu Mincho",Georgia,serif;font-size:clamp(25px,2.7vw,36px);letter-spacing:.08em;text-shadow:0 0 11px #e19b4d4c}.seasonal-caption-obon .seasonal-label-date{color:#e8be78}
 
-@keyframes holidayMotifFloat{0%,100%{transform:translate(-50%,-50%) scale(var(--motif-scale));opacity:.38}50%{transform:translate(-50%,calc(-50% - 9px)) scale(var(--motif-scale));opacity:.76}}
 @keyframes obonLanternSway{0%,100%{transform:translateX(-50%) scale(var(--lantern-scale)) rotate(-2deg)}50%{transform:translateX(-50%) scale(var(--lantern-scale)) rotate(2.5deg)}}
 @keyframes obonFirefly{0%,100%{transform:translate(0,0) scale(.6);opacity:.18}30%{transform:translate(9px,-7px) scale(1);opacity:.86}67%{transform:translate(-5px,-13px) scale(.8);opacity:.42}}
 @keyframes obonHitodama{0%,100%{transform:translate(0,0) scale(var(--spirit-scale)) rotate(-4deg);opacity:.24}26%{transform:translate(9px,-14px) scale(var(--spirit-scale)) rotate(7deg);opacity:.88}61%{transform:translate(-7px,-25px) scale(var(--spirit-scale)) rotate(-8deg);opacity:.48}82%{transform:translate(4px,-9px) scale(var(--spirit-scale)) rotate(3deg);opacity:.72}}
-@keyframes obonNightParadeRoundTrip{0%{transform:translate3d(0,0,0) scaleX(1)}48.8%{transform:translate3d(calc(100vw + 990px),-10px,0) scaleX(1)}50%{transform:translate3d(calc(100vw + 990px),-10px,0) scaleX(-1)}98.8%{transform:translate3d(0,0,0) scaleX(-1)}100%{transform:translate3d(0,0,0) scaleX(1)}}
+@keyframes obonNightParadeRoundTrip{0%{transform:translate3d(0,0,0) scaleX(1)}48.8%{transform:translate3d(var(--obon-travel),-10px,0) scaleX(1)}50%{transform:translate3d(var(--obon-travel),-10px,0) scaleX(-1)}98.8%{transform:translate3d(0,0,0) scaleX(-1)}100%{transform:translate3d(0,0,0) scaleX(1)}}
 @keyframes obonYokaiStride{0%,100%{transform:translateY(0) scaleX(var(--asset-face)) rotate(-.45deg)}46%{transform:translateY(-7px) scaleX(var(--asset-face)) rotate(.7deg)}72%{transform:translateY(-2px) scaleX(var(--asset-face)) rotate(0)}}
 
 @media(max-width:680px){
-  .seasonal-jp-crest i{top:26%;left:7px;width:42px}.seasonal-jp-crest i.is-right{right:7px;bottom:23%}
-  .seasonal-jp-horizon{bottom:calc(74px + env(safe-area-inset-bottom));height:60px}.seasonal-jp-horizon i{width:48px;height:32px}
+  .seasonal-jp-art-stage{inset:96px 0 calc(70px + env(safe-area-inset-bottom))}.seasonal-jp-art{bottom:0;width:132vw;height:min(55vh,540px);opacity:.87}
+  .seasonal-jp-motion{inset:96px 0 calc(70px + env(safe-area-inset-bottom))}
   .seasonal-caption-japanholiday,.seasonal-caption-obon{top:112px;right:10px;width:min(275px,calc(100vw - 20px));padding:8px 10px 9px}.seasonal-caption-japanholiday strong{font-size:20px}.seasonal-caption-japanholiday.holiday-constitution strong,.seasonal-caption-japanholiday.holiday-respect strong{font-size:17px}.seasonal-caption-obon strong{font-size:23px}
-  .seasonal-obon-lantern{top:107px;width:22px;height:34px}.seasonal-obon-hitodama-field{opacity:.58}.seasonal-obon-procession{left:-576px;bottom:calc(76px + env(safe-area-inset-bottom));width:560px;height:125px;animation-duration:35s}.seasonal-obon-yokai-pair{width:186px;height:124px}.seasonal-obon-yokai-pair.is-chochin{left:187px;bottom:2px}.seasonal-obon-yokai-pair.is-kitsune{left:374px}.seasonal-obon-riverlight{bottom:calc(72px + env(safe-area-inset-bottom))}
+  .seasonal-obon-lantern{top:107px;width:22px;height:34px}.seasonal-obon-hitodama-field{opacity:.58}.seasonal-obon-procession{--obon-travel:calc(100vw + 576px);left:-576px;bottom:calc(76px + env(safe-area-inset-bottom));width:560px;height:125px;animation-duration:35s}.seasonal-obon-yokai-pair{width:186px;height:124px}.seasonal-obon-yokai-pair.is-chochin{left:187px;bottom:2px}.seasonal-obon-yokai-pair.is-kitsune{left:374px}.seasonal-obon-riverlight{bottom:calc(72px + env(safe-area-inset-bottom))}
 }
 @media(prefers-reduced-motion:reduce){
-  .seasonal-theme-japanholiday .seasonal-jp-motifs,.seasonal-theme-obon .seasonal-obon-fireflies,.seasonal-theme-obon .seasonal-obon-hitodama-field{display:none}.seasonal-theme-obon .seasonal-obon-lantern,.seasonal-theme-obon .seasonal-obon-yokai-pair{animation:none!important}.seasonal-theme-obon .seasonal-obon-procession{left:2vw;transform:scale(.72);transform-origin:left bottom;animation:none!important}
+  .seasonal-theme-japanholiday .seasonal-jp-motion,.seasonal-theme-obon .seasonal-obon-fireflies,.seasonal-theme-obon .seasonal-obon-hitodama-field{display:none}.seasonal-theme-obon .seasonal-obon-lantern,.seasonal-theme-obon .seasonal-obon-yokai-pair{animation:none!important}.seasonal-theme-obon .seasonal-obon-procession{left:2vw;transform:scale(.72);transform-origin:left bottom;animation:none!important}
 }
-.seasonal-layer.is-low-data .seasonal-jp-motifs i:nth-child(n+6),.seasonal-layer.is-low-data .seasonal-obon-fireflies i:nth-child(n+7),.seasonal-layer.is-low-data .seasonal-obon-lantern:nth-child(even){display:none}
-.seasonal-layer.is-low-data .seasonal-jp-motifs,.seasonal-layer.is-low-data .seasonal-obon-fireflies{animation:none!important}
+.seasonal-layer.is-low-data .seasonal-jp-motion i:nth-child(n+5),.seasonal-layer.is-low-data .seasonal-obon-fireflies i:nth-child(n+7),.seasonal-layer.is-low-data .seasonal-obon-lantern:nth-child(even){display:none}
+.seasonal-layer.is-low-data .seasonal-jp-motion,.seasonal-layer.is-low-data .seasonal-obon-fireflies{animation:none!important}
 @media(prefers-reduced-transparency:reduce){.seasonal-theme-japanholiday *,.seasonal-theme-obon *{box-shadow:none!important;filter:none!important}.seasonal-caption-japanholiday,.seasonal-caption-obon{backdrop-filter:none;-webkit-backdrop-filter:none}}
 @media(forced-colors:active),print{.seasonal-theme-japanholiday,.seasonal-theme-obon,.seasonal-caption-japanholiday,.seasonal-caption-obon{display:none!important}}

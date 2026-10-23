@@ -15,7 +15,7 @@
   });
   const LANGUAGE_CODES = new Set(['zh', 'en', 'ja', 'ko', 'es', 'de', 'fr', 'it', 'ar', 'th']);
   const SEASONAL_AUDIO_THEMES = new Set(['halloween', 'christmas']);
-  const SECTION_TARGETS = ['food', 'sea', 'shopping', 'coupon', 'addresses'];
+  const SECTION_TARGETS = ['food', 'sea', 'shopping', 'coupon', 'addresses', 'seasonal-guides'];
   const DETAIL_KEYS = new Set([
     ...SECTION_TARGETS.flatMap(section => [`section-link-${section}`, `module-${section}-view`]),
     'navigation-brand-top',
@@ -39,7 +39,8 @@
     'control-delicious-rewind', 'control-delicious-play-toggle', 'control-delicious-forward', 'control-delicious-airplay',
     'control-video-jazz-play', 'control-video-yodogawa-play',
     ...[...LANGUAGE_CODES].map(language => `language-${language}`),
-    ...[...SEASONAL_AUDIO_THEMES].flatMap(theme => [`seasonal-audio-${theme}-on`, `seasonal-audio-${theme}-off`])
+    ...[...SEASONAL_AUDIO_THEMES].flatMap(theme => [`seasonal-audio-${theme}-on`, `seasonal-audio-${theme}-off`]),
+    'season-guide-sakura-click', 'season-guide-autumn-click', 'season-guide-fireworks-click'
   ]);
 
   const isProduction = location.protocol === 'https:' &&
@@ -215,6 +216,8 @@
     return 'coupon-download-main';
   }
   function linkDetails(link) {
+    const explicit = String(link.dataset.metricsDetail || '').trim().toLowerCase();
+    if (DETAIL_KEYS.has(explicit) && validKey(explicit)) return [explicit];
     const raw = link.getAttribute('href') || '';
     if (raw.startsWith('#')) {
       const target = raw.slice(1);

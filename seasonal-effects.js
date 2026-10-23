@@ -3,6 +3,7 @@
 
   const TIME_ZONE = 'Asia/Tokyo';
   const ASSET_ROOT = 'assets/seasonal/';
+  const HOLIDAY_DATA_URL = 'assets/data/japan-holidays-official.json';
   const LEAF_ASSETS = [
     'openclipart-autumn-leaf-1.png',
     'openclipart-autumn-leaf-2.png',
@@ -68,22 +69,9 @@
     substitute: { title: 'SUBSTITUTE DAY OFF', ja: '休日（祝日法第3条第2項）', zh: '補休日（《國民祝日法》第3條第2項）', en: 'A statutory day off following a national holiday that fell on Sunday.', hintJa: '日曜日の祝日に伴う、祝日法による休日です。', hintZh: '國民祝日逢星期日後，依法律安排的補休日。', family: 'civic', icons: ['休', '振'], status: '祝日法による休日' },
     citizens: { title: 'CITIZENS’ DAY OFF', ja: '休日（祝日法第3条第3項）', zh: '國民休假日（《國民祝日法》第3條第3項）', en: 'A statutory day off between two national holidays.', hintJa: '前後を祝日に挟まれた、祝日法による休日です。', hintZh: '前後均為國民祝日時，依法安排的休假日。', family: 'civic', icons: ['休', '間'], status: '祝日法による休日' }
   };
-  const HOLIDAY_SCHEDULE = {
-    2026: {
-      '01-01': 'newyear', '01-12': 'comingage', '02-11': 'foundation', '02-23': 'emperor',
-      '03-20': 'vernal', '04-29': 'showa', '05-03': 'constitution', '05-04': 'greenery',
-      '05-05': 'children', '05-06': 'substitute', '07-20': 'marine', '08-11': 'mountain',
-      '09-21': 'respect', '09-22': 'citizens', '09-23': 'autumnal', '10-12': 'sports',
-      '11-03': 'culture', '11-23': 'labor'
-    },
-    2027: {
-      '01-01': 'newyear', '01-11': 'comingage', '02-11': 'foundation', '02-23': 'emperor',
-      '03-21': 'vernal', '03-22': 'substitute', '04-29': 'showa', '05-03': 'constitution',
-      '05-04': 'greenery', '05-05': 'children', '07-19': 'marine', '08-11': 'mountain',
-      '09-20': 'respect', '09-23': 'autumnal', '10-11': 'sports', '11-03': 'culture',
-      '11-23': 'labor'
-    }
-  };
+  const holidayEngine = window.KansaiJapanHolidays;
+  let officialHolidayCalendar = null;
+  let officialHolidayLoadState = 'pending';
   const LIGHT_LABELS = {
     zh: ['开启万圣节标题彩灯', '关闭万圣节标题彩灯'],
     'zh-hant': ['開啟萬聖節標題彩燈', '關閉萬聖節標題彩燈'],
@@ -126,10 +114,17 @@
   }
 
   function holidayForParts(parts) {
-    const date = `${String(parts.month).padStart(2, '0')}-${String(parts.day).padStart(2, '0')}`;
-    const id = HOLIDAY_SCHEDULE[parts.year]?.[date];
-    if (!id || id === 'newyear') return null;
-    return { id, date: `${parts.year}.${date.replace('-', '.')}`, ...HOLIDAY_DETAILS[id] };
+    const record = holidayEngine?.resolve(parts, officialHolidayCalendar);
+    if (!record || record.id === 'newyear' || !HOLIDAY_DETAILS[record.id]) return null;
+    const displayDate = record.date.replaceAll('-', '.');
+    return {
+      id: record.id,
+      date: displayDate,
+      officialName: record.nameJa,
+      legalBasis: record.legalBasis,
+      calendarSource: record.source,
+      ...HOLIDAY_DETAILS[record.id]
+    };
   }
 
   function newYearCaptionForParts(parts) {
@@ -140,9 +135,11 @@
   function automaticTheme(parts) {
     if (parts.month === 10 && parts.day >= 20 && parts.day <= 31) return 'halloween';
     if (parts.month === 12 && parts.day >= 15 && parts.day <= 28) return 'christmas';
+    // A non-New-Year statutory holiday takes priority inside the Jan 1–7 visual window
+    // (for example a Jan 2 substitute holiday when New Year's Day fell on Sunday).
+    if (holidayForParts(parts)) return 'japanholiday';
     if ((parts.month === 12 && parts.day >= 29) || (parts.month === 1 && parts.day <= 7)) return 'newyear';
     if (parts.month === 8 && parts.day >= 13 && parts.day <= 16) return 'obon';
-    if (holidayForParts(parts)) return 'japanholiday';
     const distance = daysFrom(parts, fourthThursday(parts.year));
     if (distance >= -2 && distance <= 3) return 'thanksgiving';
     return null;
@@ -437,40 +434,21 @@
     layer.classList.add(`holiday-${holiday.id}`, `holiday-family-${holiday.family}`);
     layer.append(accent('seasonal-jp-edgewash'));
 
-    const crest = accent('seasonal-jp-crest');
-    holiday.icons.forEach((character, index) => {
-      const mark = document.createElement('i');
-      mark.className = index ? 'is-right' : 'is-left';
-      mark.textContent = character;
-      crest.append(mark);
-    });
-    layer.append(crest);
+    const stage = accent('seasonal-jp-art-stage');
+    stage.append(image(`seasonal-jp-art seasonal-jp-art-${holiday.id}`, `holiday-${holiday.id}-v1.webp`));
+    layer.append(stage);
 
-    const motifs = accent('seasonal-jp-motifs');
-    const motifCount = compact ? 7 : 14;
-    for (let index = 0; index < motifCount; index += 1) {
-      const motif = document.createElement('i');
-      motif.textContent = holiday.icons[index % holiday.icons.length];
-      motif.style.setProperty('--motif-x', `${6 + ((index * 31) % 88)}vw`);
-      motif.style.setProperty('--motif-y', `${15 + ((index * 23) % 72)}vh`);
-      motif.style.setProperty('--motif-delay', `${-(index * .71).toFixed(2)}s`);
-      motif.style.setProperty('--motif-scale', `${(.72 + (index % 4) * .13).toFixed(2)}`);
-      motifs.append(motif);
+    const motion = accent('seasonal-jp-motion');
+    const motionCount = compact ? 5 : 10;
+    for (let index = 0; index < motionCount; index += 1) {
+      const particle = document.createElement('i');
+      particle.style.setProperty('--motion-x', `${5 + ((index * 37) % 91)}vw`);
+      particle.style.setProperty('--motion-y', `${18 + ((index * 29) % 70)}vh`);
+      particle.style.setProperty('--motion-delay', `${-(index * .67).toFixed(2)}s`);
+      particle.style.setProperty('--motion-scale', `${(.68 + (index % 4) * .16).toFixed(2)}`);
+      motion.append(particle);
     }
-    layer.append(motifs);
-
-    const horizon = accent('seasonal-jp-horizon');
-    for (let index = 0; index < 5; index += 1) {
-      const shape = document.createElement('i');
-      shape.style.setProperty('--shape-index', String(index));
-      shape.style.setProperty('--shape-left', `${4 + index * 23}%`);
-      shape.style.setProperty('--shape-rotate', `${(index - 2) * 4}deg`);
-      shape.style.setProperty('--leaf-rotate', `${24 + index * 17}deg`);
-      shape.style.setProperty('--sport-rotate', `${-32 + index * 12}deg`);
-      shape.style.setProperty('--fan-rotate', `${-5 + index * 3}deg`);
-      horizon.append(shape);
-    }
-    layer.append(horizon);
+    layer.append(motion, accent('seasonal-jp-floorlight'));
   }
 
   function addObon(layer, compact) {
@@ -601,6 +579,29 @@
     renderedDate = today;
     render(theme);
   }
+  async function loadOfficialHolidayCalendar() {
+    if (!holidayEngine?.createOfficialCalendar || typeof fetch !== 'function') {
+      officialHolidayLoadState = 'fallback';
+      document.documentElement.dataset.holidayCalendar = 'fallback';
+      return;
+    }
+    try {
+      const response = await fetch(HOLIDAY_DATA_URL, { cache: 'no-cache', credentials: 'same-origin' });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      officialHolidayCalendar = holidayEngine.createOfficialCalendar(await response.json());
+      officialHolidayLoadState = 'official';
+      document.documentElement.dataset.holidayCalendar = 'official';
+      renderedDate = null;
+      sync();
+      document.dispatchEvent(new CustomEvent('kansai-holiday-calendar-ready', {
+        detail: { source: 'cabinet-office-csv', years: [...officialHolidayCalendar.years] }
+      }));
+    } catch (error) {
+      officialHolidayLoadState = 'fallback';
+      document.documentElement.dataset.holidayCalendar = 'fallback';
+      console.warn('Official Japanese holiday calendar unavailable; using the calculated future fallback.', error);
+    }
+  }
   let midnightTimer;
   function scheduleNextOsakaMidnight() {
     clearTimeout(midnightTimer);
@@ -658,9 +659,14 @@
   window.addEventListener('pageshow', () => { sync(); scheduleNextOsakaMidnight(); });
   sync();
   scheduleNextOsakaMidnight();
+  void loadOfficialHolidayCalendar();
   window.KansaiSeasonal = Object.freeze({
     resolve: date => automaticTheme(osakaDateParts(date)),
     holiday: date => holidayForParts(osakaDateParts(date)),
-    active: () => renderedTheme
+    active: () => renderedTheme,
+    holidayCalendar: () => ({
+      state: officialHolidayLoadState,
+      years: officialHolidayCalendar ? [...officialHolidayCalendar.years] : []
+    })
   });
 })();
