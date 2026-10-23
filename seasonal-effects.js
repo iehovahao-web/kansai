@@ -40,6 +40,48 @@
       hintJa: '新しい年の初光を迎えます。',
       hintZh: '迎接新一年的第一束光。',
       when: 'DEC 29–JAN 7 · 年末年始'
+    },
+    obon: {
+      title: 'OBON · お盆', ja: '盂蘭盆会（関西の盆時期）', zh: '盂蘭盆節（關西常見時段）',
+      en: 'Lanterns gently guide a summer evening of remembrance.',
+      hintJa: '灯籠の光とともに、ご先祖を静かに迎える夏の夕べ。',
+      hintZh: '在燈籠微光中，安靜迎接先人的夏夜。',
+      when: 'AUG 13–16 · 国民の祝日ではありません'
+    }
+  };
+  const HOLIDAY_DETAILS = {
+    comingage: { title: 'COMING OF AGE DAY', ja: '成人の日', zh: '成人之日', en: 'Celebrate young adults taking their next step.', hintJa: '新たな一歩を踏み出す若者を祝います。', hintZh: '祝福青年踏出人生的新一步。', family: 'celebration', icons: ['扇', '祝'] },
+    foundation: { title: 'NATIONAL FOUNDATION DAY', ja: '建国記念の日', zh: '建國紀念之日', en: 'Reflect on the founding of Japan and its future.', hintJa: '建国をしのび、国の未来に思いを寄せる日。', hintZh: '追思建國，寄望國家未來。', family: 'civic', icons: ['日', '結'] },
+    emperor: { title: "THE EMPEROR'S BIRTHDAY", ja: '天皇誕生日', zh: '天皇誕辰', en: "Celebrate the Emperor's birthday.", hintJa: '天皇の誕生日を祝う日。', hintZh: '慶祝天皇誕辰。', family: 'civic', icons: ['菊', '寿'] },
+    vernal: { title: 'VERNAL EQUINOX DAY', ja: '春分の日', zh: '春分之日', en: 'Welcome spring and cherish living things.', hintJa: '自然をたたえ、生きものをいつくしむ日。', hintZh: '讚頌自然，珍愛生命。', family: 'spring', icons: ['花', '春'] },
+    showa: { title: 'SHŌWA DAY', ja: '昭和の日', zh: '昭和之日', en: 'Look back on the Shōwa era and consider the future.', hintJa: '昭和の時代を顧み、国の将来に思いをいたす日。', hintZh: '回望昭和時代，思考國家未來。', family: 'civic', icons: ['昭', '和'] },
+    constitution: { title: 'CONSTITUTION MEMORIAL DAY', ja: '憲法記念日', zh: '憲法紀念日', en: 'Commemorate the Constitution and hope for continued growth.', hintJa: '日本国憲法の施行を記念する日。', hintZh: '紀念日本國憲法施行。', family: 'civic', icons: ['法', '平'] },
+    greenery: { title: 'GREENERY DAY', ja: 'みどりの日', zh: '綠之日', en: 'Enjoy nature and give thanks for its gifts.', hintJa: '自然に親しみ、その恵みに感謝する日。', hintZh: '親近自然，感謝自然的恩惠。', family: 'green', icons: ['葉', '緑'] },
+    children: { title: "CHILDREN'S DAY", ja: 'こどもの日', zh: '兒童之日', en: "Wish for every child's happiness and growth.", hintJa: 'こどもの健やかな成長と幸福を願う日。', hintZh: '祝願孩子健康成長、幸福快樂。', family: 'children', icons: ['鯉', '童'] },
+    marine: { title: 'MARINE DAY', ja: '海の日', zh: '海之日', en: 'Give thanks for the sea and celebrate island life.', hintJa: '海の恵みに感謝し、海洋国日本の繁栄を願う日。', hintZh: '感謝海洋恩惠，祝願海洋國家繁榮。', family: 'sea', icons: ['海', '波'] },
+    mountain: { title: 'MOUNTAIN DAY', ja: '山の日', zh: '山之日', en: 'Enjoy the mountains and appreciate their gifts.', hintJa: '山に親しみ、その恵みに感謝する日。', hintZh: '親近山林，感謝群山的恩惠。', family: 'mountain', icons: ['山', '峰'] },
+    respect: { title: 'RESPECT FOR THE AGED DAY', ja: '敬老の日', zh: '敬老之日', en: 'Honor older people and celebrate long life.', hintJa: '長年社会に尽くした方々を敬い、長寿を祝う日。', hintZh: '敬愛長者，祝福長壽。', family: 'respect', icons: ['寿', '敬'] },
+    autumnal: { title: 'AUTUMNAL EQUINOX DAY', ja: '秋分の日', zh: '秋分之日', en: 'Honor ancestors and remember those who have passed.', hintJa: '祖先を敬い、亡くなった人々をしのぶ日。', hintZh: '敬奉祖先，追思故人。', family: 'autumn', icons: ['月', '穂'] },
+    sports: { title: 'SPORTS DAY', ja: 'スポーツの日', zh: '體育之日', en: 'Enjoy sport, respect others, and celebrate active living.', hintJa: 'スポーツを楽しみ、互いを尊重する心を育む日。', hintZh: '享受運動，培養尊重他人的精神。', family: 'sport', icons: ['走', '躍'] },
+    culture: { title: 'CULTURE DAY', ja: '文化の日', zh: '文化之日', en: 'Celebrate freedom, peace, art, and culture.', hintJa: '自由と平和を愛し、文化をすすめる日。', hintZh: '珍愛自由與和平，推進文化。', family: 'culture', icons: ['文', '芸'] },
+    labor: { title: 'LABOR THANKSGIVING DAY', ja: '勤労感謝の日', zh: '勤勞感謝之日', en: 'Honor work, production, and mutual gratitude.', hintJa: '勤労を尊び、生産を祝い、互いに感謝する日。', hintZh: '尊重勞動與生產，彼此感謝。', family: 'harvest', icons: ['実', '謝'] },
+    substitute: { title: 'SUBSTITUTE DAY OFF', ja: '休日（祝日法第3条第2項）', zh: '補休日（《國民祝日法》第3條第2項）', en: 'A statutory day off following a national holiday that fell on Sunday.', hintJa: '日曜日の祝日に伴う、祝日法による休日です。', hintZh: '國民祝日逢星期日後，依法律安排的補休日。', family: 'civic', icons: ['休', '振'], status: '祝日法による休日' },
+    citizens: { title: 'CITIZENS’ DAY OFF', ja: '休日（祝日法第3条第3項）', zh: '國民休假日（《國民祝日法》第3條第3項）', en: 'A statutory day off between two national holidays.', hintJa: '前後を祝日に挟まれた、祝日法による休日です。', hintZh: '前後均為國民祝日時，依法安排的休假日。', family: 'civic', icons: ['休', '間'], status: '祝日法による休日' }
+  };
+  const HOLIDAY_SCHEDULE = {
+    2026: {
+      '01-01': 'newyear', '01-12': 'comingage', '02-11': 'foundation', '02-23': 'emperor',
+      '03-20': 'vernal', '04-29': 'showa', '05-03': 'constitution', '05-04': 'greenery',
+      '05-05': 'children', '05-06': 'substitute', '07-20': 'marine', '08-11': 'mountain',
+      '09-21': 'respect', '09-22': 'citizens', '09-23': 'autumnal', '10-12': 'sports',
+      '11-03': 'culture', '11-23': 'labor'
+    },
+    2027: {
+      '01-01': 'newyear', '01-11': 'comingage', '02-11': 'foundation', '02-23': 'emperor',
+      '03-21': 'vernal', '03-22': 'substitute', '04-29': 'showa', '05-03': 'constitution',
+      '05-04': 'greenery', '05-05': 'children', '07-19': 'marine', '08-11': 'mountain',
+      '09-20': 'respect', '09-23': 'autumnal', '10-11': 'sports', '11-03': 'culture',
+      '11-23': 'labor'
     }
   };
   const LIGHT_LABELS = {
@@ -83,12 +125,26 @@
     return { year, month: 11, day: 1 + ((4 - first.getUTCDay() + 7) % 7) + 21 };
   }
 
+  function holidayForParts(parts) {
+    const date = `${String(parts.month).padStart(2, '0')}-${String(parts.day).padStart(2, '0')}`;
+    const id = HOLIDAY_SCHEDULE[parts.year]?.[date];
+    if (!id || id === 'newyear') return null;
+    return { id, date: `${parts.year}.${date.replace('-', '.')}`, ...HOLIDAY_DETAILS[id] };
+  }
+
+  function newYearCaptionForParts(parts) {
+    if (parts.month !== 1 || parts.day !== 1) return null;
+    return { ...LABELS.newyear, when: 'JANUARY 1 · 元日 · 日本の国民の祝日' };
+  }
+
   function automaticTheme(parts) {
     if (parts.month === 10 && parts.day >= 20 && parts.day <= 31) return 'halloween';
-    const distance = daysFrom(parts, fourthThursday(parts.year));
-    if (distance >= -2 && distance <= 3) return 'thanksgiving';
     if (parts.month === 12 && parts.day >= 15 && parts.day <= 28) return 'christmas';
     if ((parts.month === 12 && parts.day >= 29) || (parts.month === 1 && parts.day <= 7)) return 'newyear';
+    if (parts.month === 8 && parts.day >= 13 && parts.day <= 16) return 'obon';
+    if (holidayForParts(parts)) return 'japanholiday';
+    const distance = daysFrom(parts, fourthThursday(parts.year));
+    if (distance >= -2 && distance <= 3) return 'thanksgiving';
     return null;
   }
 
@@ -96,7 +152,16 @@
     const local = location.protocol === 'file:' || !location.hostname || ['localhost', '127.0.0.1', '::1', '[::1]'].includes(location.hostname);
     if (!local) return null;
     const value = new URLSearchParams(location.search).get('season');
-    return ['halloween', 'thanksgiving', 'christmas', 'newyear', 'off', 'none'].includes(value) ? (value === 'none' ? 'off' : value) : null;
+    return ['halloween', 'thanksgiving', 'christmas', 'newyear', 'obon', 'japanholiday', 'off', 'none'].includes(value) ? (value === 'none' ? 'off' : value) : null;
+  }
+
+  function previewHoliday() {
+    const local = location.protocol === 'file:' || !location.hostname || ['localhost', '127.0.0.1', '::1', '[::1]'].includes(location.hostname);
+    if (!local || new URLSearchParams(location.search).get('season') !== 'japanholiday') return null;
+    const requested = (new URLSearchParams(location.search).get('holiday') || 'marine').toLowerCase();
+    const aliases = { adult: 'comingage', coming: 'comingage', emperorbirthday: 'emperor', spring: 'vernal', autumn: 'autumnal', green: 'greenery', child: 'children', sea: 'marine', aged: 'respect', labour: 'labor', bridge: 'citizens' };
+    const id = aliases[requested] || requested;
+    return HOLIDAY_DETAILS[id] ? { id, date: 'LOCAL QA', ...HOLIDAY_DETAILS[id] } : { id: 'marine', date: 'LOCAL QA', ...HOLIDAY_DETAILS.marine };
   }
 
   function currentTheme() {
@@ -116,15 +181,15 @@
     button.setAttribute('aria-label', labels[button.getAttribute('aria-pressed') === 'true' ? 1 : 0]);
   }
 
-  function addCaption(theme) {
-    const copy = LABELS[theme];
+  function addCaption(theme, suppliedCopy) {
+    const copy = suppliedCopy || LABELS[theme];
     const caption = document.createElement('aside');
-    caption.className = `seasonal-holiday-note seasonal-caption-${theme}`;
+    caption.className = `seasonal-holiday-note seasonal-caption-${theme}${copy.id ? ` holiday-${copy.id} holiday-family-${copy.family}` : ''}`;
     caption.setAttribute('role', 'note');
 
     const date = document.createElement('span');
     date.className = 'seasonal-label-date';
-    date.textContent = copy.when;
+    date.textContent = copy.when || `${copy.date} · ${copy.status || '日本の国民の祝日'}`;
     caption.append(date);
 
     const title = document.createElement('strong');
@@ -368,6 +433,90 @@
     layer.append(flight);
   }
 
+  function addJapanHoliday(layer, compact, holiday) {
+    layer.classList.add(`holiday-${holiday.id}`, `holiday-family-${holiday.family}`);
+    layer.append(accent('seasonal-jp-edgewash'));
+
+    const crest = accent('seasonal-jp-crest');
+    holiday.icons.forEach((character, index) => {
+      const mark = document.createElement('i');
+      mark.className = index ? 'is-right' : 'is-left';
+      mark.textContent = character;
+      crest.append(mark);
+    });
+    layer.append(crest);
+
+    const motifs = accent('seasonal-jp-motifs');
+    const motifCount = compact ? 7 : 14;
+    for (let index = 0; index < motifCount; index += 1) {
+      const motif = document.createElement('i');
+      motif.textContent = holiday.icons[index % holiday.icons.length];
+      motif.style.setProperty('--motif-x', `${6 + ((index * 31) % 88)}vw`);
+      motif.style.setProperty('--motif-y', `${15 + ((index * 23) % 72)}vh`);
+      motif.style.setProperty('--motif-delay', `${-(index * .71).toFixed(2)}s`);
+      motif.style.setProperty('--motif-scale', `${(.72 + (index % 4) * .13).toFixed(2)}`);
+      motifs.append(motif);
+    }
+    layer.append(motifs);
+
+    const horizon = accent('seasonal-jp-horizon');
+    for (let index = 0; index < 5; index += 1) {
+      const shape = document.createElement('i');
+      shape.style.setProperty('--shape-index', String(index));
+      shape.style.setProperty('--shape-left', `${4 + index * 23}%`);
+      shape.style.setProperty('--shape-rotate', `${(index - 2) * 4}deg`);
+      shape.style.setProperty('--leaf-rotate', `${24 + index * 17}deg`);
+      shape.style.setProperty('--sport-rotate', `${-32 + index * 12}deg`);
+      shape.style.setProperty('--fan-rotate', `${-5 + index * 3}deg`);
+      horizon.append(shape);
+    }
+    layer.append(horizon);
+  }
+
+  function addObon(layer, compact) {
+    layer.append(accent('seasonal-obon-haze'));
+
+    const lanterns = accent('seasonal-obon-lantern-row');
+    const lanternCount = compact ? 5 : 9;
+    for (let index = 0; index < lanternCount; index += 1) {
+      const lantern = document.createElement('i');
+      lantern.className = 'seasonal-obon-lantern';
+      lantern.style.setProperty('--lantern-x', `${5 + index * (90 / Math.max(1, lanternCount - 1))}vw`);
+      lantern.style.setProperty('--lantern-delay', `${-(index * .43).toFixed(2)}s`);
+      lantern.style.setProperty('--lantern-scale', `${(.76 + (index % 3) * .11).toFixed(2)}`);
+      lanterns.append(lantern);
+    }
+    layer.append(lanterns);
+
+    const fireflies = accent('seasonal-obon-fireflies');
+    const fireflyCount = compact ? 10 : 24;
+    for (let index = 0; index < fireflyCount; index += 1) {
+      const firefly = document.createElement('i');
+      firefly.style.setProperty('--firefly-x', `${4 + ((index * 37) % 92)}vw`);
+      firefly.style.setProperty('--firefly-y', `${18 + ((index * 29) % 69)}vh`);
+      firefly.style.setProperty('--firefly-delay', `${-(index * .61).toFixed(2)}s`);
+      fireflies.append(firefly);
+    }
+    layer.append(fireflies);
+
+    const procession = accent('seasonal-obon-procession');
+    const characters = [
+      ['🦊', '狐'], ['👺', '天狗'], ['🐢', '河童'], ['☂️', '唐傘'], ['🦝', '狸'], ['👹', '鬼面']
+    ];
+    characters.slice(0, compact ? 4 : characters.length).forEach(([symbol, label], index) => {
+      const figure = document.createElement('i');
+      figure.className = 'seasonal-obon-yokai';
+      figure.style.setProperty('--yokai-delay', `${-(index * .52).toFixed(2)}s`);
+      const face = document.createElement('b');
+      face.textContent = symbol;
+      const tag = document.createElement('small');
+      tag.textContent = label;
+      figure.append(face, tag);
+      procession.append(figure);
+    });
+    layer.append(procession, accent('seasonal-obon-riverlight'));
+  }
+
   function addNewYear(layer, compact) {
     const paperCount = compact ? 6 : 14;
     for (let index = 0; index < paperCount; index += 1) {
@@ -406,22 +555,30 @@
     document.querySelector('.seasonal-layer')?.remove();
     document.querySelector('.seasonal-holiday-note')?.remove();
     document.querySelector('.seasonal-thanksgiving-footer-decor')?.remove();
+    let holiday = null;
+    if (theme === 'japanholiday') holiday = previewHoliday() || holidayForParts(osakaDateParts());
+    if (theme === 'japanholiday' && !holiday) theme = null;
     document.documentElement.dataset.season = theme || 'off';
+    if (holiday) document.documentElement.dataset.holiday = holiday.id;
+    else delete document.documentElement.dataset.holiday;
     renderedTheme = theme;
     if (!theme) {
       document.dispatchEvent(new CustomEvent('kansai-season-change', { detail: { theme: null } }));
       return;
     }
     const compact = compactMode();
+    const lowData = navigator.connection?.saveData === true;
     const layer = document.createElement('div');
-    layer.className = `seasonal-layer seasonal-theme-${theme}${compact ? ' is-compact' : ''}`;
+    layer.className = `seasonal-layer seasonal-theme-${theme}${compact ? ' is-compact' : ''}${lowData ? ' is-low-data' : ''}`;
     layer.setAttribute('aria-hidden', 'true');
     if (theme === 'halloween') addHalloween(layer, compact);
     if (theme === 'thanksgiving') addThanksgiving(layer, compact);
     if (theme === 'christmas') addChristmas(layer, compact);
     if (theme === 'newyear') addNewYear(layer, compact);
+    if (theme === 'japanholiday') addJapanHoliday(layer, compact, holiday);
+    if (theme === 'obon') addObon(layer, compact);
     document.body.append(layer);
-    addCaption(theme);
+    addCaption(theme, theme === 'newyear' ? newYearCaptionForParts(osakaDateParts()) : holiday);
     document.dispatchEvent(new CustomEvent('kansai-season-change', { detail: { theme } }));
   }
 
@@ -493,5 +650,9 @@
   window.addEventListener('pageshow', () => { sync(); scheduleNextOsakaMidnight(); });
   sync();
   scheduleNextOsakaMidnight();
-  window.KansaiSeasonal = Object.freeze({ resolve: date => automaticTheme(osakaDateParts(date)), active: () => renderedTheme });
+  window.KansaiSeasonal = Object.freeze({
+    resolve: date => automaticTheme(osakaDateParts(date)),
+    holiday: date => holidayForParts(osakaDateParts(date)),
+    active: () => renderedTheme
+  });
 })();
