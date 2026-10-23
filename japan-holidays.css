@@ -77,9 +77,9 @@
 
 @media(max-width:680px){
   .seasonal-jp-crest i{top:26%;left:7px;width:42px}.seasonal-jp-crest i.is-right{right:7px;bottom:23%}
-  .seasonal-jp-horizon{bottom:calc(54px + env(safe-area-inset-bottom));height:60px}.seasonal-jp-horizon i{width:48px;height:32px}
+  .seasonal-jp-horizon{bottom:calc(74px + env(safe-area-inset-bottom));height:60px}.seasonal-jp-horizon i{width:48px;height:32px}
   .seasonal-caption-japanholiday,.seasonal-caption-obon{top:112px;right:10px;width:min(275px,calc(100vw - 20px));padding:8px 10px 9px}.seasonal-caption-japanholiday strong{font-size:20px}.seasonal-caption-japanholiday.holiday-constitution strong,.seasonal-caption-japanholiday.holiday-respect strong{font-size:17px}.seasonal-caption-obon strong{font-size:23px}
-  .seasonal-obon-lantern{top:107px;width:22px;height:34px}.seasonal-obon-procession{bottom:calc(51px + env(safe-area-inset-bottom));width:100vw;height:66px}.seasonal-obon-yokai{width:43px;height:55px}.seasonal-obon-yokai:nth-child(1){left:-5px}.seasonal-obon-yokai:nth-child(2){left:45px}.seasonal-obon-yokai:nth-child(3){display:none}.seasonal-obon-yokai:nth-child(4){right:45px}.seasonal-obon-yokai:nth-child(5){display:none}.seasonal-obon-yokai:nth-child(6){right:-5px}.seasonal-obon-yokai b{font-size:23px}.seasonal-obon-yokai small{font-size:7px}.seasonal-obon-riverlight{bottom:calc(52px + env(safe-area-inset-bottom))}
+  .seasonal-obon-lantern{top:107px;width:22px;height:34px}.seasonal-obon-procession{bottom:calc(78px + env(safe-area-inset-bottom));width:100vw;height:66px}.seasonal-obon-yokai{width:43px;height:55px}.seasonal-obon-yokai:nth-child(1){left:-5px}.seasonal-obon-yokai:nth-child(2){left:45px}.seasonal-obon-yokai:nth-child(3){display:none}.seasonal-obon-yokai:nth-child(4){right:45px}.seasonal-obon-yokai:nth-child(5){display:none}.seasonal-obon-yokai:nth-child(6){right:-5px}.seasonal-obon-yokai b{font-size:23px}.seasonal-obon-yokai small{font-size:7px}.seasonal-obon-riverlight{bottom:calc(72px + env(safe-area-inset-bottom))}
 }
 @media(prefers-reduced-motion:reduce){
   .seasonal-theme-japanholiday .seasonal-jp-motifs,.seasonal-theme-obon .seasonal-obon-fireflies{display:none}.seasonal-theme-obon .seasonal-obon-lantern,.seasonal-theme-obon .seasonal-obon-yokai{animation:none!important}
