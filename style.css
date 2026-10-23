@@ -380,18 +380,26 @@ html[dir="rtl"] .kansai-clock:after{right:auto;left:1px;transform:rotate(7deg)}
 .seasonal-guide-art{width:72px;height:64px;display:grid;place-items:center}
 .seasonal-guide-art svg{width:68px;height:58px;overflow:visible;filter:drop-shadow(0 4px 8px #0008)}
 .seasonal-guide-copy{min-width:0;display:flex;flex-direction:column}
-.seasonal-guide-copy small{color:#d2a965;font-size:7px;font-weight:650;letter-spacing:.14em;white-space:nowrap}
-.seasonal-guide-copy strong{margin-top:4px;color:#fff6e8;font:500 14px/1.35 "Hiragino Mincho ProN","Yu Mincho",var(--serif);letter-spacing:.035em;white-space:nowrap}
+.seasonal-guide-copy small{color:#d2a965;font-size:7px;font-weight:650;letter-spacing:.14em;white-space:normal}
+.seasonal-guide-copy strong{margin-top:4px;color:#fff6e8;font:500 14px/1.35 "Hiragino Mincho ProN","Yu Mincho",var(--serif);letter-spacing:.035em;white-space:normal;text-wrap:balance}
 .seasonal-guide-copy b{margin-top:2px;color:#99acb4;font-size:8px;font-weight:500;letter-spacing:.07em}
 .seasonal-guide-card>i{color:#e7c17c;font:400 15px/1 Georgia,serif;font-style:normal;transition:transform .25s ease}
 .seasonal-guide-card:hover>i{transform:translate(2px,-2px)}
-.seasonal-guide-sakura svg{fill:#eeb2bf;stroke:#ffe5eb;stroke-width:1}.seasonal-guide-sakura svg circle{fill:#f2c56b;stroke:none}.seasonal-guide-sakura .petal{transform-origin:48px 32px;animation:seasonal-sakura-breathe 4.8s ease-in-out infinite}
+.seasonal-guide-sakura .sakura-branch{fill:none;stroke:url(#seasonal-sakura-branch-fill);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.seasonal-guide-sakura .sakura-bloom{fill:url(#seasonal-sakura-petal-fill);stroke:#fff4f8;stroke-width:.75;filter:drop-shadow(0 1px 1.5px #9f3c6255);animation:seasonal-sakura-bloom 4.8s ease-in-out infinite}
+.seasonal-guide-sakura .bloom-left{animation-delay:-1.6s}.seasonal-guide-sakura .bloom-top{animation-delay:-3.1s}
+.seasonal-guide-sakura .sakura-bloom circle{fill:#f3c65d;stroke:#fff1b8;stroke-width:.6}
+.seasonal-guide-sakura .sakura-buds{fill:#e48ba4;stroke:#ffe9ef;stroke-width:.8}
+.seasonal-guide-sakura .sakura-falling-petal{fill:url(#seasonal-sakura-petal-fill);stroke:#ffeaf0;stroke-width:.7;animation:seasonal-sakura-drift 4.6s ease-in-out infinite;transform-origin:86px 43px}
 .seasonal-guide-autumn .leaf{fill:#bd4b28;stroke:#f2ac57;stroke-width:1.2}.seasonal-guide-autumn .stem{fill:none;stroke:#f1cc8e;stroke-width:1.5;stroke-linecap:round}.seasonal-guide-autumn svg{animation:seasonal-leaf-sway 5.4s ease-in-out infinite;transform-origin:50% 14%}
 .seasonal-guide-fireworks .burst{fill:#f2bd63;stroke:#f5d58d;stroke-width:2;stroke-linecap:round}.seasonal-guide-fireworks .burst path{stroke-dasharray:28;animation:seasonal-firework-pulse 2.8s ease-in-out infinite}.seasonal-guide-fireworks .spark{fill:none;stroke:#8bd6ef;stroke-width:1.5;stroke-linecap:round;animation:seasonal-spark 2.8s ease-in-out infinite}
-@keyframes seasonal-sakura-breathe{0%,100%{transform:scale(.92) rotate(-3deg)}50%{transform:scale(1.04) rotate(3deg)}}
+@keyframes seasonal-sakura-bloom{0%,100%{opacity:.82}48%{opacity:1;filter:drop-shadow(0 1px 2.6px #ffbad988)}}
+@keyframes seasonal-sakura-drift{0%,100%{transform:translate(0,-2px) rotate(-7deg);opacity:.55}50%{transform:translate(-5px,5px) rotate(12deg);opacity:1}}
 @keyframes seasonal-leaf-sway{0%,100%{transform:rotate(-5deg) translateY(-1px)}50%{transform:rotate(6deg) translateY(2px)}}
 @keyframes seasonal-firework-pulse{0%,100%{stroke-dashoffset:28;opacity:.35}42%,70%{stroke-dashoffset:0;opacity:1}}
 @keyframes seasonal-spark{0%,35%,100%{opacity:.15}55%,75%{opacity:1}}
 @media(max-width:900px){.seasonal-guide-layout{grid-template-columns:1fr;gap:16px}.seasonal-guide-intro{display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:0 13px}.seasonal-guide-intro>span{grid-column:1/-1}.seasonal-guide-intro h2{margin-bottom:0}.seasonal-guide-intro p{align-self:end;margin-bottom:3px}.seasonal-guide-card{grid-template-columns:58px minmax(0,1fr) 13px;min-height:91px}.seasonal-guide-art{width:58px;height:55px}.seasonal-guide-art svg{width:55px;height:49px}}
 @media(max-width:680px){.seasonal-guide-strip{padding:23px 0}.seasonal-guide-layout{gap:14px}.seasonal-guide-links{grid-template-columns:1fr;gap:7px}.seasonal-guide-card{min-height:78px;grid-template-columns:58px minmax(0,1fr) 13px;padding:8px 12px 8px 6px}.seasonal-guide-copy strong{font-size:13px}.seasonal-guide-art{height:50px}.seasonal-guide-art svg{height:46px}.seasonal-guide-intro h2{font-size:19px}.seasonal-guide-intro p{font-size:8px}}
-@media(prefers-reduced-motion:reduce){.seasonal-guide-card,.seasonal-guide-card:before,.seasonal-guide-card>i,.seasonal-guide-art svg,.seasonal-guide-sakura .petal,.seasonal-guide-fireworks .burst path,.seasonal-guide-fireworks .spark{animation:none!important;transition:none!important}}
+html[dir="rtl"] .seasonal-guide-intro{border-left:0;border-right:1px solid #e6bc6f99;padding-left:0;padding-right:17px}
+html[dir="rtl"] .seasonal-guide-card:hover>i{transform:translate(-2px,-2px)}
+@media(prefers-reduced-motion:reduce){.seasonal-guide-card,.seasonal-guide-card:before,.seasonal-guide-card>i,.seasonal-guide-art svg,.seasonal-guide-sakura .sakura-bloom,.seasonal-guide-sakura .sakura-falling-petal,.seasonal-guide-fireworks .burst path,.seasonal-guide-fireworks .spark{animation:none!important;transition:none!important}}
